@@ -41,6 +41,7 @@ main {
 .box {
   height: 30%;
   width: 90%;
+  overflow: scroll;
 }
 
 .chart-container {
@@ -59,3 +60,8 @@ main {
   width: 50%;
   flex: 1;
 }
+
+
+/* #all-highest-qual-sleepers {
+  overflow: scroll;
+}  */

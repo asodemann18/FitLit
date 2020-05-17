@@ -1,12 +1,12 @@
 const charts = {
-  weeklySleepQualChart(id, data) {
-    return new Chart(id, {
+  weeklySleepQualChart() {
+    return new Chart(weekSleepQualId, {
       type: "line",
       data: {
         labels: ["Day 1", " ", " ", " ", " ", " ", "Day 7"],
         datasets: [{
           label: "Weekly Sleep Quality",
-          data: data,
+          data: weekSleepQuality,
           fill: false,
           backgroundColor: [
             "rgba(153, 102, 255, 0.2)",
@@ -50,14 +50,14 @@ const charts = {
     });
   },
 
-  weeklySleepHoursChart(id, data) {
-    return new Chart(id, {
+  weeklySleepHoursChart() {
+    return new Chart(weekSleepHoursId, {
       type: "line",
       data: {
         labels: ["Day 1", " ", " ", " ", " ", " ", "Day 7"],
         datasets: [{
           label: "Weekly Sleep Hours",
-          data: data,
+          data: weekSleepHours,
           fill: false,
           backgroundColor: [
             "rgba(153, 102, 255, 0.2)",
@@ -101,14 +101,14 @@ const charts = {
     });
   },
 
-  weeklyHydrationChart(id, data) {
-    return new Chart(id, {
+  weeklyHydrationChart() {
+    return new Chart(weekHydrationId, {
       type: "line",
       data: {
         labels: ["Day 1", " ", " ", " ", " ", " ", "Day 7"],
         datasets: [{
           label: "Weekly Hydration",
-          data: data,
+          data: weekOuncesDrank,
           fill: false,
           backgroundColor: [
             "rgba(153, 102, 255, 0.2)",

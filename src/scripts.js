@@ -16,35 +16,35 @@ const todaySleepQuality = document.getElementById("today-sleep-quality");
 const userAvgSleepHours = document.getElementById("user-avg-sleep-hours")
 const userAvgSleepQuality = document.getElementById("user-avg-sleep-quality");
 
-const displaySleepHoursForDay = (date) => {
-  let sleepHoursForDay = sleep.getDailySleepHours(date)
-  todaySleepHours.innerHTML = `You slept ${sleepHoursForDay} hours on ${date}`
-}
+// const displaySleepHoursForDay = (date) => {
+//   let sleepHoursForDay = sleep.getDailySleepHours(date)
+//   todaySleepHours.innerHTML = `You slept ${sleepHoursForDay} hours on ${date}`
+// }
 
-const displaySleepQualForDay = (date) => {
-  let sleepQualForDay = sleep.getDailySleepQual(date)
-  todaySleepQuality.innerHTML = `You rated your sleep quality a ${sleepQualForDay} on ${date}`;
-}
+// const displaySleepQualForDay = (date) => {
+//   let sleepQualForDay = sleep.getDailySleepQual(date)
+//   todaySleepQuality.innerHTML = `You rated your sleep quality a ${sleepQualForDay} on ${date}`;
+// }
 
-const displayAvgSleepHoursForUser = (date) => {
-  let avgSleepHoursForUser = sleep.getAvgSleepHours(date)
-  userAvgSleepHours.innerHTML = `You slept ${avgSleepHoursForUser} hours on ${date}`
-}
+// const displayAvgSleepHoursForUser = (date) => {
+//   let avgSleepHoursForUser = sleep.getAvgSleepHours(date)
+//   userAvgSleepHours.innerHTML = `You slept ${avgSleepHoursForUser} hours on ${date}`
+// }
 
-const displayAvgSleepQualForUser = (date) => {
-  let avgSleepQualForUser = sleep.getAvgSleepQual(date)
-  userAvgSleepQuality.innerHTML = `You rated your sleep quality a ${avgSleepQualForUser} on ${date}`;
-}
+// const displayAvgSleepQualForUser = (date) => {
+//   let avgSleepQualForUser = sleep.getAvgSleepQual(date)
+//   userAvgSleepQuality.innerHTML = `You rated your sleep quality a ${avgSleepQualForUser} on ${date}`;
+// }
 
-displaySleepHoursForDay('2019/06/15');
-displaySleepQualForDay('2019/06/15');
-displayAvgSleepHoursForUser('2019/06/15');
-displayAvgSleepQualForUser('2019/06/15');
+domUpdates.displaySleepHoursForDay('2019/06/15');
+domUpdates.displaySleepQualForDay('2019/06/15');
+domUpdates.displayAvgSleepHoursForUser('2019/06/15');
+domUpdates.displayAvgSleepQualForUser('2019/06/15');
 
 const weekSleepHoursId = document.getElementById("week-sleep-hours").getContext("2d");
 const weekSleepQualId = document.getElementById("week-sleep-quality").getContext("2d");
 
-charts.weeklySleepHoursChart(weekSleepHoursId, weekSleepHours)
+charts.weeklySleepHoursChart()
 // let weeklySleepHoursChart = new Chart(weekSleepHoursId, {
 //   type: "line",
 //   data: {
@@ -94,7 +94,7 @@ charts.weeklySleepHoursChart(weekSleepHoursId, weekSleepHours)
 //   }
 // });
 
-charts.weeklySleepQualChart(weekSleepQualId, weekSleepQuality)
+charts.weeklySleepQualChart()
 // let weeklySleepQualChart = new Chart(weekSleepQualId, {
 //   type: "line",
 //   data: {
@@ -148,7 +148,7 @@ const weekOuncesDrank = hydration.getWeeklyWater('2019/06/15')
 
 const weekHydrationId = document.getElementById("week-hydration").getContext("2d");
 
-charts.weeklyHydrationChart(weekHydrationId, weekOuncesDrank)
+charts.weeklyHydrationChart()
 // const weekHydrationChart = new Chart(weekHydration, {
 //   type: "line",
 //   data: {
@@ -200,9 +200,9 @@ charts.weeklyHydrationChart(weekHydrationId, weekOuncesDrank)
 
 const todayHydration = document.getElementById("today-hydration")
 
-const displayHydrationForDay = (date) => {
-  let hydrationForDay = hydration.getDailyWater(date)
-  todayHydration.innerHTML = `You drank ${hydrationForDay} ounces on ${date}`
-}
+// const displayHydrationForDay = (date) => {
+//   let hydrationForDay = hydration.getDailyWater(date)
+//   todayHydration.innerHTML = `You drank ${hydrationForDay} ounces on ${date}`
+// }
 
-displayHydrationForDay('2019/06/15')
+domUpdates.displayHydrationForDay('2019/06/15')

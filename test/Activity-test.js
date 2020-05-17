@@ -91,6 +91,10 @@ describe('Activity', () => {
     expect(() => { new Activity(500, activityData, userData) }).to.throw(Error);
   })
 
+  it('should return how many steps a user has taken for a given day', () => {
+    expect(activity.getStepsTaken('2019/06/15')).to.equal(3577);
+  })
+
   it('should return how many miles a user has walked for a given day', () => {
     expect(activity.getMilesWalked('2019/06/15')).to.equal(3);
   })

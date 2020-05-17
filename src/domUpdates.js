@@ -133,11 +133,13 @@ domUpdates = {
     let userEmail = currentUser.email
     let userStrideLength = currentUser.strideLength;
     let userDailyStepGoal = currentUser.dailyStepGoal;
+    let allAvgStepGoal = usersRepo.getAvgStepGoal();
     name.innerHTML = `Name: ${userName}`;
     address.innerHTML = `Address: ${userAddress}`;
     email.innerHTML = `Email: ${userEmail}`;
     strideLength.innerHTML = `Stride Length: ${userStrideLength}`;
     dailyStepGoal.innerHTML = `Daily Step Goal: ${userDailyStepGoal}`;
+    stepGoalComparison.innerHTML = `Average Step Goal: ${allAvgStepGoal}`;
     this.displayFriends();
   },
 

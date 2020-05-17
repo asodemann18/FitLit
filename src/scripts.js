@@ -24,9 +24,10 @@ const greeting = document.getElementById("greeting");
 const name = document.getElementById("name");
 const address = document.getElementById("address");
 const email = document.getElementById("email");
-const strideLength = document.getElementById("strideLength");
-const dailyStepGoal = document.getElementById("dailyStepGoal");
+const strideLength = document.getElementById("stride-length");
+const dailyStepGoal = document.getElementById("daily-step-goal");
 const friends = document.getElementById("friends");
+const stepGoalComparison = document.getElementById("step-goal-comparison");
 
 domUpdates.displayAvgSleepQualityForAll();
 domUpdates.displayLongestSleepers('2019/06/15');

@@ -18,6 +18,16 @@ class Activity {
     })
   }
 
+  getStepsTaken(date) {
+    let newDate = this.checkDate(date);
+    if (date !== newDate) {
+      return 'You must pass a valid date';
+    } else {
+      let foundActivity = this.userActivity.find(activity => activity.date === newDate)
+      return foundActivity.numSteps
+    }  
+  }
+
   getMilesWalked(date) {
     let strideLength = this.user.strideLength;
     let newDate = this.checkDate(date);
@@ -32,8 +42,8 @@ class Activity {
         acc += activity.numSteps;
         return acc;
       }, 0)
-
-      return Math.ceil((dailySteps * strideLength) / 5280);
+    
+    return Number(((dailySteps * strideLength) / 5280).toFixed(1));
     }
   }
 

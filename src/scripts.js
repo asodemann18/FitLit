@@ -16,8 +16,15 @@ const todaySleepQuality = document.getElementById("today-sleep-quality");
 const userAvgSleepHours = document.getElementById("user-avg-sleep-hours")
 const userAvgSleepQuality = document.getElementById("user-avg-sleep-quality");
 const allAvgSleepQuality = document.getElementById("all-avg-sleep-quality");
+const longestSleepers = document.getElementById("longest-sleepers");
+const highestQualSleepers = document.getElementById("highest-qual-sleepers");
+const allHighestQualSleepers = document.getElementById("all-highest-qual-sleepers")
 
 domUpdates.displayAvgSleepQualityForAll();
+domUpdates.displayLongestSleepers('2019/06/15');
+domUpdates.displayHighestQualSleepers('2019/06/15');
+domUpdates.displayAllQualitySleepers('2019/06/15');
+
 // const displaySleepHoursForDay = (date) => {
 //   let sleepHoursForDay = sleep.getDailySleepHours(date)
 //   todaySleepHours.innerHTML = `You slept ${sleepHoursForDay} hours on ${date}`

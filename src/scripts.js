@@ -15,7 +15,9 @@ const todaySleepHours = document.getElementById("today-sleep-hours");
 const todaySleepQuality = document.getElementById("today-sleep-quality");
 const userAvgSleepHours = document.getElementById("user-avg-sleep-hours")
 const userAvgSleepQuality = document.getElementById("user-avg-sleep-quality");
+const allAvgSleepQuality = document.getElementById("all-avg-sleep-quality");
 
+domUpdates.displayAvgSleepQualityForAll();
 // const displaySleepHoursForDay = (date) => {
 //   let sleepHoursForDay = sleep.getDailySleepHours(date)
 //   todaySleepHours.innerHTML = `You slept ${sleepHoursForDay} hours on ${date}`

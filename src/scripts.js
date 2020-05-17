@@ -34,7 +34,7 @@ domUpdates.displayHighestQualSleepers('2019/06/15');
 domUpdates.displayAllQualitySleepers('2019/06/15');
 domUpdates.displayName();
 domUpdates.displayInfo();
-//domUpdates.displayFriends();
+
 
 // const displaySleepHoursForDay = (date) => {
 //   let sleepHoursForDay = sleep.getDailySleepHours(date)

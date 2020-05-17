@@ -133,7 +133,6 @@ domUpdates = {
     let userEmail = currentUser.email
     let userStrideLength = currentUser.strideLength;
     let userDailyStepGoal = currentUser.dailyStepGoal;
-    let userFriends = currentUser.friends;
     name.innerHTML = `Name: ${userName}`;
     address.innerHTML = `Address: ${userAddress}`;
     email.innerHTML = `Email: ${userEmail}`;

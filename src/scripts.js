@@ -200,9 +200,9 @@ charts.weeklyHydrationChart()
 
 const todayHydration = document.getElementById("today-hydration")
 
-const displayHydrationForDay = (date) => {
-  let hydrationForDay = hydration.getDailyWater(date)
-  todayHydration.innerHTML = `You drank ${hydrationForDay} ounces on ${date}`
-}
+// const displayHydrationForDay = (date) => {
+//   let hydrationForDay = hydration.getDailyWater(date)
+//   todayHydration.innerHTML = `You drank ${hydrationForDay} ounces on ${date}`
+// }
 
-displayHydrationForDay('2019/06/15')
+domUpdates.displayHydrationForDay('2019/06/15')

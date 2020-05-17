@@ -17,5 +17,10 @@ domUpdates = {
   displayAvgSleepQualForUser(date) {
     let avgSleepQualForUser = sleep.getAvgSleepQual(date)
     userAvgSleepQuality.innerHTML = `You rated your sleep quality a ${avgSleepQualForUser} on ${date}`;
+  },
+
+  displayHydrationForDay(date) {
+    let hydrationForDay = hydration.getDailyWater(date)
+    todayHydration.innerHTML = `You drank ${hydrationForDay} ounces on ${date}`
   }
 }

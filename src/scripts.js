@@ -1,5 +1,12 @@
 const currentUser = new User(userData[0]);
 const currentDate = "2019/09/22";
+// let getDate = new Date(currentDate);
+// let weeklyStartDate = getDate.getFullYear() + "/" + 
+//   ("0" + (getDate.getMonth() + 1)).slice(-2) + "/" + 
+//   ("0" + getDate.getDate()).slice(-2);
+//   console.log(weeklyStartDate);
+  
+
 
 const sleep = new Sleep(currentUser.id, sleepData);
 const sleepRepo = new SleepRepo(sleepData);
@@ -8,9 +15,9 @@ const hydration = new Hydration(currentUser.id, hydrationData);
 const activity = new Activity(currentUser.id, activityData, userData);
 const activityRepo = new ActivityRepo(activityData);
 
-const weekSleepHours = sleep.getWeeklySleepHours(currentDate);
-const weekSleepQuality = sleep.getWeeklySleepQual(currentDate);
-const weekOuncesDrank = hydration.getWeeklyWater(currentDate)
+const weekSleepHours = sleep.getWeeklySleepHours('2019/09/16');
+const weekSleepQuality = sleep.getWeeklySleepQual('2019/09/16');
+const weekOuncesDrank = hydration.getWeeklyWater('2019/09/16');
 
 const todaySleepHours = document.getElementById("today-sleep-hours");
 const todaySleepQuality = document.getElementById("today-sleep-quality");

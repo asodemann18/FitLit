@@ -8,9 +8,9 @@ const hydration = new Hydration(currentUser.id, hydrationData);
 const activity = new Activity(currentUser.id, activityData, userData);
 const activityRepo = new ActivityRepo(activityData);
 
-const weekSleepHours = sleep.getWeeklySleepHours('2019/06/15');
-const weekSleepQuality = sleep.getWeeklySleepQual('2019/06/15');
-const weekOuncesDrank = hydration.getWeeklyWater('2019/06/15')
+const weekSleepHours = sleep.getWeeklySleepHours(currentDate);
+const weekSleepQuality = sleep.getWeeklySleepQual(currentDate);
+const weekOuncesDrank = hydration.getWeeklyWater(currentDate)
 
 const todaySleepHours = document.getElementById("today-sleep-hours");
 const todaySleepQuality = document.getElementById("today-sleep-quality");
@@ -68,8 +68,8 @@ const allUsersAvgMinsActive = document.getElementById("all-users-avg-mins-active
 const allUsersAvgFlights = document.getElementById("all-users-avg-flights")
 const mostActiveUser = document.getElementById('most-active-user')
 
-domUpdates.displaySleepHoursForDay('2019/06/15');
-domUpdates.displaySleepQualForDay('2019/06/15');
+domUpdates.displaySleepHoursForDay(currentDate);
+domUpdates.displaySleepQualForDay(currentDate);
 domUpdates.displayAvgSleepHoursForUser();
 domUpdates.displayAvgSleepQualForUser();
 domUpdates.displayHydrationForDay(currentDate);

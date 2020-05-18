@@ -8,9 +8,12 @@ const hydration = new Hydration(currentUser.id, hydrationData);
 const activity = new Activity(currentUser.id, activityData, userData);
 const activityRepo = new ActivityRepo(activityData);
 
-const weekSleepHours = sleep.getWeeklySleepHours('2019/09/16');
-const weekSleepQuality = sleep.getWeeklySleepQual('2019/09/16');
-const weekOuncesDrank = hydration.getWeeklyWater('2019/09/16');
+const weekSleepHours = sleep.getWeeklySleepHours('2019/06/15');
+const weekSleepQuality = sleep.getWeeklySleepQual('2019/06/15');
+const weekOuncesDrank = hydration.getWeeklyWater('2019/06/15');
+const weekStepCount = activity.getStepsForWeek('2019/06/15');
+const weekFlightsClimbed = activity.getFlightsForWeek('2019/06/15');
+const weekMinsActive = activity.getMinsActiveForWeek('2019/06/15');
 
 const todaySleepHours = document.getElementById("today-sleep-hours");
 const todaySleepQuality = document.getElementById("today-sleep-quality");
@@ -28,34 +31,6 @@ const strideLength = document.getElementById("stride-length");
 const dailyStepGoal = document.getElementById("daily-step-goal");
 const friends = document.getElementById("friends");
 const stepGoalComparison = document.getElementById("step-goal-comparison");
-
-domUpdates.displayAvgSleepQualityForAll();
-domUpdates.displayLongestSleepers('2019/06/15');
-domUpdates.displayHighestQualSleepers('2019/06/15');
-domUpdates.displayAllQualitySleepers('2019/06/15');
-domUpdates.displayName();
-domUpdates.displayInfo();
-
-
-// const displaySleepHoursForDay = (date) => {
-//   let sleepHoursForDay = sleep.getDailySleepHours(date)
-//   todaySleepHours.innerHTML = `You slept ${sleepHoursForDay} hours on ${date}`
-// }
-
-// const displaySleepQualForDay = (date) => {
-//   let sleepQualForDay = sleep.getDailySleepQual(date)
-//   todaySleepQuality.innerHTML = `You rated your sleep quality a ${sleepQualForDay} on ${date}`;
-// }
-
-// const displayAvgSleepHoursForUser = (date) => {
-//   let avgSleepHoursForUser = sleep.getAvgSleepHours(date)
-//   userAvgSleepHours.innerHTML = `You slept ${avgSleepHoursForUser} hours on ${date}`
-// }
-
-// const displayAvgSleepQualForUser = (date) => {
-//   let avgSleepQualForUser = sleep.getAvgSleepQual(date)
-//   userAvgSleepQuality.innerHTML = `You rated your sleep quality a ${avgSleepQualForUser} on ${date}`;
-// }
 const weekSleepHoursId = document.getElementById("week-sleep-hours").getContext("2d");
 const weekSleepQualId = document.getElementById("week-sleep-quality").getContext("2d");
 const todayHydration = document.getElementById("today-hydration")
@@ -67,6 +42,12 @@ const allUsersAvgSteps = document.getElementById("all-users-avg-steps")
 const allUsersAvgMinsActive = document.getElementById("all-users-avg-mins-active")
 const allUsersAvgFlights = document.getElementById("all-users-avg-flights")
 const mostActiveUser = document.getElementById('most-active-user')
+const weekStepsId = document.getElementById('week-steps').getContext('2d')
+const weekFlightsId = document.getElementById('week-flights').getContext('2d')
+const weekMinsActiveId = document.getElementById('week-mins-active').getContext('2d')
+const weekAvgSteps = document.getElementById('week-steps-taken-avg')
+const weekAvgMinsActive = document.getElementById('week-mins-active-avg')
+const weekAvgFlights = document.getElementById('week-flights-avg')
 
 domUpdates.displaySleepHoursForDay(currentDate);
 domUpdates.displaySleepQualForDay(currentDate);
@@ -80,7 +61,19 @@ domUpdates.displayAllUsersAvgSteps('2019/06/15');
 domUpdates.displayAllUsersAvgMinsActive('2019/06/15');
 domUpdates.displayAllUsersAvgFlights('2019/06/15');
 domUpdates.displayMostActiveUser('2019/06/15')
+domUpdates.displayWeeklyAvgMinutesActive('2019/06/15')
+domUpdates.displayWeeklyAvgSteps('2019/06/15')
+domUpdates.displayWeeklyAvgFlights('2019/06/15')
+domUpdates.displayAvgSleepQualityForAll();
+domUpdates.displayLongestSleepers('2019/06/15');
+domUpdates.displayHighestQualSleepers('2019/06/15');
+domUpdates.displayAllQualitySleepers('2019/06/15');
+domUpdates.displayName();
+domUpdates.displayInfo();
 
 charts.weeklySleepHoursChart()
 charts.weeklySleepQualChart()
 charts.weeklyHydrationChart()
+charts.weeklyStepsChart()
+charts.weeklyFlightsChart()
+charts.weeklyMinsActiveChart()

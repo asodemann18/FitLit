@@ -174,5 +174,27 @@ domUpdates = {
     } else {
       friends.innerHTML = `Friends: ${userFriendData[0]}`;
     }
+  },
+
+  calculateWeeklyStepChallenge() {
+    let userFriends = currentUser.friends;
+    
+    let userFriendData = [];
+    userData.forEach((user) => {
+      userFriends.forEach(id => {
+        if(user.id === id) {
+          userFriendData.push(user);
+        }
+      })
+    })
+
+    console.log(userFriendData);
+    
+    
+    // if (userFriendData.length > 1) {
+    //   friends.innerHTML = `Friends: ${userFriendData.join(', ')}`;
+    // } else {
+    //   friends.innerHTML = `Friends: ${userFriendData[0]}`;
+    // }
   }
 }

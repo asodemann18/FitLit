@@ -71,6 +71,7 @@ domUpdates.displayHighestQualSleepers(currentDate);
 domUpdates.displayAllQualitySleepers(weekStartDate);
 domUpdates.displayName();
 domUpdates.displayInfo();
+domUpdates.calculateWeeklyStepChallenge();
 
 charts.weeklySleepHoursChart()
 charts.weeklySleepQualChart()

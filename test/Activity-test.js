@@ -196,7 +196,7 @@ describe('Activity', () => {
   })
 
   it('should calculate the average flights climbed in a given week', () => {
-    expect(activity.getWeeklyAvgFlights('2019/06/15')).to.equal(19)
+    expect(activity.getWeeklyAvgFlights('2019/06/15')).to.equal(19);
   })
 
   it('should only take a date in the correct format as an argument', () => {
@@ -204,14 +204,26 @@ describe('Activity', () => {
   })
 
   it('should return number of stairs climbed for a specific date', () => {
-    expect(activity.getStairsClimbed('2019/06/15')).to.equal(16)
+    expect(activity.getStairsClimbed('2019/06/15')).to.equal(16);
   })
 
   it('should only take a date as an argument', () => {
-    expect(activity.getStairsClimbed('2019-06-15')).to.equal('You must pass a valid date');
+    expect(activity.getStairsClimbed('test')).to.equal('You must pass a valid date');
   })
 
   it('should only take a date in the correct format as an argument', () => {
     expect(activity.getStairsClimbed('2019-06-15')).to.equal('You must pass a valid date');
+  })
+
+  it('should calculate the weekly sum of steps taken', () => {
+    expect(activity.getWeeklyStepSum('2019/06/15')).to.equal(47577);
+  })
+
+  it('should only take a date as an argument', () => {
+    expect(activity.getWeeklyStepSum('test')).to.equal('You must pass a valid date');
+  })
+
+  it('should only take a date in the correct format as an argument', () => {
+    expect(activity.getWeeklyStepSum('2019-06-15')).to.equal('You must pass a valid date');
   })
 })

@@ -42,11 +42,12 @@ const allUsersAvgSteps = document.getElementById("all-users-avg-steps")
 const allUsersAvgMinsActive = document.getElementById("all-users-avg-mins-active")
 const allUsersAvgFlights = document.getElementById("all-users-avg-flights")
 const mostActiveUser = document.getElementById('most-active-user')
-// const weekStepsAvg = document.getElementById('week-steps-taken-avg')
-const weekMinsActiveAvg = document.getElementById('week-mins-active-avg')
 const weekStepsId = document.getElementById('week-steps').getContext('2d')
 const weekFlightsId = document.getElementById('week-flights').getContext('2d')
 const weekMinsActiveId = document.getElementById('week-mins-active').getContext('2d')
+const weekAvgSteps = document.getElementById('week-steps-taken-avg')
+const weekAvgMinsActive = document.getElementById('week-mins-active-avg')
+const weekAvgFlights = document.getElementById('week-flights-avg')
 
 domUpdates.displaySleepHoursForDay('2019/06/15');
 domUpdates.displaySleepQualForDay('2019/06/15');
@@ -60,6 +61,9 @@ domUpdates.displayAllUsersAvgSteps('2019/06/15');
 domUpdates.displayAllUsersAvgMinsActive('2019/06/15');
 domUpdates.displayAllUsersAvgFlights('2019/06/15');
 domUpdates.displayMostActiveUser('2019/06/15')
+domUpdates.displayWeeklyAvgMinutesActive('2019/06/15')
+domUpdates.displayWeeklyAvgSteps('2019/06/15')
+domUpdates.displayWeeklyAvgFlights('2019/06/15')
 domUpdates.displayAvgSleepQualityForAll();
 domUpdates.displayLongestSleepers('2019/06/15');
 domUpdates.displayHighestQualSleepers('2019/06/15');

@@ -118,8 +118,22 @@ domUpdates = {
   displayMostActiveUser(date) {
     let activity = activityRepo.calculateMaxMinActive(date)
     let user = userData.find(user => user.id === activity[0].userID)
-    console.log(activity[0])
     mostActiveUser.innerHTML = `${user.name} was the most active on ${date} with ${activity[0].minutesActive} minutes active `
+  },
+
+  displayWeeklyAvgSteps(date) {
+    let avg = activity.getWeeklyAvgSteps(date)
+    weekAvgSteps.innerHTML = `You averaged ${avg} steps per day for the week starting on ${date}`
+  },
+
+  displayWeeklyAvgMinutesActive(date) {
+    let avg = activity.getWeeklyAvgMinutesActive(date)
+    weekAvgMinsActive.innerHTML = `You averaged ${avg} minutes of activity per day for the week starting on ${date}`
+  },
+
+  displayWeeklyAvgFlights(date) {
+    let avg = activity.getWeeklyAvgFlights(date)
+    weekAvgFlights.innerHTML = `You averaged ${avg} flights of stairs per day for the week starting on ${date}`
   },
 
   displayName() {

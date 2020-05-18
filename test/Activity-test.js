@@ -186,4 +186,20 @@ describe('Activity', () => {
   it('should only take a date in the correct format as an argument', () => {
     expect(activity.getMinsActiveForWeek('2019-06-15')).to.equal('You must pass a valid date');
   })
+
+  it('should calculate the average steps taken in a given week', () => {
+    expect(activity.getWeeklyAvgSteps('2019/06/15')).to.equal(6797)
+  })
+
+  it('should only take a date in the correct format as an argument', () => {
+    expect(activity.getWeeklyAvgSteps('2019-06-15')).to.equal('You must pass a valid date');
+  })
+
+  it('should calculate the average flights climbed in a given week', () => {
+    expect(activity.getWeeklyAvgFlights('2019/06/15')).to.equal(19)
+  })
+
+  it('should only take a date in the correct format as an argument', () => {
+    expect(activity.getWeeklyAvgFlights('2019-06-15')).to.equal('You must pass a valid date');
+  })
 })

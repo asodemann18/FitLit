@@ -16,37 +16,11 @@ const todaySleepHours = document.getElementById("today-sleep-hours");
 const todaySleepQuality = document.getElementById("today-sleep-quality");
 const userAvgSleepHours = document.getElementById("user-avg-sleep-hours")
 const userAvgSleepQuality = document.getElementById("user-avg-sleep-quality");
-<<<<<<< HEAD
 const allAvgSleepQuality = document.getElementById("all-avg-sleep-quality");
 const longestSleepers = document.getElementById("longest-sleepers");
 const highestQualSleepers = document.getElementById("highest-qual-sleepers");
 const allHighestQualSleepers = document.getElementById("all-highest-qual-sleepers")
 
-domUpdates.displayAvgSleepQualityForAll();
-domUpdates.displayLongestSleepers('2019/06/15');
-domUpdates.displayHighestQualSleepers('2019/06/15');
-domUpdates.displayAllQualitySleepers('2019/06/15');
-
-// const displaySleepHoursForDay = (date) => {
-//   let sleepHoursForDay = sleep.getDailySleepHours(date)
-//   todaySleepHours.innerHTML = `You slept ${sleepHoursForDay} hours on ${date}`
-// }
-
-// const displaySleepQualForDay = (date) => {
-//   let sleepQualForDay = sleep.getDailySleepQual(date)
-//   todaySleepQuality.innerHTML = `You rated your sleep quality a ${sleepQualForDay} on ${date}`;
-// }
-
-// const displayAvgSleepHoursForUser = (date) => {
-//   let avgSleepHoursForUser = sleep.getAvgSleepHours(date)
-//   userAvgSleepHours.innerHTML = `You slept ${avgSleepHoursForUser} hours on ${date}`
-// }
-
-// const displayAvgSleepQualForUser = (date) => {
-//   let avgSleepQualForUser = sleep.getAvgSleepQual(date)
-//   userAvgSleepQuality.innerHTML = `You rated your sleep quality a ${avgSleepQualForUser} on ${date}`;
-// }
-=======
 const weekSleepHoursId = document.getElementById("week-sleep-hours").getContext("2d");
 const weekSleepQualId = document.getElementById("week-sleep-quality").getContext("2d");
 const todayHydration = document.getElementById("today-hydration")
@@ -58,7 +32,6 @@ const allUsersAvgSteps = document.getElementById("all-users-avg-steps")
 const allUsersAvgMinsActive = document.getElementById("all-users-avg-mins-active")
 const allUsersAvgFlights = document.getElementById("all-users-avg-flights")
 const mostActiveUser = document.getElementById('most-active-user')
->>>>>>> master
 
 domUpdates.displaySleepHoursForDay('2019/06/15');
 domUpdates.displaySleepQualForDay('2019/06/15');
@@ -72,6 +45,10 @@ domUpdates.displayAllUsersAvgSteps('2019/06/15');
 domUpdates.displayAllUsersAvgMinsActive('2019/06/15');
 domUpdates.displayAllUsersAvgFlights('2019/06/15');
 domUpdates.displayMostActiveUser('2019/06/15')
+domUpdates.displayAvgSleepQualityForAll();
+domUpdates.displayLongestSleepers('2019/06/15');
+domUpdates.displayHighestQualSleepers('2019/06/15');
+domUpdates.displayAllQualitySleepers('2019/06/15');
 
 charts.weeklySleepHoursChart()
 charts.weeklySleepQualChart()

@@ -72,7 +72,7 @@ domUpdates.displaySleepHoursForDay('2019/06/15');
 domUpdates.displaySleepQualForDay('2019/06/15');
 domUpdates.displayAvgSleepHoursForUser();
 domUpdates.displayAvgSleepQualForUser();
-domUpdates.displayHydrationForDay('2019/06/15');
+domUpdates.displayHydrationForDay(currentDate);
 domUpdates.displayMinutesActiveForDay('2019/06/15');
 domUpdates.displayMilesWalkedForDay('2019/06/15');
 domUpdates.displayStepsTakenForDay('2019/06/15');

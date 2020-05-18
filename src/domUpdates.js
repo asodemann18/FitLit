@@ -74,9 +74,9 @@ domUpdates = {
     })
 
     if (sleepUserData.length > 1) {
-      allHighestQualSleepers.innerHTML = `${sleepUserData.join(', ')} averaged a sleep quality greater than 3 over a week`;
+      allHighestQualSleepers.innerHTML = `${sleepUserData.join(', ')} averaged a sleep quality greater than 3 over the week of ${date}`;
     } else {
-      allHighestQualSleepers.innerHTML = `${sleepUserData[0]} averaged a sleep quality greater than 3 over a week`;
+      allHighestQualSleepers.innerHTML = `${sleepUserData[0]} averaged a sleep quality greater than 3 over the week of ${date}`;
     }
   },
 

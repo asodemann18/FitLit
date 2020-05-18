@@ -1,5 +1,6 @@
 const currentUser = new User(userData[0]);
 const currentDate = "2019/09/22";
+const weekStartDate = "2019/09/16";
 
 const sleep = new Sleep(currentUser.id, sleepData);
 const sleepRepo = new SleepRepo(sleepData);
@@ -8,12 +9,12 @@ const hydration = new Hydration(currentUser.id, hydrationData);
 const activity = new Activity(currentUser.id, activityData, userData);
 const activityRepo = new ActivityRepo(activityData);
 
-const weekSleepHours = sleep.getWeeklySleepHours('2019/06/15');
-const weekSleepQuality = sleep.getWeeklySleepQual('2019/06/15');
-const weekOuncesDrank = hydration.getWeeklyWater('2019/06/15');
-const weekStepCount = activity.getStepsForWeek('2019/06/15');
-const weekFlightsClimbed = activity.getFlightsForWeek('2019/06/15');
-const weekMinsActive = activity.getMinsActiveForWeek('2019/06/15');
+const weekSleepHours = sleep.getWeeklySleepHours(weekStartDate);
+const weekSleepQuality = sleep.getWeeklySleepQual(weekStartDate);
+const weekOuncesDrank = hydration.getWeeklyWater(weekStartDate);
+const weekStepCount = activity.getStepsForWeek(weekStartDate);
+const weekFlightsClimbed = activity.getFlightsForWeek(weekStartDate);
+const weekMinsActive = activity.getMinsActiveForWeek(weekStartDate);
 
 const todaySleepHours = document.getElementById("today-sleep-hours");
 const todaySleepQuality = document.getElementById("today-sleep-quality");
@@ -54,20 +55,20 @@ domUpdates.displaySleepQualForDay(currentDate);
 domUpdates.displayAvgSleepHoursForUser();
 domUpdates.displayAvgSleepQualForUser();
 domUpdates.displayHydrationForDay(currentDate);
-domUpdates.displayMinutesActiveForDay('2019/06/15');
-domUpdates.displayMilesWalkedForDay('2019/06/15');
-domUpdates.displayStepsTakenForDay('2019/06/15');
-domUpdates.displayAllUsersAvgSteps('2019/06/15');
-domUpdates.displayAllUsersAvgMinsActive('2019/06/15');
-domUpdates.displayAllUsersAvgFlights('2019/06/15');
-domUpdates.displayMostActiveUser('2019/06/15')
-domUpdates.displayWeeklyAvgMinutesActive('2019/06/15')
-domUpdates.displayWeeklyAvgSteps('2019/06/15')
-domUpdates.displayWeeklyAvgFlights('2019/06/15')
+domUpdates.displayMinutesActiveForDay(currentDate);
+domUpdates.displayMilesWalkedForDay(currentDate);
+domUpdates.displayStepsTakenForDay(currentDate);
+domUpdates.displayAllUsersAvgSteps(currentDate);
+domUpdates.displayAllUsersAvgMinsActive(currentDate);
+domUpdates.displayAllUsersAvgFlights(currentDate);
+domUpdates.displayMostActiveUser(currentDate)
+domUpdates.displayWeeklyAvgMinutesActive(weekStartDate)
+domUpdates.displayWeeklyAvgSteps(weekStartDate)
+domUpdates.displayWeeklyAvgFlights(weekStartDate)
 domUpdates.displayAvgSleepQualityForAll();
-domUpdates.displayLongestSleepers('2019/06/15');
-domUpdates.displayHighestQualSleepers('2019/06/15');
-domUpdates.displayAllQualitySleepers('2019/06/15');
+domUpdates.displayLongestSleepers(currentDate);
+domUpdates.displayHighestQualSleepers(currentDate);
+domUpdates.displayAllQualitySleepers(weekStartDate);
 domUpdates.displayName();
 domUpdates.displayInfo();
 

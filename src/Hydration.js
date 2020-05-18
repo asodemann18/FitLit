@@ -35,9 +35,10 @@ class Hydration {
       })
 
       let firstDate = this.userHydration.indexOf(hydrationDate);
+      
       return this.userHydration
         .slice(firstDate, firstDate + 7)
-        .map(hydration => hydration.numOunces);
+        .map(hydration => hydration.numOunces); 
     }
   }
 

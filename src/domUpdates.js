@@ -120,5 +120,45 @@ domUpdates = {
     let user = userData.find(user => user.id === activity[0].userID)
     console.log(activity[0])
     mostActiveUser.innerHTML = `${user.name} was the most active on ${date} with ${activity[0].minutesActive} minutes active `
+  },
+
+  displayName() {
+    let name = currentUser.getName();
+    greeting.innerHTML = `Hi, ${name}`;
+  },
+
+  displayInfo() {
+    let userName = currentUser.name;
+    let userAddress = currentUser.address;
+    let userEmail = currentUser.email
+    let userStrideLength = currentUser.strideLength;
+    let userDailyStepGoal = currentUser.dailyStepGoal;
+    let allAvgStepGoal = usersRepo.getAvgStepGoal();
+    name.innerHTML = `Name: ${userName}`;
+    address.innerHTML = `Address: ${userAddress}`;
+    email.innerHTML = `Email: ${userEmail}`;
+    strideLength.innerHTML = `Stride Length: ${userStrideLength}`;
+    dailyStepGoal.innerHTML = `Daily Step Goal: ${userDailyStepGoal}`;
+    stepGoalComparison.innerHTML = `Average Step Goal: ${allAvgStepGoal}`;
+    this.displayFriends();
+  },
+
+  displayFriends() {
+    let userFriends = currentUser.friends;
+    
+    let userFriendData = [];
+    userData.forEach((user) => {
+      userFriends.forEach(id => {
+        if(user.id === id) {
+          userFriendData.push(user.name);
+        }
+      })
+    })
+    
+    if (userFriendData.length > 1) {
+      friends.innerHTML = `Friends: ${userFriendData.join(', ')}`;
+    } else {
+      friends.innerHTML = `Friends: ${userFriendData[0]}`;
+    }
   }
 }

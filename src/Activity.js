@@ -1,5 +1,3 @@
-//const User = require('../src/User');
-
 class Activity {
   constructor(id, activityData, userData) {
     this.user = this.getUser(id, userData);
@@ -120,6 +118,48 @@ class Activity {
       ("0" + (isDate.getMonth() + 1)).slice(-2) + "/" + 
       ("0" + isDate.getDate()).slice(-2);
     return newIsDate;
+  }
+
+  getStepsForWeek(date) {
+    let newDate = this.checkDate(date)
+    if (date !== newDate) {
+      return 'You must pass a valid date'
+    } else {
+      let activityDate = this.userActivity.find(activity => activity.date === date);
+      let firstDate = this.userActivity.indexOf(activityDate);
+    
+      return this.userActivity
+        .slice(firstDate, firstDate + 7)
+        .map(activity => activity.numSteps);
+    }
+  }
+
+  getFlightsForWeek(date) {
+    let newDate = this.checkDate(date)
+    if (date !== newDate) {
+      return 'You must pass a valid date'
+    } else {
+      let activityDate = this.userActivity.find(activity => activity.date === date);
+      let firstDate = this.userActivity.indexOf(activityDate);
+    
+      return this.userActivity
+        .slice(firstDate, firstDate + 7)
+        .map(activity => activity.flightsOfStairs);
+    }
+  }
+
+  getMinsActiveForWeek(date) {
+    let newDate = this.checkDate(date)
+    if (date !== newDate) {
+      return 'You must pass a valid date'
+    } else {
+      let activityDate = this.userActivity.find(activity => activity.date === date);
+      let firstDate = this.userActivity.indexOf(activityDate);
+    
+      return this.userActivity
+        .slice(firstDate, firstDate + 7)
+        .map(activity => activity.minutesActive);
+    }
   }
 }
 

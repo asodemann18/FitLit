@@ -96,7 +96,7 @@ describe('Activity', () => {
   })
 
   it('should return how many miles a user has walked for a given day', () => {
-    expect(activity.getMilesWalked('2019/06/15')).to.equal(3);
+    expect(activity.getMilesWalked('2019/06/15')).to.equal(2.9);
   })
 
   it('should only take a date as an argument', () => {
@@ -161,5 +161,29 @@ describe('Activity', () => {
 
   it('should return a date', () => {
     expect(activity.checkDate('2019/06/15')).to.equal('2019/06/15');
+  })
+
+  it('should show a users step count for each day of a week', () => {
+    expect(activity.getStepsForWeek('2019/06/15')).to.deep.equal([3577, 4294, 7402, 3486, 11374, 14810, 2634])
+  })
+
+  it('should only take a date in the correct format as an argument', () => {
+    expect(activity.getStepsForWeek('2019-06-15')).to.equal('You must pass a valid date');
+  })
+
+  it('should show a users step count for each day of a week', () => {
+    expect(activity.getFlightsForWeek('2019/06/15')).to.deep.equal([16, 10, 33, 32, 13, 18, 5])
+  })
+  
+  it('should only take a date in the correct format as an argument', () => {
+    expect(activity.getFlightsForWeek('2019-06-15')).to.equal('You must pass a valid date');
+  })
+
+  it('should show a users step count for each day of a week', () => {
+    expect(activity.getMinsActiveForWeek('2019/06/15')).to.deep.equal([140, 138, 116, 114, 213, 287, 107])
+  })
+
+  it('should only take a date in the correct format as an argument', () => {
+    expect(activity.getMinsActiveForWeek('2019-06-15')).to.equal('You must pass a valid date');
   })
 })

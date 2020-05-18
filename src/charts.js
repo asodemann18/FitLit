@@ -150,5 +150,158 @@ const charts = {
         }
       }
     });
+  },
+  
+  weeklyStepsChart() {
+    return new Chart(weekStepsId, {
+      type: "line",
+      data: {
+        labels: ["Day 1", " ", " ", " ", " ", " ", "Day 7"],
+        datasets: [{
+          label: "Weekly Step Count",
+          data: weekStepCount,
+          fill: false,
+          backgroundColor: [
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+          ],
+          borderColor: [
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          display: false
+        },
+        title: {
+          display: true,
+          text: "Weekly Step Count",
+        }
+      }
+    });
+  },
+  
+  weeklyFlightsChart() {
+    return new Chart(weekFlightsId, {
+      type: "line",
+      data: {
+        labels: ["Day 1", " ", " ", " ", " ", " ", "Day 7"],
+        datasets: [{
+          label: "Weekly Step Count",
+          data: weekFlightsClimbed,
+          fill: false,
+          backgroundColor: [
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+          ],
+          borderColor: [
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          display: false
+        },
+        title: {
+          display: true,
+          text: "Weekly Flights Climbed",
+        }
+      }
+    });
+  },
+
+  weeklyMinsActiveChart() {
+    return new Chart(weekMinsActiveId, {
+      type: "line",
+      data: {
+        labels: ["Day 1", " ", " ", " ", " ", " ", "Day 7"],
+        datasets: [{
+          label: "Weekly Step Count",
+          data: weekMinsActive,
+          fill: false,
+          backgroundColor: [
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+          ],
+          borderColor: [
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(153, 102, 255, 1)",
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          display: false
+        },
+        title: {
+          display: true,
+          text: "Weekly Minutes Active",
+        }
+      }
+    });
   }
 }

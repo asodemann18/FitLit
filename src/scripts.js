@@ -10,7 +10,10 @@ const activityRepo = new ActivityRepo(activityData);
 
 const weekSleepHours = sleep.getWeeklySleepHours('2019/06/15');
 const weekSleepQuality = sleep.getWeeklySleepQual('2019/06/15');
-const weekOuncesDrank = hydration.getWeeklyWater('2019/06/15')
+const weekOuncesDrank = hydration.getWeeklyWater('2019/06/15');
+const weekStepCount = activity.getStepsForWeek('2019/06/15');
+const weekFlightsClimbed = activity.getFlightsForWeek('2019/06/15');
+const weekMinsActive = activity.getMinsActiveForWeek('2019/06/15');
 
 const todaySleepHours = document.getElementById("today-sleep-hours");
 const todaySleepQuality = document.getElementById("today-sleep-quality");
@@ -39,6 +42,11 @@ const allUsersAvgSteps = document.getElementById("all-users-avg-steps")
 const allUsersAvgMinsActive = document.getElementById("all-users-avg-mins-active")
 const allUsersAvgFlights = document.getElementById("all-users-avg-flights")
 const mostActiveUser = document.getElementById('most-active-user')
+// const weekStepsAvg = document.getElementById('week-steps-taken-avg')
+const weekMinsActiveAvg = document.getElementById('week-mins-active-avg')
+const weekStepsId = document.getElementById('week-steps').getContext('2d')
+const weekFlightsId = document.getElementById('week-flights').getContext('2d')
+const weekMinsActiveId = document.getElementById('week-mins-active').getContext('2d')
 
 domUpdates.displaySleepHoursForDay('2019/06/15');
 domUpdates.displaySleepQualForDay('2019/06/15');
@@ -62,3 +70,6 @@ domUpdates.displayInfo();
 charts.weeklySleepHoursChart()
 charts.weeklySleepQualChart()
 charts.weeklyHydrationChart()
+charts.weeklyStepsChart()
+charts.weeklyFlightsChart()
+charts.weeklyMinsActiveChart()

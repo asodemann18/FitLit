@@ -1,12 +1,5 @@
 const currentUser = new User(userData[0]);
 const currentDate = "2019/09/22";
-// let getDate = new Date(currentDate);
-// let weeklyStartDate = getDate.getFullYear() + "/" + 
-//   ("0" + (getDate.getMonth() + 1)).slice(-2) + "/" + 
-//   ("0" + getDate.getDate()).slice(-2);
-//   console.log(weeklyStartDate);
-  
-
 
 const sleep = new Sleep(currentUser.id, sleepData);
 const sleepRepo = new SleepRepo(sleepData);

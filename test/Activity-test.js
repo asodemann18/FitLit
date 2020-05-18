@@ -202,4 +202,16 @@ describe('Activity', () => {
   it('should only take a date in the correct format as an argument', () => {
     expect(activity.getWeeklyAvgFlights('2019-06-15')).to.equal('You must pass a valid date');
   })
+
+  it('should return number of stairs climbed for a specific date', () => {
+    expect(activity.getStairsClimbed('2019/06/15')).to.equal(16)
+  })
+
+  it('should only take a date as an argument', () => {
+    expect(activity.getStairsClimbed('2019-06-15')).to.equal('You must pass a valid date');
+  })
+
+  it('should only take a date in the correct format as an argument', () => {
+    expect(activity.getStairsClimbed('2019-06-15')).to.equal('You must pass a valid date');
+  })
 })

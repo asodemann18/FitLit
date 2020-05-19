@@ -1,4 +1,6 @@
-const currentUser = new User(userData[0]);
+const currentUser = new User(getRandomUser(userData));
+console.log(currentUser);
+
 const currentDate = "2019/09/22";
 const weekStartDate = "2019/09/16";
 
@@ -50,13 +52,31 @@ const weekAvgSteps = document.getElementById('week-steps-taken-avg')
 const weekAvgMinsActive = document.getElementById('week-mins-active-avg')
 const weekAvgFlights = document.getElementById('week-flights-avg')
 const stepChallenge = document.getElementById('step-challenge');
-console.log(stepChallenge);
+const dateInput = document.getElementById('date-input');
+const dailySubmitButton = document.getElementById('daily-submit');
+
+const createDate = new Date(dateInput.value);
+const defaultDateInput = (createDate.getFullYear() + "/" + 
+("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
+("0" + createDate.getUTCDate()).slice(-2));
+
+
+dailySubmitButton.addEventListener('click', changeDate);
+
+
+function changeDate() {
+  let createDate = new Date(dateInput.value);
+  let correctDateInput = (createDate.getFullYear() + "/" + 
+    ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
+    ("0" + createDate.getUTCDate()).slice(-2));
+  return domUpdates.displayHydrationForDay(correctDateInput)
+}
 
 domUpdates.displaySleepHoursForDay(currentDate);
 domUpdates.displaySleepQualForDay(currentDate);
 domUpdates.displayAvgSleepHoursForUser();
 domUpdates.displayAvgSleepQualForUser();
-domUpdates.displayHydrationForDay(currentDate);
+domUpdates.displayHydrationForDay(defaultDateInput);
 domUpdates.displayMinutesActiveForDay(currentDate);
 domUpdates.displayMilesWalkedForDay(currentDate);
 domUpdates.displayStepsTakenForDay(currentDate);
@@ -118,4 +138,9 @@ function calculateWeeklyStepChallenge(date) {
   }, 0);
   friendSteps.push(currentUserSteps);
   return friendSteps.sort((a, b) => (b.totalSteps - a.totalSteps));
+}
+
+function getRandomUser(array) {
+  let randomIndex =  Math.floor(Math.random() * array.length);
+  return array[randomIndex]
 }

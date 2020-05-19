@@ -16,6 +16,8 @@ const weekOuncesDrank = hydration.getWeeklyWater(weekStartDate);
 const weekStepCount = activity.getStepsForWeek(weekStartDate);
 const weekFlightsClimbed = activity.getFlightsForWeek(weekStartDate);
 const weekMinsActive = activity.getMinsActiveForWeek(weekStartDate);
+const dailyStepsTaken = activity.getStepsTaken(currentDate);
+const allAvgDailyStepsTaken = activityRepo.calculateAvgSteps(currentDate);
 
 const todaySleepHours = document.getElementById("today-sleep-hours");
 const todaySleepQuality = document.getElementById("today-sleep-quality");
@@ -54,6 +56,7 @@ const weekAvgFlights = document.getElementById('week-flights-avg')
 const stepChallenge = document.getElementById('step-challenge');
 const dateInput = document.getElementById('date-input');
 const dailySubmitButton = document.getElementById('daily-submit');
+const dailyStepComparison = document.getElementById('daily-step-comparison');
 
 const createDate = new Date(dateInput.value);
 const defaultDateInput = (createDate.getFullYear() + "/" + 
@@ -99,12 +102,13 @@ domUpdates.displayStepChallenge(weekStartDate);
 getFriends();
 
 
-charts.weeklySleepHoursChart()
-charts.weeklySleepQualChart()
-charts.weeklyHydrationChart()
-charts.weeklyStepsChart()
-charts.weeklyFlightsChart()
-charts.weeklyMinsActiveChart()
+charts.weeklySleepHoursChart();
+charts.weeklySleepQualChart();
+charts.weeklyHydrationChart();
+charts.weeklyStepsChart();
+charts.weeklyFlightsChart();
+charts.weeklyMinsActiveChart();
+charts.dailyStepsCompareChart();
 
 function getFriends() {
   let userFriends = currentUser.friends;

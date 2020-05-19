@@ -303,5 +303,33 @@ const charts = {
         }
       }
     });
+  },
+
+  dailyStepsCompareChart() {
+    return new Chart(dailyStepComparison, {
+      type: 'bar',
+      data: {
+          datasets: [{
+              label: 'Bar Dataset',
+              data: [dailyStepsTaken, allAvgDailyStepsTaken]
+          }, {
+              label: 'Line Dataset',
+              data: [currentUser.dailyStepGoal],
+  
+              // Changes this dataset to become a line
+              type: 'line'
+          }],
+          labels: ['You', 'All User\s Daily Avg']
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+      }
+    });
   }
 }

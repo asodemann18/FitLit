@@ -90,6 +90,22 @@ aside {
   width: 100%
 }
 
+#day-stats-text-container {
+  
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
+
+#day-stats-title {
+  height: 20%
+}
+
+.day-stats-text-box {
+  height: 80%;
+  width: 20%
+}
+
 #day-stats-charts {
   height: 60%;
   width: 100%;
@@ -101,11 +117,15 @@ aside {
   overflow: scroll
 }
 
+#week-stats-title {
+  height: 15%
+}
+
 #week-stats-charts {
   display: flex;
   flex-direction: column;
   height: 80%;
-  justify-content: space-evenly
+  justify-content: space-around
 }
 
 #week-stats-charts-top,
@@ -116,9 +136,13 @@ aside {
 
 #week-stats-text {
   display: flex;
-  flex-direction: column;
   height: 20%;
-  justify-content: space-evenly
+  justify-content: space-between
+}
+
+.week-stats-text-box {
+  height: 100%;
+  width: 30%
 }
 
 .chart-container {
@@ -135,6 +159,18 @@ aside {
   flex-direction: column;
   height: 100%;
   width: 100%
+}
+
+#all-time-stats-top,
+#all-time-stats-bottom {
+  display: flex;
+  height: 50%;
+  justify-content: space-evenly;
+}
+
+.all-time-stats-box {
+  height: 90%;
+  width: 40%
 }
 
 .hide {

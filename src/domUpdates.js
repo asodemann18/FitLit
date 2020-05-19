@@ -1,28 +1,34 @@
 domUpdates = {
   displaySleepHoursForDay(date) {
     let sleepHoursForDay = sleep.getDailySleepHours(date)
-    todaySleepHours.innerHTML = `You slept ${sleepHoursForDay} hours on ${date}`
+    todaySleepHours.innerHTML = `
+    <p>Hours slept:</p>
+    <p class="stat">${sleepHoursForDay}</p>`
   },
   
   displaySleepQualForDay(date) {
     let sleepQualForDay = sleep.getDailySleepQual(date)
-    todaySleepQuality.innerHTML = `You rated your sleep quality a ${sleepQualForDay} on ${date}`;
+    todaySleepQuality.innerHTML = `
+    <p>Sleep quality:</p>
+    <p class="stat">${sleepQualForDay} / 5</p>`
   },
 
   displayAvgSleepHoursForUser() {
     let avgSleepHoursForUser = sleep.getAvgSleepHours()
-    userAvgSleepHours.innerHTML = `You average number of hours slept is ${avgSleepHoursForUser}`
+    userAvgSleepHours.innerHTML = `
+    <p>Average hours slept:</p>
+    <p class="stat">${avgSleepHoursForUser}</p>`
   },
   
-  displayAvgSleepQualForUser() {
-    let avgSleepQualForUser = sleep.getAvgSleepQual()
-    userAvgSleepQuality.innerHTML = `Your average sleep quality is ${avgSleepQualForUser}`;
-  },
+  // displayAvgSleepQualForUser() {
+  //   let avgSleepQualForUser = sleep.getAvgSleepQual()
+  //   userAvgSleepQuality.innerHTML = `Your average sleep quality is ${avgSleepQualForUser}`;
+  // },
 
-  displayAvgSleepQualityForAll() {
-    let avgSleepQualForAll = sleepRepo.calculateAverageSleep();
-    allAvgSleepQuality.innerHTML = `On average, users have a sleep quality of ${avgSleepQualForAll}`;
-  },
+  // displayAvgSleepQualityForAll() {
+  //   let avgSleepQualForAll = sleepRepo.calculateAverageSleep();
+  //   allAvgSleepQuality.innerHTML = `On average, users have a sleep quality of ${avgSleepQualForAll}`;
+  // },
 
   displayLongestSleepers(date) {
     let longestSleepersOnDate = sleepRepo.getLongestSleepers(date);
@@ -82,28 +88,32 @@ domUpdates = {
 
   displayHydrationForDay(date) {
     let hydrationForDay = hydration.getDailyWater(date)
-    todayHydration.innerHTML = `You drank ${hydrationForDay} ounces on ${date}`
+    todayHydration.innerHTML = `
+    <p>Water drank:</p>
+    <p class="stat">${hydrationForDay}oz</p>`
   },
 
-  displayMinutesActiveForDay(date) {
-    let minutesActiveForDay = activity.getMinutesActive(date)
-    todayMinsActive.innerHTML = `You were active for ${minutesActiveForDay} minutes on ${date}`
-  },
+  // displayMinutesActiveForDay(date) {
+  //   let minutesActiveForDay = activity.getMinutesActive(date)
+  //   todayMinsActive.innerHTML = `You were active for ${minutesActiveForDay} minutes on ${date}`
+  // },
 
   displayMilesWalkedForDay(date) {
     let milesWalked = activity.getMilesWalked(date)
-    todayMilesWalked.innerHTML = `You walked ${milesWalked} miles on ${date}`
+    todayMilesWalked.innerHTML = `
+    <p>Miles walked:</p>
+    <p class="stat">${milesWalked}</p>`
   },
 
-  displayStepsTakenForDay(date) {
-    let stepsTaken = activity.getStepsTaken(date)
-    todayStepsTaken.innerHTML = `You took ${stepsTaken} steps on ${date}`
-  },
+  // displayStepsTakenForDay(date) {
+  //   let stepsTaken = activity.getStepsTaken(date)
+  //   todayStepsTaken.innerHTML = `You took ${stepsTaken} steps on ${date}`
+  // },
 
-  displayStairsClimbedForDay(date) {
-  let stairsClimbed = activity.getStairsClimbed(date)
-  todayStairsClimbed.innerHTML = `You climbed ${stairsClimbed} flights of stairs on ${date}`;
-  },
+  // displayStairsClimbedForDay(date) {
+  // let stairsClimbed = activity.getStairsClimbed(date)
+  // todayStairsClimbed.innerHTML = `You climbed ${stairsClimbed} flights of stairs on ${date}`;
+  // },
 
   displayAllUsersAvgSteps(date) {
     let avg = activityRepo.calculateAvgSteps(date)
@@ -128,17 +138,23 @@ domUpdates = {
 
   displayWeeklyAvgSteps(date) {
     let avg = activity.getWeeklyAvgSteps(date)
-    weekAvgSteps.innerHTML = `You averaged ${avg} steps per day for the week starting on ${date}`
+    weekAvgSteps.innerHTML = `
+    <p>Average step per day:</p>
+    <p class="stat">${avg}</p>`
   },
 
   displayWeeklyAvgMinutesActive(date) {
     let avg = activity.getWeeklyAvgMinutesActive(date)
-    weekAvgMinsActive.innerHTML = `You averaged ${avg} minutes of activity per day for the week starting on ${date}`
+    weekAvgMinsActive.innerHTML = `
+    <p>Average minutes active per day:</p>
+    <p class="stat">${avg}</p>`
   },
 
   displayWeeklyAvgFlights(date) {
     let avg = activity.getWeeklyAvgFlights(date)
-    weekAvgFlights.innerHTML = `You averaged ${avg} flights of stairs per day for the week starting on ${date}`
+    weekAvgFlights.innerHTML = `
+    <p>Average flights per day:</p>
+    <p class="stat">${avg}</p>`
   },
 
   displayName() {

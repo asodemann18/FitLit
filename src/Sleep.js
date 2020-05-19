@@ -47,7 +47,7 @@ class Sleep {
     let avg = this.userSleep.reduce((acc, sleep) => {
       return acc += sleep.hoursSlept / this.userSleep.length
     }, 0)
-    return Number(avg.toFixed(2))
+    return Number(avg.toFixed(1))
   }
 
   getAvgSleepQual() {

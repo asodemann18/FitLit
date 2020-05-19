@@ -46,35 +46,36 @@
         <h2 class="view-title-text">Day of YYYY/MM/DD</h2>
         <div id="view-title-btns">
           <div id="view-select-btns">
-            <button>1D</button>
-            <button>1W</button>
-            <button>AT</button>
+            <button>Day</button>
+            <button>Week</button>
+            <button>All Time</button>
           </div>
-          <div class="change-date">
-            <button>Change Date</button>
-            <input type="date" class="hide">
-            <label for="start">Today:</label>
-            <input id = "date-input" type="date" id="start" name="date-start"
-               value="2019-09-22"
-               min="2019-06-15" max="2019-09-22">
-            <button id="daily-submit">Submit</button>
+          <div id="date-select">
+            <div class="change-date">
+              <input id = "date-input" type="date" id="start" name="date-start"
+              value="2019-09-22"
+              min="2019-06-15" max="2019-09-22">
+              <button id="daily-submit">Change Date</button>
+            </div>
           </div>
         </div>
       </div>
       <section id="day-view" class="page-view">
         <!-- horizontal layout for compared graphs -->
         <div id="day-stats-text">
-          <h4>Your Stats</h4>
-          <div id="today-hydration"></div>          <p>hours slept</p>
-          <div id="today-sleep-hours"></div>
-          <div id="today-sleep-quality"></div>          <!-- goal reached on bar graph -->
-          <div id="today-steps-taken"></div>
-          <div id="today-mins-active"></div>
-          <div id="today-miles-walked"></div>
-          <div id="today-stairs-climbed"></div>
+          <h4 id="day-stats-title">Your Stats</h4>
+          <div id="day-stats-text-container">
+            <div id="today-hydration" class="day-stats-text-box"></div> 
+            <div id="today-sleep-hours" class="day-stats-text-box"></div>
+            <div id="today-sleep-quality" class="day-stats-text-box"></div>         
+            <!-- <div id="today-steps-taken"></div>
+            <div id="today-mins-active"></div> -->
+            <div id="today-miles-walked" class="day-stats-text-box"></div>
+            <!-- <div id="today-stairs-climbed"></div> -->
+          </div>
         </div>
         <div id="day-stats-charts">
-          <h4>Comparisons</h4>
+          <h4 class="day-stats-title">Comparisons</h4>
           <div id="all-users-avg-steps"></div>
           <div id="all-users-avg-mins-active"></div>
           <div id="all-users-avg-flights"></div>
@@ -85,7 +86,7 @@
       </section>
       <section id="week-view" class="page-view ">
         <div id="week-stats-charts">
-          <h4>Your Stats</h4>
+          <h4 id="week-stats-title">Your Stats</h4>
           <div id="week-stats-charts-top">
             <div class="chart-container">
               <canvas id="week-hydration"></canvas>
@@ -110,21 +111,22 @@
           </div>
         </div>
         <div id="week-stats-text">
-          <div id="week-steps-taken-avg"></div>
-          <div id="week-mins-active-avg"></div>
-          <div id="week-flights-avg"></div>
+          <div id="week-steps-taken-avg" class="week-stats-text-box"></div>
+          <div id="week-flights-avg" class="week-stats-text-box"></div>
+          <div id="week-mins-active-avg" class="week-stats-text-box"></div>
         </div>
       </section>
       <section id="all-time-view" class="page-view ">
         <div id="all-time-stats">
           <h4>Your Stats</h4>
-          <div id="user-avg-sleep-hours"></div>
-          <div id="user-avg-sleep-quality"></div>
-          <p>days step goal exceeded</p>
-          <h4>All User's Stats</h4>
-          <div id="all-avg-sleep-quality"></div>  
-          <!-- was in user profile -->
-          <div id="step-goal-comparison"></div>
+          <div id="all-time-stats-top">
+            <div id="user-avg-sleep-hours" class="all-time-stats-box"></div>
+            <p class="all-time-stats-box">days step goal exceeded</p>
+          </div>
+          <div id="all-time-stats-bottom">
+            <div id="avg-sleep-quality-chart" class="all-time-stats-box"></div>
+            <div id="step-goal-comparison" class="all-time-stats-box"></div>
+          </div>
         </div>
       </section>
     </section>

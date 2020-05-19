@@ -50,13 +50,31 @@ const weekAvgSteps = document.getElementById('week-steps-taken-avg')
 const weekAvgMinsActive = document.getElementById('week-mins-active-avg')
 const weekAvgFlights = document.getElementById('week-flights-avg')
 const stepChallenge = document.getElementById('step-challenge');
-console.log(stepChallenge);
+const dateInput = document.getElementById('date-input');
+const dailySubmitButton = document.getElementById('daily-submit');
+
+const createDate = new Date(dateInput.value);
+const defaultDateInput = (createDate.getFullYear() + "/" + 
+("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
+("0" + createDate.getUTCDate()).slice(-2));
+
+
+dailySubmitButton.addEventListener('click', changeDate);
+
+
+function changeDate() {
+  let createDate = new Date(dateInput.value);
+  let correctDateInput = (createDate.getFullYear() + "/" + 
+    ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
+    ("0" + createDate.getUTCDate()).slice(-2));
+  return domUpdates.displayHydrationForDay(correctDateInput)
+}
 
 domUpdates.displaySleepHoursForDay(currentDate);
 domUpdates.displaySleepQualForDay(currentDate);
 domUpdates.displayAvgSleepHoursForUser();
 domUpdates.displayAvgSleepQualForUser();
-domUpdates.displayHydrationForDay(currentDate);
+domUpdates.displayHydrationForDay(defaultDateInput);
 domUpdates.displayMinutesActiveForDay(currentDate);
 domUpdates.displayMilesWalkedForDay(currentDate);
 domUpdates.displayStepsTakenForDay(currentDate);

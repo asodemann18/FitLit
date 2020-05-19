@@ -49,6 +49,8 @@ const weekMinsActiveId = document.getElementById('week-mins-active').getContext(
 const weekAvgSteps = document.getElementById('week-steps-taken-avg')
 const weekAvgMinsActive = document.getElementById('week-mins-active-avg')
 const weekAvgFlights = document.getElementById('week-flights-avg')
+const stepChallenge = document.getElementById('step-challenge');
+console.log(stepChallenge);
 
 domUpdates.displaySleepHoursForDay(currentDate);
 domUpdates.displaySleepQualForDay(currentDate);
@@ -71,6 +73,10 @@ domUpdates.displayHighestQualSleepers(currentDate);
 domUpdates.displayAllQualitySleepers(weekStartDate);
 domUpdates.displayName();
 domUpdates.displayInfo();
+domUpdates.displayStepChallenge(weekStartDate);
+//domUpdates.calculateWeeklyStepChallenge(weekStartDate);
+getFriends();
+
 
 charts.weeklySleepHoursChart()
 charts.weeklySleepQualChart()
@@ -78,3 +84,38 @@ charts.weeklyHydrationChart()
 charts.weeklyStepsChart()
 charts.weeklyFlightsChart()
 charts.weeklyMinsActiveChart()
+
+function getFriends() {
+  let userFriends = currentUser.friends;
+  let userFriendData = [];
+  userData.forEach((user) => {
+    userFriends.forEach(id => {
+      if(user.id === id) {
+      userFriendData.push(user);
+     }
+   })
+ })
+return userFriendData
+}
+
+function calculateWeeklyStepChallenge(date) {
+  let userFriends = getFriends();
+  let friendSteps = userFriends.reduce((acc, friend) => {
+    let newActivity = new Activity(friend.id, activityData, userData);
+    let stepsForWeek = newActivity.getStepsForWeek(date);
+    let totalSteps = stepsForWeek.reduce((acc, step) => {
+      return acc += step;
+    }, 0)
+    let friendSteps = {};
+    friendSteps[friend.name] = totalSteps;
+    acc.push(friendSteps);
+    return acc
+  }, [])
+  
+  let currentUserSteps = {};
+  currentUserSteps[currentUser.name] = activity.getStepsForWeek(date).reduce((acc, step) => {
+    return acc += step;
+  }, 0);
+  friendSteps.push(currentUserSteps);
+  return friendSteps.sort((a, b) => (b.totalSteps - a.totalSteps));
+}

@@ -158,21 +158,21 @@ domUpdates = {
   },
 
   displayFriends() {
-    let userFriends = currentUser.friends;
-    
-    let userFriendData = [];
-    userData.forEach((user) => {
-      userFriends.forEach(id => {
-        if(user.id === id) {
-          userFriendData.push(user.name);
-        }
-      })
-    })
-    
-    if (userFriendData.length > 1) {
-      friends.innerHTML = `Friends: ${userFriendData.join(', ')}`;
+    let userFriends = getFriends();
+    let friendNames = userFriends.map(friend => friend.name);  
+    if (friendNames.length > 1) {
+      friends.innerHTML = `Friends: ${friendNames.join(', ')}`;
     } else {
-      friends.innerHTML = `Friends: ${userFriendData[0]}`;
+      friends.innerHTML = `Friends: ${friendNames}`;
     }
+  },
+
+  displayStepChallenge(date) {
+    let challengeUsers = calculateWeeklyStepChallenge(date)
+    let rankedSteps = challengeUsers.map(user => Object.entries(user)).sort((a, b) => b[0][1] - a[0][1]);
+    
+    rankedSteps.forEach((step, i) => {
+      stepChallenge.insertAdjacentHTML("beforeend", `<p>${i+1}. ${step[0][0]}: ${step[0][1]}</p>`);    
+    });
   }
 }

@@ -205,8 +205,21 @@ class Activity {
         .map(activity => activity.minutesActive);
     }
   }
+
+  getStairsClimbed(date) {
+    let newDate = this.checkDate(date);
+    if (date !== newDate) {
+      return 'You must pass a valid date';
+    } else {
+      let foundActivity = this.userActivity.find(activity => activity.date === newDate)
+      return foundActivity.flightsOfStairs
+    }  
+  }
 }
 
 if (typeof module !== 'undefined') {
   module.exports = Activity;
 }
+
+
+

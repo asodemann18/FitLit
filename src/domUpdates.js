@@ -176,25 +176,12 @@ domUpdates = {
     }
   },
 
-  calculateWeeklyStepChallenge() {
-    let userFriends = currentUser.friends;
+  displayStepChallenge(date) {
+    let challengeUsers = calculateWeeklyStepChallenge(date)
+    let rankedSteps = challengeUsers.map(user => Object.entries(user)).sort((a, b) => b[0][1] - a[0][1]);
     
-    let userFriendData = [];
-    userData.forEach((user) => {
-      userFriends.forEach(id => {
-        if(user.id === id) {
-          userFriendData.push(user);
-        }
-      })
-    })
-
-    console.log(userFriendData);
-    
-    
-    // if (userFriendData.length > 1) {
-    //   friends.innerHTML = `Friends: ${userFriendData.join(', ')}`;
-    // } else {
-    //   friends.innerHTML = `Friends: ${userFriendData[0]}`;
-    // }
+    rankedSteps.forEach((step, i) => {
+      stepChallenge.insertAdjacentHTML("beforeend", `<p>${i+1}. ${step[0][0]}: ${step[0][1]}</p>`);    
+    });
   }
 }

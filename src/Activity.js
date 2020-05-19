@@ -215,28 +215,6 @@ class Activity {
       return foundActivity.flightsOfStairs
     }  
   }
-
-  getWeeklyStepSum(date) {
-    let newDate = this.checkDate(date);
-    if (date !== newDate) {
-      return 'You must pass a valid date';
-    } else {
-      let activityDate = this.userActivity.find(activity => {
-        return activity.date === date;
-      })
-
-      let firstDate = this.userActivity.indexOf(activityDate);
-      let allDays = this.userActivity
-        .slice(firstDate, firstDate + 7)
-        .map(activity => activity.numSteps);
-
-      let stepSum = allDays.reduce((acc, activity) => {
-        return acc += activity;
-      }, 0)
-      
-      return stepSum
-    }
-  }
 }
 
 if (typeof module !== 'undefined') {

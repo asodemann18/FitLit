@@ -214,16 +214,4 @@ describe('Activity', () => {
   it('should only take a date in the correct format as an argument', () => {
     expect(activity.getStairsClimbed('2019-06-15')).to.equal('You must pass a valid date');
   })
-
-  it('should calculate the weekly sum of steps taken', () => {
-    expect(activity.getWeeklyStepSum('2019/06/15')).to.equal(47577);
-  })
-
-  it('should only take a date as an argument', () => {
-    expect(activity.getWeeklyStepSum('test')).to.equal('You must pass a valid date');
-  })
-
-  it('should only take a date in the correct format as an argument', () => {
-    expect(activity.getWeeklyStepSum('2019-06-15')).to.equal('You must pass a valid date');
-  })
 })

@@ -1,114 +1,144 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./styles.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>  
-    <title>FitLit</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>  
+
+  <title>FitLit</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
 </head>
+
 <body>
   <header>
-    <h3 id="left">Competition</h3>
-    <h1 id="greeting"></h1>
-    <h3 id="right">Profile</h3>
-    <div>
+    <div id="header-welcome-text">
+      <h1>FitLit</h1>
+      <p id="greeting">Welcome, User</p>
+    </div>
+    <div id="dropdown-container">
+      <button>My Profile</button>
+      <button>Competition</button>
+    </div>
+  </header>
+  <main>
+    <aside>
       <div id="name"></div>
       <div id="address"></div>
       <div id="email"></div>
       <div id="stride-length"></div>
       <div id="daily-step-goal"></div>
       <div id="friends"></div>
-      <div id="step-goal-comparison"></div>
-    </div>
-  </header>
-  <div id="drop-down-info"></div>
-  <main>
-    <section id="hydration" class="habit-column">
-      <h1>Hydration</h1>
-      <article class="box">
-        <label for="start">Today:</label>
-        <input id = "date-input" type="date" id="start" name="date-start"
-           value="2019-09-22"
-           min="2019-06-15" max="2019-09-22">
-        <button id="daily-submit">Submit</button>
-        <div id="today-hydration"></div>
-      </article>
-      <article class="box">
-        <div class="chart-container">
-          <canvas id="week-hydration"></canvas>
+      <div id="step-challenge"></div>
+      <p>top performers</p>
+      <div id="most-active-user"></div>
+      <!-- <p>daily sleep hours</p> -->
+      <div id="longest-sleepers"></div>
+      <!-- <p>daily sleep quality</p> -->
+      <div id="highest-qual-sleepers"></div>
+      <div id="all-highest-qual-sleepers"></div>
+    </aside>
+    <section class="main-view">
+      <div class="view-title">
+        <h2 class="view-title-text">Day of YYYY/MM/DD</h2>
+        <div id="view-title-btns">
+          <div id="view-select-btns">
+            <button>1D</button>
+            <button>1W</button>
+            <button>AT</button>
+          </div>
+          <div class="change-date">
+            <button>Change Date</button>
+            <input type="date" class="hide">
+            <label for="start">Today:</label>
+            <input id = "date-input" type="date" id="start" name="date-start"
+               value="2019-09-22"
+               min="2019-06-15" max="2019-09-22">
+            <button id="daily-submit">Submit</button>
+          </div>
         </div>
-      </article>
-      <article class="box">
-        <div id="step-challenge"></div>
-      </article>
-    </section>
-    <section class="habit-column">
-      <h1>Sleep</h1>
-      <article class="box">
-        <div id="today-sleep-hours"></div>
-        <div id="today-sleep-quality"></div>
-      </article>
-      <article class="two-box">
-        <div class="two-chart-container">
-          <canvas id="week-sleep-hours"></canvas>
-        </div> 
-        <div class="two-chart-container">
-          <canvas id="week-sleep-quality"></canvas>
+      </div>
+      <section id="day-view" class="page-view">
+        <!-- horizontal layout for compared graphs -->
+        <div id="day-stats-text">
+          <h4>Your Stats</h4>
+          <div id="today-hydration"></div>          <p>hours slept</p>
+          <div id="today-sleep-hours"></div>
+          <div id="today-sleep-quality"></div>          <!-- goal reached on bar graph -->
+          <div id="today-steps-taken"></div>
+          <div id="today-mins-active"></div>
+          <div id="today-miles-walked"></div>
+          <p>flights climbed</p>
         </div>
-      </article>
-      <article class="box">
-        <div id="user-avg-sleep-hours"></div>
-        <div id="user-avg-sleep-quality"></div>
-      <!-- </div> -->
-        <div id="all-avg-sleep-quality"></div>
-        <div id="longest-sleepers"></div>
-        <div id="highest-qual-sleepers"></div>
-        <div id="all-highest-qual-sleepers"></div>
-      </article>
-    </section>
-    <section class="habit-column">
-      <h1>Activity</h1>
-      <article class="box">
-        <div id="today-steps-taken"></div>
-        <div id="today-mins-active"></div>
-        <div id="today-miles-walked"></div>
-      </article>
-      <article class="box">
-        <div id="week-steps-taken-avg"></div>
-        <div id="week-mins-active-avg"></div>
-        <div id="week-flights-avg"></div>
-        
-        <div id="chart-container">
-          <canvas id="week-steps"></canvas>
+        <div id="day-stats-charts">
+          <h4>Comparisons</h4>
+          <div id="all-users-avg-steps"></div>
+          <div id="all-users-avg-mins-active"></div>
+          <div id="all-users-avg-flights"></div>
         </div>
-        <div id="chart-container">
-          <canvas id="week-flights"></canvas>
+      </section>
+      <section id="week-view" class="page-view ">
+        <div id="week-stats-charts">
+          <h4>Your Stats</h4>
+          <div id="week-stats-charts-top">
+            <div class="chart-container">
+              <canvas id="week-hydration"></canvas>
+            </div>
+            <div class="chart-container">
+              <canvas id="week-sleep-hours"></canvas>
+            </div> 
+            <div class="chart-container">
+              <canvas id="week-sleep-quality"></canvas>
+            </div>
+          </div>
+          <div id="week-stats-charts-bottom">
+            <div class="chart-container">
+              <canvas id="week-steps"></canvas>
+            </div>
+            <div class="chart-container">
+              <canvas id="week-flights"></canvas>
+            </div>
+            <div class="chart-container">
+              <canvas id="week-mins-active"></canvas>
+            </div>
+          </div>
         </div>
-        <div id="chart-container">
-          <canvas id="week-mins-active"></canvas>
+        <div id="week-stats-text">
+          <div id="week-steps-taken-avg"></div>
+          <div id="week-mins-active-avg"></div>
+          <div id="week-flights-avg"></div>
         </div>
-      </article>
-      <article class="box">
-        <div id="all-users-avg-steps"></div>
-        <div id="all-users-avg-mins-active"></div>
-        <div id="all-users-avg-flights"></div>
-        <div id="most-active-user"></div>
-      </article>
+      </section>
+      <section id="all-time-view" class="page-view ">
+        <div id="all-time-stats">
+          <h4>Your Stats</h4>
+          <div id="user-avg-sleep-hours"></div>
+          <div id="user-avg-sleep-quality"></div>
+          <p>days step goal exceeded</p>
+          <h4>All User's Stats</h4>
+          <div id="all-avg-sleep-quality"></div>  
+          <!-- was in user profile -->
+          <div id="step-goal-comparison"></div>
+        </div>
+      </section>
     </section>
   </main>
+  <script type="text/javascript" src="../data/users.js"></script>
+  <script type="text/javascript" src="../data/sleep.js"></script>
+  <script type="text/javascript" src="../data/hydration.js"></script>
+  <script type="text/javascript" src="../data/activity.js"></script>
+  <script type="text/javascript" src="../src/User.js"></script>
+  <script type="text/javascript" src="../src/UsersRepo.js"></script>
+  <script type="text/javascript" src="../src/Sleep.js"></script>
+  <script type="text/javascript" src="../src/SleepRepo.js"></script>
+  <script type="text/javascript" src="../src/Hydration.js"></script>
+  <script type="text/javascript" src="../src/Activity.js"></script>
+  <script type="text/javascript" src="../src/ActivityRepo.js"></script>
+  <script type="text/javascript" src="../src/charts.js"></script>
+  <script type="text/javascript" src="../src/domUpdates.js"></script>
+  <script type="text/javascript" src="../src/scripts.js"></script>
 </body>
-<script type="text/javascript" src="../data/users.js"></script>
-<script type="text/javascript" src="../data/sleep.js"></script>
-<script type="text/javascript" src="../data/hydration.js"></script>
-<script type="text/javascript" src="../data/activity.js"></script>
-<script type="text/javascript" src="../src/User.js"></script>
-<script type="text/javascript" src="../src/UsersRepo.js"></script>
-<script type="text/javascript" src="../src/Sleep.js"></script>
-<script type="text/javascript" src="../src/SleepRepo.js"></script>
-<script type="text/javascript" src="../src/Hydration.js"></script>
-<script type="text/javascript" src="../src/Activity.js"></script>
-<script type="text/javascript" src="../src/ActivityRepo.js"></script>
-<script type="text/javascript" src="../src/charts.js"></script>
-<script type="text/javascript" src="../src/domUpdates.js"></script>
-<script type="text/javascript" src="../src/scripts.js"></script>
 </html>

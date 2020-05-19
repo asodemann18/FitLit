@@ -8,60 +8,135 @@
   padding: 0;
 }
 
+/* HEADER */
 header {
   align-items: center;
   display: flex;
-  height: 20vh;
-  justify-content: space-between;
-  padding: 1%;
+  flex-direction: column;
+  height: 15vh;
+  justify-content: space-around;
+  padding: 3% 2% 1%;
   width: 100%
 }
 
-#left,
-#right {
-  align-self: flex-end;
+#header-welcome-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
+#dropdown-container {
+  align-self: flex-start;
+  display: flex;
+  justify-self: flex-end;
+}
+
+/* MAIN */
 main {
   display: flex;
-  height: 80vh;
-  justify-content: space-around;
+  height: 85vh;
   width: 100%
 }
 
-.habit-column {
-  align-items: center;
-  display: flex;
+aside {
   height: 100%;
-  flex-direction: column;
-  justify-content: space-evenly;
-  width: 33%
+  width: 20%
 }
 
-.box {
-  height: 30%;
-  width: 90%;
-  overflow: scroll;
+/* MAIN VIEW */
+.main-view {
+  height: 100%;
+  width: 80%
+}
+
+/* MAIN VIEW HEADER */
+.view-title {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 15%;
+  justify-content: space-between;
+  padding: 4% 2% 1%;
+  width: 100%
+}
+
+#view-title-btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%
+}
+
+.change-date {
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+/* PAGE VIEW */
+.page-view {
+  display: flex;
+  height: 85%;
+  padding: 4%;
+  text-align: center;
+  width: 100%
+}
+
+/* DAY VIEW */
+#day-view {
+  flex-direction: column;
+}
+
+#day-stats-text {
+  height: 40%;
+  width: 100%
+}
+
+#day-stats-charts {
+  height: 60%;
+  width: 100%;
+}
+
+/* WEEK VIEW */
+#week-view {
+  flex-direction: column;
+  overflow: scroll
+}
+
+#week-stats-charts {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: space-evenly
+}
+
+#week-stats-charts-top,
+#week-stats-charts-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+#week-stats-text {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  justify-content: space-evenly
 }
 
 .chart-container {
-  height: 100%;
-  width: 50%;
+  width: 30%;
 }
 
-.two-box {
-  height: 30%;
-  width: 90%;
+/* ALL TIME VIEW */
+#all-time-view {
+  flex-direction: column;
+}
+
+#all-time-stats {
   display: flex;
-}
-
-.two-chart-container {
+  flex-direction: column;
   height: 100%;
-  width: 50%;
-  flex: 1;
+  width: 100%
 }
 
-
-/* #all-highest-qual-sleepers {
-  overflow: scroll;
-}  */
+.hide {
+  display: none
+}

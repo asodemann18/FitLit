@@ -1,4 +1,6 @@
-const currentUser = new User(userData[0]);
+const currentUser = new User(getRandomUser(userData));
+console.log(currentUser);
+
 const currentDate = "2019/09/22";
 const weekStartDate = "2019/09/16";
 
@@ -136,4 +138,9 @@ function calculateWeeklyStepChallenge(date) {
   }, 0);
   friendSteps.push(currentUserSteps);
   return friendSteps.sort((a, b) => (b.totalSteps - a.totalSteps));
+}
+
+function getRandomUser(array) {
+  let randomIndex =  Math.floor(Math.random() * array.length);
+  return array[randomIndex]
 }

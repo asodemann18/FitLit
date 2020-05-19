@@ -78,12 +78,12 @@ function changeDate() {
 domUpdates.displaySleepHoursForDay(currentDate);
 domUpdates.displaySleepQualForDay(currentDate);
 domUpdates.displayAvgSleepHoursForUser();
-domUpdates.displayAvgSleepQualForUser();
+// domUpdates.displayAvgSleepQualForUser();
 domUpdates.displayHydrationForDay(defaultDateInput);
-domUpdates.displayMinutesActiveForDay(currentDate);
+// domUpdates.displayMinutesActiveForDay(currentDate);
 domUpdates.displayMilesWalkedForDay(currentDate);
-domUpdates.displayStepsTakenForDay(currentDate);
-domUpdates.displayStairsClimbedForDay(currentDate);
+// domUpdates.displayStepsTakenForDay(currentDate);
+// domUpdates.displayStairsClimbedForDay(currentDate);
 domUpdates.displayAllUsersAvgSteps(currentDate);
 domUpdates.displayAllUsersAvgMinsActive(currentDate);
 domUpdates.displayAllUsersAvgFlights(currentDate);
@@ -91,7 +91,7 @@ domUpdates.displayMostActiveUser(currentDate)
 domUpdates.displayWeeklyAvgMinutesActive(weekStartDate)
 domUpdates.displayWeeklyAvgSteps(weekStartDate)
 domUpdates.displayWeeklyAvgFlights(weekStartDate)
-domUpdates.displayAvgSleepQualityForAll();
+// domUpdates.displayAvgSleepQualityForAll();
 domUpdates.displayLongestSleepers(currentDate);
 domUpdates.displayHighestQualSleepers(currentDate);
 domUpdates.displayAllQualitySleepers(weekStartDate);

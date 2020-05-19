@@ -100,6 +100,11 @@ domUpdates = {
     todayStepsTaken.innerHTML = `You took ${stepsTaken} steps on ${date}`
   },
 
+  displayStairsClimbedForDay(date) {
+  let stairsClimbed = activity.getStairsClimbed(date)
+  todayStairsClimbed.innerHTML = `You climbed ${stairsClimbed} flights of stairs on ${date}`;
+  },
+
   displayAllUsersAvgSteps(date) {
     let avg = activityRepo.calculateAvgSteps(date)
     allUsersAvgSteps.innerHTML = `Users averaged ${avg} steps on ${date}`

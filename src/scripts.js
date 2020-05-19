@@ -1,5 +1,4 @@
 const currentUser = new User(getRandomUser(userData));
-console.log(currentUser);
 
 const currentDate = "2019/09/22";
 const weekStartDate = "2019/09/16";
@@ -40,6 +39,7 @@ const todayHydration = document.getElementById("today-hydration")
 const weekHydrationId = document.getElementById("week-hydration").getContext("2d");
 const todayStepsTaken = document.getElementById("today-steps-taken")
 const todayMinsActive = document.getElementById("today-mins-active")
+const todayStairsClimbed = document.getElementById("today-stairs-climbed");
 const todayMilesWalked = document.getElementById("today-miles-walked")
 const allUsersAvgSteps = document.getElementById("all-users-avg-steps")
 const allUsersAvgMinsActive = document.getElementById("all-users-avg-mins-active")
@@ -80,6 +80,7 @@ domUpdates.displayHydrationForDay(defaultDateInput);
 domUpdates.displayMinutesActiveForDay(currentDate);
 domUpdates.displayMilesWalkedForDay(currentDate);
 domUpdates.displayStepsTakenForDay(currentDate);
+domUpdates.displayStairsClimbedForDay(currentDate);
 domUpdates.displayAllUsersAvgSteps(currentDate);
 domUpdates.displayAllUsersAvgMinsActive(currentDate);
 domUpdates.displayAllUsersAvgFlights(currentDate);

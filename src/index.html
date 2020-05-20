@@ -62,9 +62,9 @@
         <h2 class="view-title-text">Day of YYYY/MM/DD</h2>
         <div id="view-title-btns">
           <div id="view-select-btns">
-            <button>Day</button>
-            <button>Week</button>
-            <button>All Time</button>
+            <button id="day-btn">Day</button>
+            <button id="week-btn">Week</button>
+            <button id="all-time-btn">All Time</button>
           </div>
           <div id="date-select">
             <div class="change-date">
@@ -78,7 +78,7 @@
       <section id="day-view" class="page-view">
         <!-- horizontal layout for compared graphs -->
         <div id="day-stats-text">
-          <h4 id="day-stats-title">Your Stats</h4>
+          <h4 class="day-stats-title">Your Stats</h4>
           <div id="day-stats-text-container">
             <div id="today-hydration" class="day-stats-text-box"></div>
             <div id="today-sleep-hours" class="day-stats-text-box"></div>
@@ -94,7 +94,7 @@
           <!-- <div id="all-users-avg-steps"></div>
           <div id="all-users-avg-mins-active"></div>
           <div id="all-users-avg-flights"></div> -->
-          <div id="daily-stats-charts">
+          <div id="day-stats-charts-container">
             <div class="chart-container">
               <canvas id="daily-step-comparison"></canvas>
             </div>
@@ -107,7 +107,7 @@
           </div>
         </div>
       </section>
-      <section id="week-view" class="page-view ">
+      <section id="week-view" class="page-view hide">
         <div id="week-stats-charts">
           <h4 id="week-stats-title">Your Stats</h4>
           <div id="week-stats-charts-top">
@@ -139,7 +139,7 @@
           <div id="week-mins-active-avg" class="week-stats-text-box"></div>
         </div>
       </section>
-      <section id="all-time-view" class="page-view ">
+      <section id="all-time-view" class="page-view hide">
         <div id="all-time-stats">
           <h4>Your Stats</h4>
           <div id="all-time-stats-top">

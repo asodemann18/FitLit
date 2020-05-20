@@ -37,8 +37,8 @@ const charts = {
             }
           }]
         },
-        maintainAspectRatio: false,
-        responsive: true,
+        // maintainAspectRatio: false,
+        // responsive: true,
         legend: {
           display: false
         },
@@ -88,8 +88,8 @@ const charts = {
             }
           }]
         },
-        maintainAspectRatio: false,
-        responsive: true,
+        // maintainAspectRatio: false,
+        // responsive: true,
         legend: {
           display: false
         },
@@ -139,8 +139,8 @@ const charts = {
             }
           }]
         },
-        maintainAspectRatio: false,
-        responsive: true,
+        // maintainAspectRatio: false,
+        // responsive: true,
         legend: {
           display: false
         },
@@ -190,8 +190,8 @@ const charts = {
             }
           }]
         },
-        maintainAspectRatio: false,
-        responsive: true,
+        // maintainAspectRatio: false,
+        // responsive: true,
         legend: {
           display: false
         },
@@ -241,8 +241,8 @@ const charts = {
             }
           }]
         },
-        maintainAspectRatio: false,
-        responsive: true,
+        // maintainAspectRatio: false,
+        // responsive: true,
         legend: {
           display: false
         },
@@ -292,8 +292,8 @@ const charts = {
             }
           }]
         },
-        maintainAspectRatio: false,
-        responsive: true,
+        // maintainAspectRatio: false,
+        // responsive: true,
         legend: {
           display: false
         },

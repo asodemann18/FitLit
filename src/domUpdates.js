@@ -136,7 +136,7 @@ domUpdates = {
   displayWeeklyAvgSteps(date) {
     let avg = activity.getWeeklyAvgSteps(date)
     weekAvgSteps.innerHTML = `
-    <p>Average step per day:</p>
+    <p>Average steps per day:</p>
     <p class="stat">${avg}</p>`
   },
 

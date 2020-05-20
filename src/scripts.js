@@ -205,3 +205,44 @@ function toggleAside() {
     aside.classList.add('hide')
   }
 }
+
+// const dayBtn = document.getElementById('day-btn')
+// const weekBtn = document.getElementById('week-btn')
+// const allTimeBtn = document.getElementById('all-time-btn')
+const viewSelectBtns = document.getElementById('view-select-btns')
+const dayView = document.getElementById('day-view')
+const weekView = document.getElementById('week-view')
+const allTimeView = document.getElementById('all-time-view')
+
+viewSelectBtns.addEventListener('click', changeView) 
+
+function changeView() {
+  console.log(event.target)
+  showDayView(event)
+  showWeekView(event)
+  showAllTimeView(event)
+}
+
+function showDayView(event) {
+  if(event.target.id === 'day-btn') {
+    dayView.classList.remove('hide')
+    weekView.classList.add('hide')
+    allTimeView.classList.add('hide')
+  }
+}
+
+function showWeekView(event) {
+  if(event.target.id === 'week-btn') {
+    weekView.classList.remove('hide')
+    dayView.classList.add('hide')
+    allTimeView.classList.add('hide')
+  }
+}
+
+function showAllTimeView(event) {
+  if(event.target.id === 'all-time-btn') {
+    allTimeView.classList.remove('hide')
+    dayView.classList.add('hide')
+    weekView.classList.add('hide')
+  }
+}

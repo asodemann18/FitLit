@@ -1,5 +1,6 @@
 domUpdates = {
   displaySleepHoursForDay(date) {
+    const todaySleepHours = document.getElementById("today-sleep-hours");
     let sleepHoursForDay = sleep.getDailySleepHours(date)
     todaySleepHours.innerHTML = `
     <p>Hours slept:</p>
@@ -7,6 +8,7 @@ domUpdates = {
   },
   
   displaySleepQualForDay(date) {
+    const todaySleepQuality = document.getElementById("today-sleep-quality");
     let sleepQualForDay = sleep.getDailySleepQual(date)
     todaySleepQuality.innerHTML = `
     <p>Sleep quality:</p>
@@ -14,6 +16,7 @@ domUpdates = {
   },
 
   displayAvgSleepHoursForUser() {
+    const userAvgSleepHours = document.getElementById("user-avg-sleep-hours");
     let avgSleepHoursForUser = sleep.getAvgSleepHours()
     userAvgSleepHours.innerHTML = `
     <p>Average hours slept:</p>
@@ -31,6 +34,7 @@ domUpdates = {
   // },
 
   displayLongestSleepers(date) {
+    const longestSleepers = document.getElementById("longest-sleepers");
     let longestSleepersOnDate = sleepRepo.getLongestSleepers(date);
     let ids = longestSleepersOnDate.map(sleep => sleep.userID);
     let sleepUserData = [];
@@ -41,7 +45,6 @@ domUpdates = {
         }
       })
     })
-
     if (sleepUserData.length > 1) {
       longestSleepers.innerHTML = `<h4>Longest Sleepers:</h4> ${sleepUserData.join(', ')}`;
     } else {
@@ -50,6 +53,7 @@ domUpdates = {
   },
 
   displayHighestQualSleepers(date) {
+    const highestQualSleepers = document.getElementById("highest-qual-sleepers");
     let qualSleepersOnDate = sleepRepo.getHighestQualitySleepers(date);
     let ids = qualSleepersOnDate.map(sleep => sleep.userID);
     let sleepUserData = [];
@@ -60,7 +64,6 @@ domUpdates = {
         }
       })
     })
-
     if (sleepUserData.length > 1) {
       highestQualSleepers.innerHTML = `<h4>Best Sleepers:</h4> ${sleepUserData.join(', ')}`;
     } else {
@@ -69,6 +72,7 @@ domUpdates = {
   },
 
   displayAllQualitySleepers(date) {
+    const allHighestQualSleepers = document.getElementById("all-highest-qual-sleepers");  
     let allQualSleepersWeek = sleepRepo.getAllQualitySleepers(date);
     let sleepUserData = []
     userData.forEach((user) => {
@@ -84,9 +88,10 @@ domUpdates = {
   },
 
   displayHydrationForDay(date) {
+    const todayHydration = document.getElementById("today-hydration")
     let hydrationForDay = hydration.getDailyWater(date)
     todayHydration.innerHTML = `
-    <p>Water drank:</p>
+    <p>Water drank:<p>
     <p class="stat">${hydrationForDay}oz</p>`
   },
 
@@ -96,6 +101,7 @@ domUpdates = {
   // },
 
   displayMilesWalkedForDay(date) {
+    const todayMilesWalked = document.getElementById("today-miles-walked");
     let milesWalked = activity.getMilesWalked(date)
     todayMilesWalked.innerHTML = `
     <p>Miles walked:</p>
@@ -118,22 +124,26 @@ domUpdates = {
   // },
 
   displayAllUsersAvgMinsActive(date) {
+    const allUsersAvgMinsActive = document.getElementById("all-users-avg-mins-active");
     let avg = activityRepo.calculateAvgMinActive(date)
     allUsersAvgMinsActive.innerHTML = `Users averaged ${avg} minutes active on ${date}`
   },
 
   displayAllUsersAvgFlights(date) {
+    const allUsersAvgFlights = document.getElementById("all-users-avg-flights");
     let avg = activityRepo.calculateAvgStairs(date)
     allUsersAvgFlights.innerHTML = `Users averaged ${avg} flights of stairs climbed on ${date}`
   },
 
   displayMostActiveUser(date) {
+    const mostActiveUser = document.getElementById('most-active-user')
     let activity = activityRepo.calculateMaxMinActive(date)
     let user = userData.find(user => user.id === activity[0].userID)
     mostActiveUser.innerHTML = `<h4>Most Active:</h4> ${user.name} - ${activity[0].minutesActive} mins`
   },
 
   displayWeeklyAvgSteps(date) {
+    const weekAvgSteps = document.getElementById('week-steps-taken-avg');
     let avg = activity.getWeeklyAvgSteps(date)
     weekAvgSteps.innerHTML = `
     <p>Average steps per day:</p>
@@ -141,6 +151,7 @@ domUpdates = {
   },
 
   displayWeeklyAvgMinutesActive(date) {
+    const weekAvgMinsActive = document.getElementById('week-mins-active-avg');
     let avg = activity.getWeeklyAvgMinutesActive(date)
     weekAvgMinsActive.innerHTML = `
     <p>Average minutes active per day:</p>
@@ -148,6 +159,7 @@ domUpdates = {
   },
 
   displayWeeklyAvgFlights(date) {
+    const weekAvgFlights = document.getElementById('week-flights-avg');
     let avg = activity.getWeeklyAvgFlights(date)
     weekAvgFlights.innerHTML = `
     <p>Average flights per day:</p>
@@ -155,17 +167,24 @@ domUpdates = {
   },
 
   displayName() {
+    const greeting = document.getElementById("greeting");
     let name = currentUser.getName();
     greeting.innerHTML = `Hi, ${name}`;
   },
 
   displayInfo() {
+    const name = document.getElementById("name");
+    const address = document.getElementById("address");
+    const email = document.getElementById("email");
+    const strideLength = document.getElementById    ("stride-length");
+    const dailyStepGoal = document.getElementById   ("daily-step-goal");
+    const friends = document.getElementById("friends");
     let userName = currentUser.name;
     let userAddress = currentUser.address;
     let userEmail = currentUser.email
     let userStrideLength = currentUser.strideLength;
     let userDailyStepGoal = currentUser.dailyStepGoal;
-    let allAvgStepGoal = usersRepo.getAvgStepGoal();
+    //let allAvgStepGoal = usersRepo.getAvgStepGoal();
     name.innerHTML = `<h4>Name</h4> ${userName}`;
     address.innerHTML = `<h4>Address</h4> ${userAddress}`;
     email.innerHTML = `<h4>Email</h4> ${userEmail}`;
@@ -176,6 +195,7 @@ domUpdates = {
   },
 
   displayFriends() {
+    const friends = document.getElementById("friends");
     let userFriends = getFriends();
     let friendNames = userFriends.map(friend => friend.name);  
     if (friendNames.length > 1) {
@@ -186,6 +206,7 @@ domUpdates = {
   },
 
   displayStepChallenge(date) {
+    const stepChallenge = document.getElementById('step-challenge');
     let challengeUsers = calculateWeeklyStepChallenge(date)
     let rankedSteps = challengeUsers.map(user => Object.entries(user)).sort((a, b) => b[0][1] - a[0][1]);
     
@@ -195,6 +216,7 @@ domUpdates = {
   },
 
   displayExceedStepGoal() {
+    const exceedStepGoal = document.getElementById("exceed-step-goal-dates");
     let exceedStepsDays = activity.exceedStepGoal();
     exceedStepsDays.forEach((stepDay) => {
       exceedStepGoal.insertAdjacentHTML("beforeend", `<p>${stepDay}</p>`); 
@@ -202,16 +224,18 @@ domUpdates = {
   },
 
   displayAvgHydration() {
+    const avgHydration = document.getElementById("user-avg-hydration");
     let avg = hydration.getAvgWater()
     avgHydration.innerHTML = `
     <p>Average Water Drank:</p>
-    <p class="stat">${avg} oz</p>`
+    <p class="stat">${avg} oz</p>`;
   },
 
   displayMaxStairs() {
+    const maxStairs = document.getElementById("user-max-stairs-climbed");
     let max = activity.getMaxStairsClimbed()
     maxStairs.innerHTML = `
     <p>Maximum Flights Climbed:</p>
-    <p class="stat">${max}</p>`
+    <p class="stat">${max}</p>`;
   }
 }

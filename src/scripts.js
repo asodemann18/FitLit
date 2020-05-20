@@ -43,7 +43,7 @@ const email = document.getElementById("email");
 const strideLength = document.getElementById("stride-length");
 const dailyStepGoal = document.getElementById("daily-step-goal");
 const friends = document.getElementById("friends");
-// const stepGoalComparison = document.getElementById("step-goal-comparison");
+const stepGoalComparison = document.getElementById("step-goal-comparison");
 const weekSleepHoursId = document.getElementById("week-sleep-hours").getContext("2d");
 const weekSleepQualId = document.getElementById("week-sleep-quality").getContext("2d");
 const todayHydration = document.getElementById("today-hydration")
@@ -100,9 +100,9 @@ domUpdates.displayHydrationForDay(defaultDateInput);
 domUpdates.displayMilesWalkedForDay(currentDate);
 // domUpdates.displayStepsTakenForDay(currentDate);
 // domUpdates.displayStairsClimbedForDay(currentDate);
-domUpdates.displayAllUsersAvgSteps(currentDate);
-domUpdates.displayAllUsersAvgMinsActive(currentDate);
-domUpdates.displayAllUsersAvgFlights(currentDate);
+// domUpdates.displayAllUsersAvgSteps(currentDate);
+// domUpdates.displayAllUsersAvgMinsActive(currentDate);
+// domUpdates.displayAllUsersAvgFlights(currentDate);
 domUpdates.displayMostActiveUser(currentDate)
 domUpdates.displayWeeklyAvgMinutesActive(weekStartDate)
 domUpdates.displayWeeklyAvgSteps(weekStartDate)
@@ -169,4 +169,36 @@ function calculateWeeklyStepChallenge(date) {
 function getRandomUser(array) {
   let randomIndex =  Math.floor(Math.random() * array.length);
   return array[randomIndex]
+}
+
+const userProfileContainer = document.getElementById('user-profile-container')
+const competitionContainer = document.getElementById('competition-container')
+const myProfileBtn = document.getElementById('my-profile-btn')
+const competitionBtn = document.getElementById('competition-btn')
+const aside = document.getElementById('aside')
+
+myProfileBtn.addEventListener('click', showProfile)
+competitionBtn.addEventListener('click', showCompetition)
+
+function showProfile() {
+  userProfileContainer.classList.toggle('hide')
+  // if(!userProfileContainer.classList.contains('hide')) {
+  //   aside.classList.remove('hide')
+  // }
+  toggleAside()
+}
+
+function showCompetition() {
+  console.log('comp')
+  competitionContainer.classList.toggle('hide')
+  toggleAside()
+}
+
+
+function toggleAside() {
+  if(!userProfileContainer.classList.contains('hide') || !competitionContainer.classList.contains('hide')) {
+    aside.classList.remove('hide')
+  } else if (userProfileContainer.classList.contains('hide') && competitionContainer.classList.contains('hide')) {
+    aside.classList.add('hide')
+  }
 }

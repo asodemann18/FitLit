@@ -79,6 +79,7 @@ aside {
 #step-challenge-container {
   border: 1px solid black;
   max-height: 25%;
+  margin-top: 10%;
   overflow: scroll;
   width: 100%
 }

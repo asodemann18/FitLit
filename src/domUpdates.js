@@ -112,10 +112,10 @@ domUpdates = {
   // todayStairsClimbed.innerHTML = `You climbed ${stairsClimbed} flights of stairs on ${date}`;
   // },
 
-  displayAllUsersAvgSteps(date) {
-    let avg = activityRepo.calculateAvgSteps(date)
-    allUsersAvgSteps.innerHTML = `Users averaged ${avg} steps on ${date}`
-  },
+  // displayAllUsersAvgSteps(date) {
+  //   let avg = activityRepo.calculateAvgSteps(date)
+  //   allUsersAvgSteps.innerHTML = `Users averaged ${avg} steps on ${date}`
+  // },
 
   displayAllUsersAvgMinsActive(date) {
     let avg = activityRepo.calculateAvgMinActive(date)
@@ -171,7 +171,7 @@ domUpdates = {
     email.innerHTML = `<h4>Email</h4> ${userEmail}`;
     strideLength.innerHTML = `<h4>Stride Length</h4> ${userStrideLength}`;
     dailyStepGoal.innerHTML = `<h4>Daily Step Goal</h4> ${userDailyStepGoal}`;
-    stepGoalComparison.innerHTML = `<h4>Average Step Goal</h4> ${allAvgStepGoal}`;
+    // stepGoalComparison.innerHTML = `<h4>Average Step Goal</h4> ${allAvgStepGoal}`;
     this.displayFriends();
   },
 

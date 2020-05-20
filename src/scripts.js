@@ -43,7 +43,7 @@ const email = document.getElementById("email");
 const strideLength = document.getElementById("stride-length");
 const dailyStepGoal = document.getElementById("daily-step-goal");
 const friends = document.getElementById("friends");
-// const stepGoalComparison = document.getElementById("step-goal-comparison");
+const stepGoalComparison = document.getElementById("step-goal-comparison");
 const weekSleepHoursId = document.getElementById("week-sleep-hours").getContext("2d");
 const weekSleepQualId = document.getElementById("week-sleep-quality").getContext("2d");
 const todayHydration = document.getElementById("today-hydration")
@@ -100,9 +100,9 @@ domUpdates.displayHydrationForDay(defaultDateInput);
 domUpdates.displayMilesWalkedForDay(currentDate);
 // domUpdates.displayStepsTakenForDay(currentDate);
 // domUpdates.displayStairsClimbedForDay(currentDate);
-domUpdates.displayAllUsersAvgSteps(currentDate);
-domUpdates.displayAllUsersAvgMinsActive(currentDate);
-domUpdates.displayAllUsersAvgFlights(currentDate);
+// domUpdates.displayAllUsersAvgSteps(currentDate);
+// domUpdates.displayAllUsersAvgMinsActive(currentDate);
+// domUpdates.displayAllUsersAvgFlights(currentDate);
 domUpdates.displayMostActiveUser(currentDate)
 domUpdates.displayWeeklyAvgMinutesActive(weekStartDate)
 domUpdates.displayWeeklyAvgSteps(weekStartDate)

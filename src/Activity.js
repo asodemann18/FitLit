@@ -165,13 +165,12 @@ class Activity {
   }
 
   getStepsForWeek(date) {
-    let newDate = this.checkDate(date)
+    let newDate = this.checkDate(date);
     if (date !== newDate) {
-      return 'You must pass a valid date'
+      return 'You must pass a valid date';
     } else {
       let activityDate = this.userActivity.find(activity => activity.date === date);
       let firstDate = this.userActivity.indexOf(activityDate);
-    
       return this.userActivity
         .slice(firstDate, firstDate + 7)
         .map(activity => activity.numSteps);
@@ -179,13 +178,12 @@ class Activity {
   }
 
   getFlightsForWeek(date) {
-    let newDate = this.checkDate(date)
+    let newDate = this.checkDate(date);
     if (date !== newDate) {
-      return 'You must pass a valid date'
+      return 'You must pass a valid date';
     } else {
       let activityDate = this.userActivity.find(activity => activity.date === date);
       let firstDate = this.userActivity.indexOf(activityDate);
-    
       return this.userActivity
         .slice(firstDate, firstDate + 7)
         .map(activity => activity.flightsOfStairs);
@@ -193,13 +191,12 @@ class Activity {
   }
 
   getMinsActiveForWeek(date) {
-    let newDate = this.checkDate(date)
+    let newDate = this.checkDate(date);
     if (date !== newDate) {
-      return 'You must pass a valid date'
+      return 'You must pass a valid date';
     } else {
       let activityDate = this.userActivity.find(activity => activity.date === date);
       let firstDate = this.userActivity.indexOf(activityDate);
-    
       return this.userActivity
         .slice(firstDate, firstDate + 7)
         .map(activity => activity.minutesActive);
@@ -211,8 +208,8 @@ class Activity {
     if (date !== newDate) {
       return 'You must pass a valid date';
     } else {
-      let foundActivity = this.userActivity.find(activity => activity.date === newDate)
-      return foundActivity.flightsOfStairs
+      let foundActivity = this.userActivity.find(activity => activity.date === newDate);
+      return foundActivity.flightsOfStairs;
     }  
   }
 }

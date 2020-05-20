@@ -16,8 +16,7 @@ class Hydration {
     } else {
       let dailyHydration = this.userHydration.filter(hydration => {
         return hydration.date === date;
-      })
-      
+      })     
       return dailyHydration.reduce((acc, hydration) => {
         acc += hydration.numOunces;
         return acc;
@@ -33,9 +32,7 @@ class Hydration {
       let hydrationDate = this.userHydration.find(hydration => {
         return hydration.date === date
       })
-
       let firstDate = this.userHydration.indexOf(hydrationDate);
-      
       return this.userHydration
         .slice(firstDate, firstDate + 7)
         .map(hydration => hydration.numOunces); 
@@ -46,7 +43,6 @@ class Hydration {
     let avg = this.userHydration.reduce((acc, hydration) => {
       return acc += hydration.numOunces / this.userHydration.length
     }, 0)
-
     return Math.ceil(avg);
   }
 

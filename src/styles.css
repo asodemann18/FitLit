@@ -126,15 +126,18 @@ aside {
   flex-direction: column;
 }
 
+.day-stats-title {
+  height: 5vh
+}
+
 #day-stats-text {
   height: 40%;
   width: 100%
 }
 
 #day-stats-text-container {
-  
   display: flex;
-  height: 100%;
+  height: 80%;
   justify-content: space-between;
 }
 
@@ -148,8 +151,18 @@ aside {
 }
 
 #day-stats-charts {
+  display: flex;
+  flex-direction: column;
   height: 60%;
   width: 100%;
+  justify-content: space-between;
+}
+
+#day-stats-charts-container {
+  display: flex;
+  height: 90%;
+  justify-self: flex-end;
+  justify-content: space-between;
 }
 
 /* WEEK VIEW */
@@ -159,7 +172,7 @@ aside {
 }
 
 #week-stats-title {
-  height: 15%
+  height: 9vh
 }
 
 #week-stats-charts {
@@ -170,9 +183,9 @@ aside {
 }
 
 #week-stats-charts-top,
-#week-stats-charts-bottom,
-#daily-stats-charts {
+#week-stats-charts-bottom {
   display: flex;
+  height: 80%;
   justify-content: space-between;
 }
 
@@ -188,6 +201,7 @@ aside {
 }
 
 .chart-container {
+  height: 100%;
   width: 30%;
 }
 

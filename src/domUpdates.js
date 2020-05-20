@@ -174,7 +174,7 @@ domUpdates = {
     email.innerHTML = `Email: ${userEmail}`;
     strideLength.innerHTML = `Stride Length: ${userStrideLength}`;
     dailyStepGoal.innerHTML = `Daily Step Goal: ${userDailyStepGoal}`;
-    stepGoalComparison.innerHTML = `Average Step Goal: ${allAvgStepGoal}`;
+    // stepGoalComparison.innerHTML = `Average Step Goal: ${allAvgStepGoal}`;
     this.displayFriends();
   },
 

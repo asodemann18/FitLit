@@ -22,6 +22,10 @@ const dailyMinActive = activity.getMinutesActive(currentDate);
 const allAvgDailyMinActive = activityRepo.calculateAvgMinActive(currentDate);
 const dailyFlightsClimbed = activity.getStairsClimbed(currentDate);
 const allAvgFlightsClimbed = activityRepo.calculateAvgStairs(currentDate);
+const userDailyStepGoal = currentUser.dailyStepGoal;
+const allAvgStepGoal = usersRepo.getAvgStepGoal();
+const userAllTimeAvgSleepQual = sleep.getAvgSleepQual();
+const AllTimeAvgSleepQual = sleepRepo.calculateAverageSleep();
 
 
 const todaySleepHours = document.getElementById("today-sleep-hours");
@@ -39,7 +43,7 @@ const email = document.getElementById("email");
 const strideLength = document.getElementById("stride-length");
 const dailyStepGoal = document.getElementById("daily-step-goal");
 const friends = document.getElementById("friends");
-const stepGoalComparison = document.getElementById("step-goal-comparison");
+// const stepGoalComparison = document.getElementById("step-goal-comparison");
 const weekSleepHoursId = document.getElementById("week-sleep-hours").getContext("2d");
 const weekSleepQualId = document.getElementById("week-sleep-quality").getContext("2d");
 const todayHydration = document.getElementById("today-hydration")
@@ -64,6 +68,10 @@ const dailySubmitButton = document.getElementById('daily-submit');
 const dailyStepComparison = document.getElementById('daily-step-comparison');
 const dailyMinActiveComparison = document.getElementById('daily-minutes-active-comparison');
 const dailyFlightsComparison = document.getElementById('daily-flights-climbed-comparison');
+const allTimeStepComparison = document.getElementById("all-time-step-goal-comparison");
+const allTimeSleepQualComparison = document.getElementById("all-time-sleep-quality-comparison");
+
+
 
 const createDate = new Date(dateInput.value);
 const defaultDateInput = (createDate.getFullYear() + "/" + 
@@ -118,6 +126,8 @@ charts.weeklyMinsActiveChart();
 charts.dailyStepsCompareChart();
 charts.dailyMinActiveCompareChart();
 charts.dailyFlightsCompareChart();
+charts.allTimeStepCompareChart();
+charts.allTimeSleepQualCompareChart();
 
 function getFriends() {
   let userFriends = currentUser.friends;

@@ -433,5 +433,75 @@ const charts = {
         }, 
       }
     });
+  }, 
+
+  allTimeStepCompareChart() {
+    return new Chart(allTimeStepComparison, {
+      type: 'bar',
+      data: {
+          datasets: [{
+              legend: false,
+              data: [userDailyStepGoal, allAvgStepGoal],
+              fill: false,
+              backgroundColor: [
+                "rgba(153, 102, 255, .8)",
+                "rgb(255, 140, 0, .8)",],
+          }],
+          labels: ['Your Avg', 'All User\s Avg']
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        title: {
+          display: true,
+          text: "Step Goal",
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          display: false,
+        }, 
+      }
+    });
+  }, 
+
+  allTimeSleepQualCompareChart() {
+    return new Chart(allTimeSleepQualComparison, {
+      type: 'bar',
+      data: {
+          datasets: [{
+              legend: false,
+              data: [userAllTimeAvgSleepQual, AllTimeAvgSleepQual],
+              fill: false,
+              backgroundColor: [
+                "rgba(153, 102, 255, .8)",
+                "rgb(255, 140, 0, .8)",],
+          }],
+          labels: ['Your Avg', 'All User\s Avg']
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        title: {
+          display: true,
+          text: "Sleep Quality",
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          display: false,
+        }, 
+      }
+    });
   }
 }

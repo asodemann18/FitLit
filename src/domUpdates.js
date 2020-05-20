@@ -174,7 +174,7 @@ domUpdates = {
     email.innerHTML = `Email: ${userEmail}`;
     strideLength.innerHTML = `Stride Length: ${userStrideLength}`;
     dailyStepGoal.innerHTML = `Daily Step Goal: ${userDailyStepGoal}`;
-    stepGoalComparison.innerHTML = `Average Step Goal: ${allAvgStepGoal}`;
+    // stepGoalComparison.innerHTML = `Average Step Goal: ${allAvgStepGoal}`;
     this.displayFriends();
   },
 
@@ -195,5 +195,13 @@ domUpdates = {
     rankedSteps.forEach((step, i) => {
       stepChallenge.insertAdjacentHTML("beforeend", `<p>${i+1}. ${step[0][0]}: ${step[0][1]}</p>`);    
     });
+  },
+
+  displayExceedStepGoal() {
+    let exceedStepsDays = activity.exceedStepGoal();
+    exceedStepsDays.forEach((stepDay) => {
+      exceedStepGoal.insertAdjacentHTML("beforeend", `<p>${stepDay}</p>`); 
+    });
+    
   }
 }

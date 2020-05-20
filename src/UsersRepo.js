@@ -3,13 +3,7 @@
 class UsersRepo {
   constructor(usersData) {
     this.allUsers = usersData;
-    // this.allUsers2 = []
   }
-
-  // createUsers(users) {
-  //   console.log('users', users)
-  //   return users.map(user => new User(user))
-  // }
 
   getUser(id) {
     if (typeof id === 'number') {
@@ -28,5 +22,3 @@ class UsersRepo {
 if (typeof module !== 'undefined') {
   module.exports = UsersRepo;
 }
-
-//TEST FOR WRONG DATA TYPE IN CONSTRUCTOR

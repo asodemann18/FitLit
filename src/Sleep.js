@@ -84,15 +84,6 @@ class Sleep {
         .map(sleep => sleep.sleepQuality);
     }
   }
-
-  // getWeeklySleepProp(date, property) {
-  //   let sleepDate = this.userSleep.find(sleep => sleep.date === date)
-  //   let firstDate = this.userSleep.indexOf(sleepDate);
-    
-  //   return this.userSleep
-  //     .slice(firstDate, firstDate+7)
-  //     .map(sleep => sleep[property]);
-  // }
 }
 
 if (typeof module !== 'undefined') {

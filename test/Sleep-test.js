@@ -91,19 +91,19 @@ describe('Sleep', () => {
   })
 
   it('should calculate average all time sleep hours', () => {
-    expect(sleep.getAvgSleepHours()).to.equal(6.95)
+    expect(sleep.getAvgSleepHours()).to.equal(7)
   })
 
   it('should calculate average all time sleep hours even when an argument is passed', () => {
-    expect(sleep.getAvgSleepHours('test')).to.equal(6.95);
+    expect(sleep.getAvgSleepHours('test')).to.equal(7);
   })
 
   it('should calculate average all time sleep quality', () => {
-    expect(sleep.getAvgSleepQual()).to.equal(3.1)
+    expect(sleep.getAvgSleepQual()).to.equal(3.4)
   })
 
   it('should calculate average all time sleep quality even when an argument is passed', () => {
-    expect(sleep.getAvgSleepQual('test')).to.equal(3.1);
+    expect(sleep.getAvgSleepQual('test')).to.equal(3.4);
   })
 
   it('should return specific sleep hours over 7 days', () => {
@@ -123,7 +123,7 @@ describe('Sleep', () => {
   })
 
   it('should return specific sleep quality over 7 days', () => {
-    expect(sleep.getWeeklySleepQual("2019/06/15")).to.deep.equal([2.2, 4.7, 4.7, 3, 3.6, 2.9, 2.6])
+    expect(sleep.getWeeklySleepQual("2019/06/15")).to.deep.equal([ 5, 4.7, 4.7, 3, 3.6, 2.9, 2.6 ])
   })
 
   it('should return specific sleep quality over x days if there aren\'t 7 days worth of data', () => {

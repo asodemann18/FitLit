@@ -447,7 +447,7 @@ const charts = {
                 "rgb(60, 179, 113, .8)",
                 "rgb(255, 140, 0, .8)",],
           }],
-          labels: ['Your Avg', 'All User\s Avg']
+          labels: ['Your Goal', 'All User\s Avg']
       },
       options: {
         scales: {

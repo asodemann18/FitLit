@@ -1,5 +1,7 @@
 const charts = {
   weeklySleepQualChart() {
+    const weekSleepQuality = sleep.getWeeklySleepQual(weekStartDate);
+    const weekSleepQualId = document.getElementById("week-sleep-quality");
     return new Chart(weekSleepQualId, {
       type: "line",
       data: {
@@ -51,6 +53,8 @@ const charts = {
   },
 
   weeklySleepHoursChart() {
+    const weekSleepHours = sleep.getWeeklySleepHours(weekStartDate);
+    const weekSleepHoursId = document.getElementById("week-sleep-hours");
     return new Chart(weekSleepHoursId, {
       type: "line",
       data: {
@@ -102,6 +106,8 @@ const charts = {
   },
 
   weeklyHydrationChart() {
+    const weekOuncesDrank = hydration.getWeeklyWater(weekStartDate);
+    const weekHydrationId = document.getElementById("week-hydration");
     return new Chart(weekHydrationId, {
       type: "line",
       data: {
@@ -139,8 +145,8 @@ const charts = {
             }
           }]
         },
-        // maintainAspectRatio: false,
-        // responsive: true,
+        //maintainAspectRatio: false,
+        //responsive: true,
         legend: {
           display: false
         },
@@ -153,6 +159,8 @@ const charts = {
   },
   
   weeklyStepsChart() {
+    const weekStepCount = activity.getStepsForWeek(weekStartDate);  
+    const weekStepsId = document.getElementById('week-steps');
     return new Chart(weekStepsId, {
       type: "line",
       data: {
@@ -204,6 +212,8 @@ const charts = {
   },
   
   weeklyFlightsChart() {
+    const weekFlightsClimbed = activity.getFlightsForWeek(weekStartDate);
+    const weekFlightsId = document.getElementById('week-flights');
     return new Chart(weekFlightsId, {
       type: "line",
       data: {
@@ -255,6 +265,8 @@ const charts = {
   },
 
   weeklyMinsActiveChart() {
+    const weekMinsActive = activity.getMinsActiveForWeek(weekStartDate);
+    const weekMinsActiveId = document.getElementById('week-mins-active')
     return new Chart(weekMinsActiveId, {
       type: "line",
       data: {
@@ -306,6 +318,9 @@ const charts = {
   },
 
   dailyStepsCompareChart() {
+    const dailyStepsTaken = activity.getStepsTaken(currentDate);
+    const allAvgDailyStepsTaken = activityRepo.calculateAvgSteps(currentDate);
+    const dailyStepComparison = document.getElementById('daily-step-comparison');
     return new Chart(dailyStepComparison, {
       type: 'bar',
       data: {
@@ -320,8 +335,6 @@ const charts = {
           }, {
               label: 'Daily Step Goal',
               data: [currentUser.dailyStepGoal, currentUser.dailyStepGoal],
-  
-              // Changes this dataset to become a line
               type: 'line',
               fill: false,
               backgroundColor: [
@@ -364,6 +377,9 @@ const charts = {
   },
 
   dailyMinActiveCompareChart() {
+    const dailyMinActive = activity.getMinutesActive(currentDate);
+    const allAvgDailyMinActive = activityRepo.calculateAvgMinActive(currentDate);
+    const dailyMinActiveComparison = document.getElementById('daily-minutes-active-comparison');
     return new Chart(dailyMinActiveComparison, {
       type: 'bar',
       data: {
@@ -400,11 +416,13 @@ const charts = {
   },
 
   dailyFlightsCompareChart() {
+    const dailyFlightsClimbed = activity.getStairsClimbed(currentDate);
+    const allAvgFlightsClimbed = activityRepo.calculateAvgStairs(currentDate);
+    const dailyFlightsComparison = document.getElementById('daily-flights-climbed-comparison');   
     return new Chart(dailyFlightsComparison, {
       type: 'bar',
       data: {
           datasets: [{
-              //label: 'You',
               legend: false,
               data: [dailyFlightsClimbed, allAvgFlightsClimbed],
               fill: false,
@@ -436,6 +454,9 @@ const charts = {
   }, 
 
   allTimeStepCompareChart() {
+    const userDailyStepGoal = currentUser.dailyStepGoal;
+    const allAvgStepGoal = usersRepo.getAvgStepGoal();
+    const allTimeStepComparison = document.getElementById("all-time-step-goal-comparison");
     return new Chart(allTimeStepComparison, {
       type: 'bar',
       data: {
@@ -471,6 +492,9 @@ const charts = {
   }, 
 
   allTimeSleepQualCompareChart() {
+    const userAllTimeAvgSleepQual = sleep.getAvgSleepQual();
+    const AllTimeAvgSleepQual = sleepRepo.calculateAverageSleep();
+    const allTimeSleepQualComparison = document.getElementById("all-time-sleep-quality-comparison");
     return new Chart(allTimeSleepQualComparison, {
       type: 'bar',
       data: {

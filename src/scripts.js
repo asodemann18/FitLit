@@ -71,6 +71,8 @@ const dailyFlightsComparison = document.getElementById('daily-flights-climbed-co
 const allTimeStepComparison = document.getElementById("all-time-step-goal-comparison");
 const allTimeSleepQualComparison = document.getElementById("all-time-sleep-quality-comparison");
 const exceedStepGoal = document.getElementById("exceed-step-goal-dates");
+const avgHydration = document.getElementById("user-avg-hydration");
+const maxStairs = document.getElementById("user-max-stairs-climbed");
 
 
 
@@ -115,7 +117,8 @@ domUpdates.displayName();
 domUpdates.displayInfo();
 domUpdates.displayStepChallenge(weekStartDate);
 domUpdates.displayExceedStepGoal();
-//domUpdates.calculateWeeklyStepChallenge(weekStartDate);
+domUpdates.displayAvgHydration();
+domUpdates.displayMaxStairs();
 getFriends();
 
 

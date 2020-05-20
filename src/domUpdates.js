@@ -199,6 +199,19 @@ domUpdates = {
     exceedStepsDays.forEach((stepDay) => {
       exceedStepGoal.insertAdjacentHTML("beforeend", `<p>${stepDay}</p>`); 
     });
-    
+  },
+
+  displayAvgHydration() {
+    let avg = hydration.getAvgWater()
+    avgHydration.innerHTML = `
+    <p>Average Water Drank:</p>
+    <p class="stat">${avg} oz</p>`
+  },
+
+  displayMaxStairs() {
+    let max = activity.getMaxStairsClimbed()
+    maxStairs.innerHTML = `
+    <p>Maximum Flights Climbed:</p>
+    <p class="stat">${max}</p>`
   }
 }

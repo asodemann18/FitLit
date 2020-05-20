@@ -475,12 +475,12 @@ const charts = {
       type: 'bar',
       data: {
           datasets: [{
-              legend: false,
-              data: [userAllTimeAvgSleepQual, AllTimeAvgSleepQual],
-              fill: false,
-              backgroundColor: [
-                "rgba(153, 102, 255, .8)",
-                "rgb(255, 140, 0, .8)",],
+            legend: false,
+            data: [userAllTimeAvgSleepQual, AllTimeAvgSleepQual],
+            fill: false,
+            backgroundColor: [
+              "rgba(153, 102, 255, .8)",
+              "rgb(255, 140, 0, .8)",],
           }],
           labels: ['Your Avg', 'All User\s Avg']
       },

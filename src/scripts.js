@@ -70,6 +70,7 @@ const dailyMinActiveComparison = document.getElementById('daily-minutes-active-c
 const dailyFlightsComparison = document.getElementById('daily-flights-climbed-comparison');
 const allTimeStepComparison = document.getElementById("all-time-step-goal-comparison");
 const allTimeSleepQualComparison = document.getElementById("all-time-sleep-quality-comparison");
+const exceedStepGoal = document.getElementById("exceed-step-goal-dates");
 
 
 
@@ -113,6 +114,7 @@ domUpdates.displayAllQualitySleepers(weekStartDate);
 domUpdates.displayName();
 domUpdates.displayInfo();
 domUpdates.displayStepChallenge(weekStartDate);
+domUpdates.displayExceedStepGoal();
 //domUpdates.calculateWeeklyStepChallenge(weekStartDate);
 getFriends();
 

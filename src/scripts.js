@@ -18,6 +18,11 @@ const weekFlightsClimbed = activity.getFlightsForWeek(weekStartDate);
 const weekMinsActive = activity.getMinsActiveForWeek(weekStartDate);
 const dailyStepsTaken = activity.getStepsTaken(currentDate);
 const allAvgDailyStepsTaken = activityRepo.calculateAvgSteps(currentDate);
+const dailyMinActive = activity.getMinutesActive(currentDate);
+const allAvgDailyMinActive = activityRepo.calculateAvgMinActive(currentDate);
+const dailyFlightsClimbed = activity.getStairsClimbed(currentDate);
+const allAvgFlightsClimbed = activityRepo.calculateAvgStairs(currentDate);
+
 
 const todaySleepHours = document.getElementById("today-sleep-hours");
 const todaySleepQuality = document.getElementById("today-sleep-quality");
@@ -57,6 +62,8 @@ const stepChallenge = document.getElementById('step-challenge');
 const dateInput = document.getElementById('date-input');
 const dailySubmitButton = document.getElementById('daily-submit');
 const dailyStepComparison = document.getElementById('daily-step-comparison');
+const dailyMinActiveComparison = document.getElementById('daily-minutes-active-comparison');
+const dailyFlightsComparison = document.getElementById('daily-flights-climbed-comparison');
 
 const createDate = new Date(dateInput.value);
 const defaultDateInput = (createDate.getFullYear() + "/" + 
@@ -109,6 +116,8 @@ charts.weeklyStepsChart();
 charts.weeklyFlightsChart();
 charts.weeklyMinsActiveChart();
 charts.dailyStepsCompareChart();
+charts.dailyMinActiveCompareChart();
+charts.dailyFlightsCompareChart();
 
 function getFriends() {
   let userFriends = currentUser.friends;

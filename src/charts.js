@@ -310,14 +310,27 @@ const charts = {
       type: 'bar',
       data: {
           datasets: [{
-              label: 'Bar Dataset',
-              data: [dailyStepsTaken, allAvgDailyStepsTaken]
+              label: 'You',
+              legend: false,
+              data: [dailyStepsTaken, allAvgDailyStepsTaken],
+              fill: false,
+              backgroundColor: [
+                "rgba(153, 102, 255, .8)",
+                "rgb(255, 140, 0, .8)",],
           }, {
-              label: 'Line Dataset',
-              data: [currentUser.dailyStepGoal],
+              label: 'Daily Step Goal',
+              data: [currentUser.dailyStepGoal, currentUser.dailyStepGoal],
   
               // Changes this dataset to become a line
-              type: 'line'
+              type: 'line',
+              fill: false,
+              backgroundColor: [
+                "rgb(0, 0, 0)",
+                "rgb(0, 0, 0)",
+              ],
+              borderColor: [
+                "rgb(0, 0, 0)",
+              ],
           }],
           labels: ['You', 'All User\s Daily Avg']
       },
@@ -329,6 +342,95 @@ const charts = {
             }
           }]
         },
+        title: {
+          display: true,
+          text: "Daily Steps",
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          position: 'bottom',
+          labels: {
+            filter: function(legendItem, chartData) {
+              if (legendItem.datasetIndex === 0) {
+                return false;
+              }
+             return true;
+             },
+          }
+        }, 
+      }
+    });
+  },
+
+  dailyMinActiveCompareChart() {
+    return new Chart(dailyMinActiveComparison, {
+      type: 'bar',
+      data: {
+          datasets: [{
+              //label: 'You',
+              legend: false,
+              data: [dailyMinActive, allAvgDailyMinActive],
+              fill: false,
+              backgroundColor: [
+                "rgba(153, 102, 255, .8)",
+                "rgb(255, 140, 0, .8)",],
+          }],
+          labels: ['You', 'All User\s Daily Avg']
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        title: {
+          display: true,
+          text: "Daily Minutes Active",
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          display: false,
+        }, 
+      }
+    });
+  },
+
+  dailyFlightsCompareChart() {
+    return new Chart(dailyFlightsComparison, {
+      type: 'bar',
+      data: {
+          datasets: [{
+              //label: 'You',
+              legend: false,
+              data: [dailyFlightsClimbed, allAvgFlightsClimbed],
+              fill: false,
+              backgroundColor: [
+                "rgba(153, 102, 255, .8)",
+                "rgb(255, 140, 0, .8)",],
+          }],
+          labels: ['You', 'All User\s Daily Avg']
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        },
+        title: {
+          display: true,
+          text: "Daily Flights Climbed",
+        },
+        maintainAspectRatio: false,
+        responsive: true,
+        legend: {
+          display: false,
+        }, 
       }
     });
   }

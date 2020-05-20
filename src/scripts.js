@@ -9,128 +9,85 @@ const usersRepo = new UsersRepo(userData);
 const hydration = new Hydration(currentUser.id, hydrationData);
 const activity = new Activity(currentUser.id, activityData, userData);
 const activityRepo = new ActivityRepo(activityData);
-
-// const weekSleepHours = sleep.getWeeklySleepHours(weekStartDate);
-// const weekSleepQuality = sleep.getWeeklySleepQual(weekStartDate);
-// const weekOuncesDrank = hydration.getWeeklyWater(weekStartDate);
-// const weekStepCount = activity.getStepsForWeek(weekStartDate);
-// const weekFlightsClimbed = activity.getFlightsForWeek(weekStartDate);
-// const weekMinsActive = activity.getMinsActiveForWeek(weekStartDate);
-// const dailyStepsTaken = activity.getStepsTaken(currentDate);
-// const allAvgDailyStepsTaken = activityRepo.calculateAvgSteps(currentDate);
-// const dailyMinActive = activity.getMinutesActive(currentDate);
-// const allAvgDailyMinActive = activityRepo.calculateAvgMinActive(currentDate);
-// const dailyFlightsClimbed = activity.getStairsClimbed(currentDate);
-// const allAvgFlightsClimbed = activityRepo.calculateAvgStairs(currentDate);
-// const userDailyStepGoal = currentUser.dailyStepGoal;
-// const allAvgStepGoal = usersRepo.getAvgStepGoal();
-// const userAllTimeAvgSleepQual = sleep.getAvgSleepQual();
-// const AllTimeAvgSleepQual = sleepRepo.calculateAverageSleep();
-
-
-// const todaySleepHours = document.getElementById("today-sleep-hours");
-// const todaySleepQuality = document.getElementById("today-sleep-quality");
-// const userAvgSleepHours = document.getElementById("user-avg-sleep-hours")
-// const userAvgSleepQuality = document.getElementById("user-avg-sleep-quality");
-// const allAvgSleepQuality = document.getElementById("all-avg-sleep-quality");
-// const longestSleepers = document.getElementById("longest-sleepers");
-// const highestQualSleepers = document.getElementById("highest-qual-sleepers");
-// const allHighestQualSleepers = document.getElementById("all-highest-qual-sleepers");
-// const greeting = document.getElementById("greeting");
-// const name = document.getElementById("name");
-// const address = document.getElementById("address");
-// const email = document.getElementById("email");
-// const strideLength = document.getElementById("stride-length");
-// const dailyStepGoal = document.getElementById("daily-step-goal");
-// const friends = document.getElementById("friends");
-// const stepGoalComparison = document.getElementById("step-goal-comparison");
-// const weekSleepHoursId = document.getElementById("week-sleep-hours").getContext("2d");
-// const weekSleepQualId = document.getElementById("week-sleep-quality").getContext("2d");
-// const todayHydration = document.getElementById("today-hydration")
-// const weekHydrationId = document.getElementById("week-hydration").getContext("2d");
-// const todayStepsTaken = document.getElementById("today-steps-taken")
-// const todayMinsActive = document.getElementById("today-mins-active")
-// const todayStairsClimbed = document.getElementById("today-stairs-climbed");
-// const todayMilesWalked = document.getElementById("today-miles-walked")
-// const allUsersAvgSteps = document.getElementById("all-users-avg-steps")
-// const allUsersAvgMinsActive = document.getElementById("all-users-avg-mins-active")
-// const allUsersAvgFlights = document.getElementById("all-users-avg-flights")
-// const mostActiveUser = document.getElementById('most-active-user')
-// const weekStepsId = document.getElementById('week-steps').getContext('2d')
-// const weekFlightsId = document.getElementById('week-flights').getContext('2d')
-// const weekMinsActiveId = document.getElementById('week-mins-active').getContext('2d')
-// const weekAvgSteps = document.getElementById('week-steps-taken-avg')
-// const weekAvgMinsActive = document.getElementById('week-mins-active-avg')
-// const weekAvgFlights = document.getElementById('week-flights-avg')
-// const stepChallenge = document.getElementById('step-challenge');
 const dateInput = document.getElementById('date-input');
 const dailySubmitButton = document.getElementById('daily-submit');
-// const dailyStepComparison = document.getElementById('daily-step-comparison');
-// const dailyMinActiveComparison = document.getElementById('daily-minutes-active-comparison');
-// const dailyFlightsComparison = document.getElementById('daily-flights-climbed-comparison');
-// const allTimeStepComparison = document.getElementById("all-time-step-goal-comparison");
-// const allTimeSleepQualComparison = document.getElementById("all-time-sleep-quality-comparison");
-// const exceedStepGoal = document.getElementById("exceed-step-goal-dates");
-// const avgHydration = document.getElementById("user-avg-hydration");
-// const maxStairs = document.getElementById("user-max-stairs-climbed");
-
-
-
 const createDate = new Date(dateInput.value);
 const defaultDateInput = (createDate.getFullYear() + "/" + 
 ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
 ("0" + createDate.getUTCDate()).slice(-2));
+const dateTitle = document.querySelector(".view-title-text");
+const weekStepCount = activity.getStepsForWeek(weekStartDate);  
+const weekStepsId = document.getElementById('week-steps');
+const weekFlightsClimbed = activity.getFlightsForWeek(weekStartDate);
+const weekFlightsId = document.getElementById('week-flights');
+const weekMinsActive = activity.getMinsActiveForWeek(weekStartDate);
+const weekMinsActiveId = document.getElementById('week-mins-active');
 
-
+dateHandler(defaultDateInput);
 dailySubmitButton.addEventListener('click', changeDate);
 
 
+
 function changeDate() {
-  let createDate = new Date(dateInput.value);
+  let createDate = new Date(dateInput.value);  
   let correctDateInput = (createDate.getFullYear() + "/" + 
     ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
     ("0" + createDate.getUTCDate()).slice(-2));
-  return domUpdates.displayHydrationForDay(correctDateInput)
+    clearStepChallenge();
+    dateHandler(correctDateInput);
+    changeDateTitle();
 }
 
-domUpdates.displaySleepHoursForDay(currentDate);
-domUpdates.displaySleepQualForDay(currentDate);
+function changeDateTitle() {
+  if(event.target.id === 'daily-submit' && !dayView.classList.contains('hide')) {
+    dateTitle.innerHTML = `Day of ${dateInput.value}`;
+  }
+  if(event.target.id === 'daily-submit' && !weekView.classList.contains('hide')) {
+    dateTitle.innerHTML = `Week of ${dateInput.value}`
+  }
+  if(event.target.id === 'daily-submit' && !allTimeView.classList.contains('hide')) {
+    dateTitle.innerHTML = `All Time`;
+  }
+}
+
+function clearStepChallenge() {
+  const stepChallenge = document.getElementById('step-challenge');
+  stepChallenge.innerHTML = "";
+}
+
+
+function dateHandler(date) {
+  domUpdates.displaySleepHoursForDay(date);
+  domUpdates.displaySleepQualForDay(date);
+  domUpdates.displayMilesWalkedForDay(date);
+  domUpdates.displayMostActiveUser(date);
+  domUpdates.displayLongestSleepers(date);
+  domUpdates.displayHighestQualSleepers(date);
+  domUpdates.displayHydrationForDay(date);
+  charts.dailyStepsCompareChart(date);
+  charts.dailyMinActiveCompareChart(date);
+  charts.dailyFlightsCompareChart(date);
+  domUpdates.displayWeeklyAvgMinutesActive(date);
+  domUpdates.displayWeeklyAvgSteps(date);
+  domUpdates.displayWeeklyAvgFlights(date);
+  domUpdates.displayAllQualitySleepers(date);
+  domUpdates.displayStepChallenge(date);
+  charts.weeklySleepHoursChart(date);
+  charts.weeklySleepQualChart(date);
+  charts.weeklyHydrationChart(date);
+  charts.weeklyStepsChart(date);
+  charts.weeklyFlightsChart(date);
+  charts.weeklyMinsActiveChart(date);
+}
+
 domUpdates.displayAvgSleepHoursForUser();
-// domUpdates.displayAvgSleepQualForUser();
-domUpdates.displayHydrationForDay(defaultDateInput);
-// domUpdates.displayMinutesActiveForDay(currentDate);
-domUpdates.displayMilesWalkedForDay(currentDate);
-// domUpdates.displayStepsTakenForDay(currentDate);
-// domUpdates.displayStairsClimbedForDay(currentDate);
-// domUpdates.displayAllUsersAvgSteps(currentDate);
-// domUpdates.displayAllUsersAvgMinsActive(currentDate);
-// domUpdates.displayAllUsersAvgFlights(currentDate);
-domUpdates.displayMostActiveUser(currentDate)
-domUpdates.displayWeeklyAvgMinutesActive(weekStartDate)
-domUpdates.displayWeeklyAvgSteps(weekStartDate)
-domUpdates.displayWeeklyAvgFlights(weekStartDate)
-// domUpdates.displayAvgSleepQualityForAll();
-domUpdates.displayLongestSleepers(currentDate);
-domUpdates.displayHighestQualSleepers(currentDate);
-domUpdates.displayAllQualitySleepers(weekStartDate);
 domUpdates.displayName();
 domUpdates.displayInfo();
-domUpdates.displayStepChallenge(weekStartDate);
 domUpdates.displayExceedStepGoal();
 domUpdates.displayAvgHydration();
 domUpdates.displayMaxStairs();
 getFriends();
 
-
-charts.weeklySleepHoursChart();
-charts.weeklySleepQualChart();
-charts.weeklyHydrationChart();
-charts.weeklyStepsChart();
-charts.weeklyFlightsChart();
-charts.weeklyMinsActiveChart();
-charts.dailyStepsCompareChart();
-charts.dailyMinActiveCompareChart();
-charts.dailyFlightsCompareChart();
 charts.allTimeStepCompareChart();
 charts.allTimeSleepQualCompareChart();
 
@@ -228,6 +185,7 @@ function showDayView(event) {
     dayView.classList.remove('hide')
     weekView.classList.add('hide')
     allTimeView.classList.add('hide')
+    dateTitle.innerHTML = `Day of ${dateInput.value}`;
   }
 }
 
@@ -236,6 +194,8 @@ function showWeekView(event) {
     weekView.classList.remove('hide')
     dayView.classList.add('hide')
     allTimeView.classList.add('hide')
+    dateInput.value = '2019-09-16';
+    dateTitle.innerHTML = `Week of ${dateInput.value}`
   }
 }
 
@@ -244,5 +204,6 @@ function showAllTimeView(event) {
     allTimeView.classList.remove('hide')
     dayView.classList.add('hide')
     weekView.classList.add('hide')
+    dateTitle.innerHTML = `All Time`;
   }
 }

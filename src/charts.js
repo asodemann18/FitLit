@@ -1,6 +1,6 @@
 const charts = {
-  weeklySleepQualChart() {
-    const weekSleepQuality = sleep.getWeeklySleepQual(weekStartDate);
+  weeklySleepQualChart(date) {
+    const weekSleepQuality = sleep.getWeeklySleepQual(date);
     const weekSleepQualId = document.getElementById("week-sleep-quality");
     return new Chart(weekSleepQualId, {
       type: "line",
@@ -52,8 +52,8 @@ const charts = {
     });
   },
 
-  weeklySleepHoursChart() {
-    const weekSleepHours = sleep.getWeeklySleepHours(weekStartDate);
+  weeklySleepHoursChart(date) {
+    const weekSleepHours = sleep.getWeeklySleepHours(date);
     const weekSleepHoursId = document.getElementById("week-sleep-hours");
     return new Chart(weekSleepHoursId, {
       type: "line",
@@ -105,8 +105,8 @@ const charts = {
     });
   },
 
-  weeklyHydrationChart() {
-    const weekOuncesDrank = hydration.getWeeklyWater(weekStartDate);
+  weeklyHydrationChart(date) {
+    const weekOuncesDrank = hydration.getWeeklyWater(date);
     const weekHydrationId = document.getElementById("week-hydration");
     return new Chart(weekHydrationId, {
       type: "line",
@@ -159,8 +159,6 @@ const charts = {
   },
   
   weeklyStepsChart() {
-    const weekStepCount = activity.getStepsForWeek(weekStartDate);  
-    const weekStepsId = document.getElementById('week-steps');
     return new Chart(weekStepsId, {
       type: "line",
       data: {
@@ -212,8 +210,6 @@ const charts = {
   },
   
   weeklyFlightsChart() {
-    const weekFlightsClimbed = activity.getFlightsForWeek(weekStartDate);
-    const weekFlightsId = document.getElementById('week-flights');
     return new Chart(weekFlightsId, {
       type: "line",
       data: {
@@ -265,8 +261,6 @@ const charts = {
   },
 
   weeklyMinsActiveChart() {
-    const weekMinsActive = activity.getMinsActiveForWeek(weekStartDate);
-    const weekMinsActiveId = document.getElementById('week-mins-active')
     return new Chart(weekMinsActiveId, {
       type: "line",
       data: {
@@ -317,8 +311,8 @@ const charts = {
     });
   },
 
-  dailyStepsCompareChart() {
-    const dailyStepsTaken = activity.getStepsTaken(currentDate);
+  dailyStepsCompareChart(date) {
+    const dailyStepsTaken = activity.getStepsTaken(date);
     const allAvgDailyStepsTaken = activityRepo.calculateAvgSteps(currentDate);
     const dailyStepComparison = document.getElementById('daily-step-comparison');
     return new Chart(dailyStepComparison, {
@@ -376,8 +370,8 @@ const charts = {
     });
   },
 
-  dailyMinActiveCompareChart() {
-    const dailyMinActive = activity.getMinutesActive(currentDate);
+  dailyMinActiveCompareChart(date) {
+    const dailyMinActive = activity.getMinutesActive(date);
     const allAvgDailyMinActive = activityRepo.calculateAvgMinActive(currentDate);
     const dailyMinActiveComparison = document.getElementById('daily-minutes-active-comparison');
     return new Chart(dailyMinActiveComparison, {
@@ -415,8 +409,8 @@ const charts = {
     });
   },
 
-  dailyFlightsCompareChart() {
-    const dailyFlightsClimbed = activity.getStairsClimbed(currentDate);
+  dailyFlightsCompareChart(date) {
+    const dailyFlightsClimbed = activity.getStairsClimbed(date);
     const allAvgFlightsClimbed = activityRepo.calculateAvgStairs(currentDate);
     const dailyFlightsComparison = document.getElementById('daily-flights-climbed-comparison');   
     return new Chart(dailyFlightsComparison, {

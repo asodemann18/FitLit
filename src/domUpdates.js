@@ -43,9 +43,9 @@ domUpdates = {
     })
 
     if (sleepUserData.length > 1) {
-      longestSleepers.innerHTML = `${sleepUserData.join(', ')} slept the longest on ${date}`;
+      longestSleepers.innerHTML = `<h4>Longest Sleepers:</h4> ${sleepUserData.join(', ')}`;
     } else {
-      longestSleepers.innerHTML = `${sleepUserData[0]} slept the longest on ${date}`;
+      longestSleepers.innerHTML = `<h4>Longest Sleeper:</h4>${sleepUserData[0]}`;
     }
   },
 
@@ -62,9 +62,9 @@ domUpdates = {
     })
 
     if (sleepUserData.length > 1) {
-      highestQualSleepers.innerHTML = `${sleepUserData.join(', ')} had the highest quality of sleep on ${date}`;
+      highestQualSleepers.innerHTML = `<h4>Best Sleepers:</h4> ${sleepUserData.join(', ')}`;
     } else {
-      highestQualSleepers.innerHTML = `${sleepUserData[0]} had the highest quality of sleep on ${date}`;
+      highestQualSleepers.innerHTML = `<h4>Best Sleeper:</h4> ${sleepUserData[0]}`;
     }
   },
 
@@ -81,11 +81,6 @@ domUpdates = {
     sleepUserData.forEach(user => {
       allHighestQualSleepers.insertAdjacentHTML('beforeend', `<p>${user}</p>`)
     })
-    // if (sleepUserData.length > 1) {
-    //   allHighestQualSleepers.innerHTML = `${sleepUserData.join(', ')} averaged a sleep quality greater than 3 over the week of ${date}`;
-    // } else {
-    //   allHighestQualSleepers.innerHTML = `${sleepUserData[0]} averaged a sleep quality greater than 3 over the week of ${date}`;
-    // }
   },
 
   displayHydrationForDay(date) {
@@ -135,7 +130,7 @@ domUpdates = {
   displayMostActiveUser(date) {
     let activity = activityRepo.calculateMaxMinActive(date)
     let user = userData.find(user => user.id === activity[0].userID)
-    mostActiveUser.innerHTML = `${user.name} was active for ${activity[0].minutesActive} minutes`
+    mostActiveUser.innerHTML = `<h4>Most Active:</h4> ${user.name} - ${activity[0].minutesActive} mins`
   },
 
   displayWeeklyAvgSteps(date) {
@@ -171,12 +166,12 @@ domUpdates = {
     let userStrideLength = currentUser.strideLength;
     let userDailyStepGoal = currentUser.dailyStepGoal;
     let allAvgStepGoal = usersRepo.getAvgStepGoal();
-    name.innerHTML = `Name: ${userName}`;
-    address.innerHTML = `Address: ${userAddress}`;
-    email.innerHTML = `Email: ${userEmail}`;
-    strideLength.innerHTML = `Stride Length: ${userStrideLength}`;
-    dailyStepGoal.innerHTML = `Daily Step Goal: ${userDailyStepGoal}`;
-    stepGoalComparison.innerHTML = `Average Step Goal: ${allAvgStepGoal}`;
+    name.innerHTML = `<h4>Name</h4> ${userName}`;
+    address.innerHTML = `<h4>Address</h4> ${userAddress}`;
+    email.innerHTML = `<h4>Email</h4> ${userEmail}`;
+    strideLength.innerHTML = `<h4>Stride Length</h4> ${userStrideLength}`;
+    dailyStepGoal.innerHTML = `<h4>Daily Step Goal</h4> ${userDailyStepGoal}`;
+    stepGoalComparison.innerHTML = `<h4>Average Step Goal</h4> ${allAvgStepGoal}`;
     this.displayFriends();
   },
 
@@ -184,9 +179,9 @@ domUpdates = {
     let userFriends = getFriends();
     let friendNames = userFriends.map(friend => friend.name);  
     if (friendNames.length > 1) {
-      friends.innerHTML = `Friends: ${friendNames.join(', ')}`;
+      friends.innerHTML = `<h4>Friends</h4> ${friendNames.join(', ')}`;
     } else {
-      friends.innerHTML = `Friends: ${friendNames}`;
+      friends.innerHTML = `<h4>Friend</h4> ${friendNames}`;
     }
   },
 

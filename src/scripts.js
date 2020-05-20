@@ -149,3 +149,35 @@ function getRandomUser(array) {
   let randomIndex =  Math.floor(Math.random() * array.length);
   return array[randomIndex]
 }
+
+const userProfileContainer = document.getElementById('user-profile-container')
+const competitionContainer = document.getElementById('competition-container')
+const myProfileBtn = document.getElementById('my-profile-btn')
+const competitionBtn = document.getElementById('competition-btn')
+const aside = document.getElementById('aside')
+
+myProfileBtn.addEventListener('click', showProfile)
+competitionBtn.addEventListener('click', showCompetition)
+
+function showProfile() {
+  userProfileContainer.classList.toggle('hide')
+  // if(!userProfileContainer.classList.contains('hide')) {
+  //   aside.classList.remove('hide')
+  // }
+  toggleAside()
+}
+
+function showCompetition() {
+  console.log('comp')
+  competitionContainer.classList.toggle('hide')
+  toggleAside()
+}
+
+
+function toggleAside() {
+  if(!userProfileContainer.classList.contains('hide') || !competitionContainer.classList.contains('hide')) {
+    aside.classList.remove('hide')
+  } else if (userProfileContainer.classList.contains('hide') && competitionContainer.classList.contains('hide')) {
+    aside.classList.add('hide')
+  }
+}

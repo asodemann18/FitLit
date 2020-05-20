@@ -94,8 +94,16 @@
           <div id="all-users-avg-steps"></div>
           <div id="all-users-avg-mins-active"></div>
           <div id="all-users-avg-flights"></div>
-          <div class="chart-container">
-            <canvas id="daily-step-comparison"></canvas>
+          <div id="daily-stats-charts">
+            <div class="chart-container">
+              <canvas id="daily-step-comparison"></canvas>
+            </div>
+            <div class="chart-container">
+              <canvas id="daily-minutes-active-comparison"></canvas>
+            </div>
+            <div class="chart-container">
+              <canvas id="daily-flights-climbed-comparison"></canvas>
+            </div>
           </div>
         </div>
       </section>
@@ -136,11 +144,17 @@
           <h4>Your Stats</h4>
           <div id="all-time-stats-top">
             <div id="user-avg-sleep-hours" class="all-time-stats-box"></div>
-            <p class="all-time-stats-box">days step goal exceeded</p>
+            <div id="exceed-step-goal-dates" class="all-time-stats-box">
+              <p>days step goal exceeded</p>
+            </div>
           </div>
           <div id="all-time-stats-bottom">
-            <div id="avg-sleep-quality-chart" class="all-time-stats-box"></div>
-            <div id="step-goal-comparison" class="all-time-stats-box"></div>
+            <div id="avg-sleep-quality-chart" class="all-time-stats-box">
+              <canvas id="all-time-sleep-quality-comparison"></canvas>
+            </div>
+            <div id="step-goal-comparison" class="all-time-stats-box">
+              <canvas id="all-time-step-goal-comparison"></canvas>
+            </div>
           </div>
         </div>
       </section>

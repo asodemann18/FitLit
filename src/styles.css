@@ -169,7 +169,8 @@ aside {
 }
 
 #week-stats-charts-top,
-#week-stats-charts-bottom {
+#week-stats-charts-bottom,
+#daily-stats-charts {
   display: flex;
   justify-content: space-between;
 }
@@ -216,3 +217,11 @@ aside {
 .hide {
   display: none
 }
+
+#exceed-step-goal-dates {
+  overflow: scroll;
+}
+
+
+
+

@@ -158,9 +158,7 @@ const charts = {
     });
   },
   
-  weeklyStepsChart(date) {
-    const weekStepCount = activity.getStepsForWeek(date);  
-    const weekStepsId = document.getElementById('week-steps');
+  weeklyStepsChart() {
     return new Chart(weekStepsId, {
       type: "line",
       data: {
@@ -211,9 +209,7 @@ const charts = {
     });
   },
   
-  weeklyFlightsChart(date) {
-    const weekFlightsClimbed = activity.getFlightsForWeek(date);
-    const weekFlightsId = document.getElementById('week-flights');
+  weeklyFlightsChart() {
     return new Chart(weekFlightsId, {
       type: "line",
       data: {
@@ -264,9 +260,7 @@ const charts = {
     });
   },
 
-  weeklyMinsActiveChart(date) {
-    const weekMinsActive = activity.getMinsActiveForWeek(date);
-    const weekMinsActiveId = document.getElementById('week-mins-active')
+  weeklyMinsActiveChart() {
     return new Chart(weekMinsActiveId, {
       type: "line",
       data: {

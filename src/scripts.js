@@ -10,6 +10,7 @@ const hydration = new Hydration(currentUser.id, hydrationData);
 const activity = new Activity(currentUser.id, activityData, userData);
 const activityRepo = new ActivityRepo(activityData);
 
+
 // const weekSleepHours = sleep.getWeeklySleepHours(weekStartDate);
 // const weekSleepQuality = sleep.getWeeklySleepQual(weekStartDate);
 // const weekOuncesDrank = hydration.getWeeklyWater(weekStartDate);
@@ -73,6 +74,7 @@ const activityRepo = new ActivityRepo(activityData);
 // const avgHydration = document.getElementById("user-avg-hydration");
 // const maxStairs = document.getElementById("user-max-stairs-climbed");
 
+
 const dateInput = document.getElementById('date-input');
 const dailySubmitButton = document.getElementById('daily-submit');
 
@@ -80,8 +82,15 @@ const createDate = new Date(dateInput.value);
 const defaultDateInput = (createDate.getFullYear() + "/" + 
 ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
 ("0" + createDate.getUTCDate()).slice(-2));
+const dateTitle = document.querySelector(".view-title-text");
+const weekStepCount = activity.getStepsForWeek(weekStartDate);  
+const weekStepsId = document.getElementById('week-steps');
+const weekFlightsClimbed = activity.getFlightsForWeek(weekStartDate);
+const weekFlightsId = document.getElementById('week-flights');
+const weekMinsActive = activity.getMinsActiveForWeek(weekStartDate);
+const weekMinsActiveId = document.getElementById('week-mins-active');
 
-dayHandler(defaultDateInput);
+dateHandler(defaultDateInput);
 dailySubmitButton.addEventListener('click', changeDate);
 
 
@@ -91,10 +100,26 @@ function changeDate() {
   let correctDateInput = (createDate.getFullYear() + "/" + 
     ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
     ("0" + createDate.getUTCDate()).slice(-2));
-    dayHandler(correctDateInput);
+    dateHandler(correctDateInput);
+    changeDateTitle();
 }
 
-function dayHandler(date) {
+function changeDateTitle() {
+  if(event.target.id === 'daily-submit' && !dayView.classList.contains('hide')) {
+    dateTitle.innerHTML = `Day of ${dateInput.value}`;
+  }
+  if(event.target.id === 'daily-submit' && !weekView.classList.contains('hide')) {
+    dateTitle.innerHTML = `Week of ${dateInput.value}`
+  }
+
+  if(event.target.id === 'daily-submit' && !allTimeView.classList.contains('hide')) {
+    dateTitle.innerHTML = `All Time`;
+  }
+
+}
+
+
+function dateHandler(date) {
   domUpdates.displaySleepHoursForDay(date);
   domUpdates.displaySleepQualForDay(date);
   domUpdates.displayMilesWalkedForDay(date);
@@ -118,14 +143,6 @@ function dayHandler(date) {
   charts.weeklyMinsActiveChart(date);
 }
 
-//function dayChartHandler
-
-
-
-
-
-
-
 
 domUpdates.displayAvgSleepHoursForUser();
 domUpdates.displayName();
@@ -143,11 +160,8 @@ getFriends();
 // domUpdates.displayAllUsersAvgFlights(currentDate);
 
 // domUpdates.displayAvgSleepQualityForAll();
-
-
-
-
-
+// const weekStepCount = activity.getStepsForWeek(weekStartDate);  
+    // console.log(weekStepCount);
 
 charts.allTimeStepCompareChart();
 charts.allTimeSleepQualCompareChart();
@@ -246,6 +260,7 @@ function showDayView(event) {
     dayView.classList.remove('hide')
     weekView.classList.add('hide')
     allTimeView.classList.add('hide')
+    dateTitle.innerHTML = `Day of ${dateInput.value}`;
   }
 }
 
@@ -255,6 +270,7 @@ function showWeekView(event) {
     dayView.classList.add('hide')
     allTimeView.classList.add('hide')
     dateInput.value = '2019-09-16';
+    dateTitle.innerHTML = `Week of ${dateInput.value}`
   }
 }
 
@@ -263,5 +279,6 @@ function showAllTimeView(event) {
     allTimeView.classList.remove('hide')
     dayView.classList.add('hide')
     weekView.classList.add('hide')
+    dateTitle.innerHTML = `All Time`;
   }
 }

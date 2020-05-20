@@ -39,8 +39,47 @@ main {
 }
 
 aside {
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  justify-content: space-between;
+  padding: 2%;
   width: 20%
+}
+
+#user-profile-container {
+  /* display: flex;
+  flex-direction: column; */
+  max-height: 35%;
+  /* justify-content: space-between; */
+  /* margin-bottom: 10% */
+}
+
+#competition-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 65%;
+  justify-content: space-between
+}
+
+#top-performers-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 55%;
+  /* justify-content: space-between; */
+  /* margin-bottom: 10% */
+
+}
+
+#all-highest-qual-sleepers {
+  max-height: 40%;
+  overflow: scroll
+}
+
+#step-challenge-container {
+  max-height: 25%;
+  /* margin-bottom: 10%; */
+  overflow: scroll
 }
 
 /* MAIN VIEW */

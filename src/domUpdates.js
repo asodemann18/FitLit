@@ -78,12 +78,14 @@ domUpdates = {
         }
       })
     })
-
-    if (sleepUserData.length > 1) {
-      allHighestQualSleepers.innerHTML = `${sleepUserData.join(', ')} averaged a sleep quality greater than 3 over the week of ${date}`;
-    } else {
-      allHighestQualSleepers.innerHTML = `${sleepUserData[0]} averaged a sleep quality greater than 3 over the week of ${date}`;
-    }
+    sleepUserData.forEach(user => {
+      allHighestQualSleepers.insertAdjacentHTML('beforeend', `<p>${user}</p>`)
+    })
+    // if (sleepUserData.length > 1) {
+    //   allHighestQualSleepers.innerHTML = `${sleepUserData.join(', ')} averaged a sleep quality greater than 3 over the week of ${date}`;
+    // } else {
+    //   allHighestQualSleepers.innerHTML = `${sleepUserData[0]} averaged a sleep quality greater than 3 over the week of ${date}`;
+    // }
   },
 
   displayHydrationForDay(date) {
@@ -133,7 +135,7 @@ domUpdates = {
   displayMostActiveUser(date) {
     let activity = activityRepo.calculateMaxMinActive(date)
     let user = userData.find(user => user.id === activity[0].userID)
-    mostActiveUser.innerHTML = `${user.name} was the most active on ${date} with ${activity[0].minutesActive} minutes active `
+    mostActiveUser.innerHTML = `${user.name} was active for ${activity[0].minutesActive} minutes`
   },
 
   displayWeeklyAvgSteps(date) {

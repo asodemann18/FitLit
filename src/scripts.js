@@ -63,8 +63,7 @@ const activityRepo = new ActivityRepo(activityData);
 // const weekAvgMinsActive = document.getElementById('week-mins-active-avg')
 // const weekAvgFlights = document.getElementById('week-flights-avg')
 // const stepChallenge = document.getElementById('step-challenge');
-const dateInput = document.getElementById('date-input');
-const dailySubmitButton = document.getElementById('daily-submit');
+
 // const dailyStepComparison = document.getElementById('daily-step-comparison');
 // const dailyMinActiveComparison = document.getElementById('daily-minutes-active-comparison');
 // const dailyFlightsComparison = document.getElementById('daily-flights-climbed-comparison');
@@ -74,63 +73,82 @@ const dailySubmitButton = document.getElementById('daily-submit');
 // const avgHydration = document.getElementById("user-avg-hydration");
 // const maxStairs = document.getElementById("user-max-stairs-climbed");
 
-
+const dateInput = document.getElementById('date-input');
+const dailySubmitButton = document.getElementById('daily-submit');
 
 const createDate = new Date(dateInput.value);
 const defaultDateInput = (createDate.getFullYear() + "/" + 
 ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
 ("0" + createDate.getUTCDate()).slice(-2));
 
-
+dayHandler(defaultDateInput);
 dailySubmitButton.addEventListener('click', changeDate);
 
 
+
 function changeDate() {
-  let createDate = new Date(dateInput.value);
+  let createDate = new Date(dateInput.value);  
   let correctDateInput = (createDate.getFullYear() + "/" + 
     ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
     ("0" + createDate.getUTCDate()).slice(-2));
-  return domUpdates.displayHydrationForDay(correctDateInput)
+    dayHandler(correctDateInput);
 }
 
-domUpdates.displaySleepHoursForDay(currentDate);
-domUpdates.displaySleepQualForDay(currentDate);
+function dayHandler(date) {
+  domUpdates.displaySleepHoursForDay(date);
+  domUpdates.displaySleepQualForDay(date);
+  domUpdates.displayMilesWalkedForDay(date);
+  domUpdates.displayMostActiveUser(date);
+  domUpdates.displayLongestSleepers(date);
+  domUpdates.displayHighestQualSleepers(date);
+  domUpdates.displayHydrationForDay(date);
+  charts.dailyStepsCompareChart(date);
+  charts.dailyMinActiveCompareChart(date);
+  charts.dailyFlightsCompareChart(date);
+  domUpdates.displayWeeklyAvgMinutesActive(date);
+  domUpdates.displayWeeklyAvgSteps(date);
+  domUpdates.displayWeeklyAvgFlights(date);
+  domUpdates.displayAllQualitySleepers(date);
+  domUpdates.displayStepChallenge(date);
+  charts.weeklySleepHoursChart(date);
+  charts.weeklySleepQualChart(date);
+  charts.weeklyHydrationChart(date);
+  charts.weeklyStepsChart(date);
+  charts.weeklyFlightsChart(date);
+  charts.weeklyMinsActiveChart(date);
+}
+
+//function dayChartHandler
+
+
+
+
+
+
+
+
 domUpdates.displayAvgSleepHoursForUser();
+domUpdates.displayName();
+domUpdates.displayInfo();
+domUpdates.displayExceedStepGoal();
+domUpdates.displayAvgHydration();
+domUpdates.displayMaxStairs();
+getFriends();
 // domUpdates.displayAvgSleepQualForUser();
-domUpdates.displayHydrationForDay(defaultDateInput);
 // domUpdates.displayMinutesActiveForDay(currentDate);
-domUpdates.displayMilesWalkedForDay(currentDate);
 // domUpdates.displayStepsTakenForDay(currentDate);
 // domUpdates.displayStairsClimbedForDay(currentDate);
 // domUpdates.displayAllUsersAvgSteps(currentDate);
 // domUpdates.displayAllUsersAvgMinsActive(currentDate);
 // domUpdates.displayAllUsersAvgFlights(currentDate);
-domUpdates.displayMostActiveUser(currentDate)
-domUpdates.displayWeeklyAvgMinutesActive(weekStartDate)
-domUpdates.displayWeeklyAvgSteps(weekStartDate)
-domUpdates.displayWeeklyAvgFlights(weekStartDate)
+
 // domUpdates.displayAvgSleepQualityForAll();
-domUpdates.displayLongestSleepers(currentDate);
-domUpdates.displayHighestQualSleepers(currentDate);
-domUpdates.displayAllQualitySleepers(weekStartDate);
-domUpdates.displayName();
-domUpdates.displayInfo();
-domUpdates.displayStepChallenge(weekStartDate);
-domUpdates.displayExceedStepGoal();
-domUpdates.displayAvgHydration();
-domUpdates.displayMaxStairs();
-getFriends();
 
 
-charts.weeklySleepHoursChart();
-charts.weeklySleepQualChart();
-charts.weeklyHydrationChart();
-charts.weeklyStepsChart();
-charts.weeklyFlightsChart();
-charts.weeklyMinsActiveChart();
-charts.dailyStepsCompareChart();
-charts.dailyMinActiveCompareChart();
-charts.dailyFlightsCompareChart();
+
+
+
+
 charts.allTimeStepCompareChart();
 charts.allTimeSleepQualCompareChart();
 
@@ -236,6 +254,7 @@ function showWeekView(event) {
     weekView.classList.remove('hide')
     dayView.classList.add('hide')
     allTimeView.classList.add('hide')
+    dateInput.value = '2019-09-16';
   }
 }
 

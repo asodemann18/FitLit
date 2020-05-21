@@ -24,28 +24,57 @@ class Activity {
     return newIsDate;
   }
 
-  getStepsTaken(date) {
+  // getStepsTaken(date) {
+  //   let newDate = this.checkDate(date);
+  //   if (date !== newDate) {
+  //     return 'You must pass a valid date';
+  //   } else {
+  //     let foundActivity = this.userActivity.find(activity => activity.date === newDate)
+  //     return foundActivity.numSteps
+  //   }
+  // }
+
+  // getStairsClimbed(date) {
+  //   let newDate = this.checkDate(date);
+  //   if (date !== newDate) {
+  //     return 'You must pass a valid date';
+  //   } else {
+  //     let foundActivity = this.userActivity.find(activity => activity.date === newDate);
+  //     return foundActivity.flightsOfStairs;
+  //   }
+  // }
+
+  getActivityPropForDay(date, property) {
     let newDate = this.checkDate(date);
     if (date !== newDate) {
       return 'You must pass a valid date';
     } else {
-      let foundActivity = this.userActivity.find(activity => activity.date === newDate)
-      return foundActivity.numSteps
+      let foundActivity = this.userActivity.find(activity => activity.date === newDate);
+      return foundActivity[property];
     }
   }
 
-  getMinutesActive(date) {
-    let newDate = this.checkDate(date);
-    if (date !== newDate) {
-      return 'You must pass a valid date';
-    } else {
-      let dailyActivity = this.userActivity.filter(activity => activity.date === newDate);
+  // getMinutesActive(date) {
+  //   let newDate = this.checkDate(date);
+  //   if (date !== newDate) {
+  //     return 'You must pass a valid date';
+  //   } else {
+  //     let dailyActivity = this.userActivity.filter(activity => activity.date === newDate);
+  //     return dailyActivity.reduce((acc, active) => {
+  //       return acc += active.minutesActive;
+  //     }, 0)
+  //   }
+  // }
 
-      return dailyActivity.reduce((acc, active) => {
-        return acc += active.minutesActive;
-      }, 0)
-    }
-  }
+  // getMinutesActive(date) {
+  //   let newDate = this.checkDate(date);
+  //   if (date !== newDate) {
+  //     return 'You must pass a valid date';
+  //   } else {
+  //     let foundActivity = this.userActivity.find(activity => activity.date === newDate);
+  //     return foundActivity.minutesActive;
+  //   }
+  // }
 
   getMilesWalked(date) {
     let strideLength = this.user.strideLength;
@@ -130,16 +159,6 @@ class Activity {
       return this.userActivity
         .slice(firstDate, firstDate + 7)
         .map(activity => activity[property]);
-    }
-  }
-
-  getStairsClimbed(date) {
-    let newDate = this.checkDate(date);
-    if (date !== newDate) {
-      return 'You must pass a valid date';
-    } else {
-      let foundActivity = this.userActivity.find(activity => activity.date === newDate);
-      return foundActivity.flightsOfStairs;
     }
   }
 }

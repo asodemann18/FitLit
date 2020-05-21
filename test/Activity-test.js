@@ -92,7 +92,7 @@ describe('Activity', () => {
   })
 
   it('should return how many steps a user has taken for a given day', () => {
-    expect(activity.getStepsTaken('2019/06/15')).to.equal(3577);
+    expect(activity.getActivityPropForDay('2019/06/15', 'numSteps')).to.equal(3577);
   })
 
   it('should return how many miles a user has walked for a given day', () => {
@@ -108,15 +108,15 @@ describe('Activity', () => {
   })
 
   it('should return how many minutes active a user was on a given day', () => {
-    expect(activity.getMinutesActive('2019/06/15')).to.equal(140);
+    expect(activity.getActivityPropForDay('2019/06/15', 'minutesActive')).to.equal(140);
   })
 
   it('should only take a date as an argument', () => {
-    expect(activity.getMinutesActive('test')).to.equal('You must pass a valid date');
+    expect(activity.getActivityPropForDay('test', 'minutesActive')).to.equal('You must pass a valid date');
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(activity.getMinutesActive('2019-06-15')).to.equal('You must pass a valid date');
+    expect(activity.getActivityPropForDay('2019-06-15', 'minutesActive')).to.equal('You must pass a valid date');
   })
 
   it('should return average minutes active a user was during a given week', () => {
@@ -204,14 +204,14 @@ describe('Activity', () => {
   })
 
   it('should return number of stairs climbed for a specific date', () => {
-    expect(activity.getStairsClimbed('2019/06/15')).to.equal(16);
+    expect(activity.getActivityPropForDay('2019/06/15', 'flightsOfStairs')).to.equal(16);
   })
 
   it('should only take a date as an argument', () => {
-    expect(activity.getStairsClimbed('test')).to.equal('You must pass a valid date');
+    expect(activity.getActivityPropForDay('test', 'flightsOfStairs')).to.equal('You must pass a valid date');
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(activity.getStairsClimbed('2019-06-15')).to.equal('You must pass a valid date');
+    expect(activity.getActivityPropForDay('2019-06-15', 'flightsOfStairs')).to.equal('You must pass a valid date');
   })
 })

@@ -9,6 +9,14 @@ class Hydration {
     })
   }
 
+  checkDate(date) {
+    let isDate = new Date(date);
+    let newIsDate = isDate.getFullYear() + "/" + 
+      ("0" + (isDate.getMonth() + 1)).slice(-2) + "/" + 
+      ("0" + isDate.getDate()).slice(-2);
+    return newIsDate;
+  }
+
   getDailyWater(date) {
     let newDate = this.checkDate(date);
     if (date !== newDate) {
@@ -44,14 +52,6 @@ class Hydration {
       return acc += hydration.numOunces / this.userHydration.length
     }, 0)
     return Math.ceil(avg);
-  }
-
-  checkDate(date) {
-    let isDate = new Date(date);
-    let newIsDate = isDate.getFullYear() + "/" + 
-      ("0" + (isDate.getMonth() + 1)).slice(-2) + "/" + 
-      ("0" + isDate.getDate()).slice(-2);
-    return newIsDate;
   }
 }
 

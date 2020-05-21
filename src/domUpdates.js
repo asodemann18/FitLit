@@ -3,7 +3,7 @@ domUpdates = {
     const todaySleepHours = document.getElementById("today-sleep-hours");
     let sleepHoursForDay = sleep.getDailySleepProp(date, 'hoursSlept')
     todaySleepHours.innerHTML = `
-    <p>Hours slept:</p>
+    <h4>Hours slept:</h4>
     <p class="stat">${sleepHoursForDay}</p>`
   },
   
@@ -11,7 +11,7 @@ domUpdates = {
     const todaySleepQuality = document.getElementById("today-sleep-quality");
     let sleepQualForDay = sleep.getDailySleepProp(date, 'sleepQuality')
     todaySleepQuality.innerHTML = `
-    <p>Sleep quality:</p>
+    <h4>Sleep quality:</h4>
     <p class="stat">${sleepQualForDay} / 5</p>`
   },
 
@@ -19,19 +19,9 @@ domUpdates = {
     const userAvgSleepHours = document.getElementById("user-avg-sleep-hours");
     let avgSleepHoursForUser = sleep.getAvgSleepProp('hoursSlept')
     userAvgSleepHours.innerHTML = `
-    <p>Average hours slept:</p>
+    <h4>Average hours slept:</h4>
     <p class="stat">${avgSleepHoursForUser}</p>`
   },
-  
-  // displayAvgSleepQualForUser() {
-  //   let avgSleepQualForUser = sleep.getAvgSleepQual()
-  //   userAvgSleepQuality.innerHTML = `Your average sleep quality is ${avgSleepQualForUser}`;
-  // },
-
-  // displayAvgSleepQualityForAll() {
-  //   let avgSleepQualForAll = sleepRepo.calculateAverageSleep();
-  //   allAvgSleepQuality.innerHTML = `On average, users have a sleep quality of ${avgSleepQualForAll}`;
-  // },
 
   displayLongestSleepers(date) {
     const longestSleepers = document.getElementById("longest-sleepers");
@@ -91,37 +81,17 @@ domUpdates = {
     const todayHydration = document.getElementById("today-hydration")
     let hydrationForDay = hydration.getDailyWater(date)
     todayHydration.innerHTML = `
-    <p>Water drank:<p>
-    <p class="stat">${hydrationForDay}oz</p>`
+    <h4>Water drank:</h4>
+    <p class="stat">${hydrationForDay} oz</p>`
   },
-
-  // displayMinutesActiveForDay(date) {
-  //   let minutesActiveForDay = activity.getMinutesActive(date)
-  //   todayMinsActive.innerHTML = `You were active for ${minutesActiveForDay} minutes on ${date}`
-  // },
 
   displayMilesWalkedForDay(date) {
     const todayMilesWalked = document.getElementById("today-miles-walked");
     let milesWalked = activity.getMilesWalked(date)
     todayMilesWalked.innerHTML = `
-    <p>Miles walked:</p>
+    <h4>Miles walked:</h4>
     <p class="stat">${milesWalked}</p>`
   },
-
-  // displayStepsTakenForDay(date) {
-  //   let stepsTaken = activity.getStepsTaken(date)
-  //   todayStepsTaken.innerHTML = `You took ${stepsTaken} steps on ${date}`
-  // },
-
-  // displayStairsClimbedForDay(date) {
-  // let stairsClimbed = activity.getStairsClimbed(date)
-  // todayStairsClimbed.innerHTML = `You climbed ${stairsClimbed} flights of stairs on ${date}`;
-  // },
-
-  // displayAllUsersAvgSteps(date) {
-  //   let avg = activityRepo.calculateAvgSteps(date)
-  //   allUsersAvgSteps.innerHTML = `Users averaged ${avg} steps on ${date}`
-  // },
 
   displayAllUsersAvgMinsActive(date) {
     const allUsersAvgMinsActive = document.getElementById("all-users-avg-mins-active");
@@ -146,7 +116,7 @@ domUpdates = {
     const weekAvgSteps = document.getElementById('week-steps-taken-avg');
     let avg = activity.getWeeklyAvgProps(date, 'numSteps')
     weekAvgSteps.innerHTML = `
-    <p>Average steps per day:</p>
+    <h4>Average steps per day:</h4>
     <p class="stat">${avg}</p>`
   },
 
@@ -154,7 +124,7 @@ domUpdates = {
     const weekAvgMinsActive = document.getElementById('week-mins-active-avg');
     let avg = activity.getWeeklyAvgProps(date, 'minutesActive')
     weekAvgMinsActive.innerHTML = `
-    <p>Average minutes active per day:</p>
+    <h4>Average minutes active per day:</h4>
     <p class="stat">${avg}</p>`
   },
 
@@ -162,14 +132,14 @@ domUpdates = {
     const weekAvgFlights = document.getElementById('week-flights-avg');
     let avg = activity.getWeeklyAvgProps(date, 'flightsOfStairs')
     weekAvgFlights.innerHTML = `
-    <p>Average flights per day:</p>
+    <h4>Average flights per day:</h4>
     <p class="stat">${avg}</p>`
   },
 
   displayName() {
     const greeting = document.getElementById("greeting");
     let name = currentUser.getName();
-    greeting.innerHTML = `Hi, ${name}`;
+    greeting.innerHTML = `Hi, ${name}!`;
   },
 
   displayInfo() {
@@ -190,7 +160,6 @@ domUpdates = {
     email.innerHTML = `<h4>Email</h4> ${userEmail}`;
     strideLength.innerHTML = `<h4>Stride Length</h4> ${userStrideLength}`;
     dailyStepGoal.innerHTML = `<h4>Daily Step Goal</h4> ${userDailyStepGoal}`;
-    // stepGoalComparison.innerHTML = `<h4>Average Step Goal</h4> ${allAvgStepGoal}`;
     this.displayFriends();
   },
 
@@ -227,7 +196,7 @@ domUpdates = {
     const avgHydration = document.getElementById("user-avg-hydration");
     let avg = hydration.getAvgWater()
     avgHydration.innerHTML = `
-    <p>Average Water Drank:</p>
+    <h4>Average Water Drank:</h4>
     <p class="stat">${avg} oz</p>`;
   },
 
@@ -235,7 +204,7 @@ domUpdates = {
     const maxStairs = document.getElementById("user-max-stairs-climbed");
     let max = activity.getMaxStairsClimbed()
     maxStairs.innerHTML = `
-    <p>Maximum Flights Climbed:</p>
+    <h4>Maximum Flights Climbed:</h4>
     <p class="stat">${max}</p>`;
   }
 }

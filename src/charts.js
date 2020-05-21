@@ -157,7 +157,7 @@ const charts = {
       }
     });
   },
-  
+
   weeklyStepsChart() {
     return new Chart(weekStepsId, {
       type: "line",
@@ -208,7 +208,7 @@ const charts = {
       }
     });
   },
-  
+
   weeklyFlightsChart() {
     return new Chart(weekFlightsId, {
       type: "line",
@@ -318,28 +318,29 @@ const charts = {
     return new Chart(dailyStepComparison, {
       type: 'bar',
       data: {
-          datasets: [{
-              label: 'You',
-              legend: false,
-              data: [dailyStepsTaken, allAvgDailyStepsTaken],
-              fill: false,
-              backgroundColor: [
-                "rgb(60, 179, 113, .8)",
-                "rgb(255, 140, 0, .8)",],
-          }, {
-              label: 'Daily Step Goal',
-              data: [currentUser.dailyStepGoal, currentUser.dailyStepGoal],
-              type: 'line',
-              fill: false,
-              backgroundColor: [
-                "rgb(0, 0, 0)",
-                "rgb(0, 0, 0)",
-              ],
-              borderColor: [
-                "rgb(0, 0, 0)",
-              ],
-          }],
-          labels: ['You', 'All User\s Daily Avg']
+        datasets: [{
+          label: 'You',
+          legend: false,
+          data: [dailyStepsTaken, allAvgDailyStepsTaken],
+          fill: false,
+          backgroundColor: [
+            "rgb(60, 179, 113, .8)",
+            "rgb(255, 140, 0, .8)", 
+          ],
+        }, {
+          label: 'Daily Step Goal',
+          data: [currentUser.dailyStepGoal, currentUser.dailyStepGoal],
+          type: 'line',
+          fill: false,
+          backgroundColor: [
+            "rgb(0, 0, 0)",
+            "rgb(0, 0, 0)",
+          ],
+          borderColor: [
+            "rgb(0, 0, 0)",
+          ],
+        }],
+        labels: ['You', 'All User\s Daily Avg']
       },
       options: {
         scales: {
@@ -358,14 +359,14 @@ const charts = {
         legend: {
           position: 'bottom',
           labels: {
-            filter: function(legendItem, chartData) {
+            filter: function (legendItem, chartData) {
               if (legendItem.datasetIndex === 0) {
                 return false;
               }
-             return true;
-             },
+              return true;
+            },
           }
-        }, 
+        },
       }
     });
   },
@@ -377,16 +378,17 @@ const charts = {
     return new Chart(dailyMinActiveComparison, {
       type: 'bar',
       data: {
-          datasets: [{
-              //label: 'You',
-              legend: false,
-              data: [dailyMinActive, allAvgDailyMinActive],
-              fill: false,
-              backgroundColor: [
-                "rgb(60, 179, 113, .8)",
-                "rgb(255, 140, 0, .8)",],
-          }],
-          labels: ['You', 'All User\s Daily Avg']
+        datasets: [{
+          //label: 'You',
+          legend: false,
+          data: [dailyMinActive, allAvgDailyMinActive],
+          fill: false,
+          backgroundColor: [
+            "rgb(60, 179, 113, .8)",
+            "rgb(255, 140, 0, .8)",
+          ],
+        }],
+        labels: ['You', 'All User\s Daily Avg']
       },
       options: {
         scales: {
@@ -404,7 +406,7 @@ const charts = {
         responsive: true,
         legend: {
           display: false,
-        }, 
+        },
       }
     });
   },
@@ -412,19 +414,20 @@ const charts = {
   dailyFlightsCompareChart(date) {
     const dailyFlightsClimbed = activity.getActivityPropForDay(date, 'flightsOfStairs');
     const allAvgFlightsClimbed = activityRepo.calculateAvgActivityProp(currentDate, 'flightsOfStairs');
-    const dailyFlightsComparison = document.getElementById('daily-flights-climbed-comparison');   
+    const dailyFlightsComparison = document.getElementById('daily-flights-climbed-comparison');
     return new Chart(dailyFlightsComparison, {
       type: 'bar',
       data: {
-          datasets: [{
-              legend: false,
-              data: [dailyFlightsClimbed, allAvgFlightsClimbed],
-              fill: false,
-              backgroundColor: [
-                "rgb(60, 179, 113, .8)",
-                "rgb(255, 140, 0, .8)",],
-          }],
-          labels: ['You', 'All User\s Daily Avg']
+        datasets: [{
+          legend: false,
+          data: [dailyFlightsClimbed, allAvgFlightsClimbed],
+          fill: false,
+          backgroundColor: [
+            "rgb(60, 179, 113, .8)",
+            "rgb(255, 140, 0, .8)",
+          ],
+        }],
+        labels: ['You', 'All User\s Daily Avg']
       },
       options: {
         scales: {
@@ -442,10 +445,10 @@ const charts = {
         responsive: true,
         legend: {
           display: false,
-        }, 
+        },
       }
     });
-  }, 
+  },
 
   allTimeStepCompareChart() {
     const userDailyStepGoal = currentUser.dailyStepGoal;
@@ -454,15 +457,16 @@ const charts = {
     return new Chart(allTimeStepComparison, {
       type: 'bar',
       data: {
-          datasets: [{
-              legend: false,
-              data: [userDailyStepGoal, allAvgStepGoal],
-              fill: false,
-              backgroundColor: [
-                "rgb(60, 179, 113, .8)",
-                "rgb(255, 140, 0, .8)",],
-          }],
-          labels: ['Your Goal', 'All User\s Avg']
+        datasets: [{
+          legend: false,
+          data: [userDailyStepGoal, allAvgStepGoal],
+          fill: false,
+          backgroundColor: [
+            "rgb(60, 179, 113, .8)",
+            "rgb(255, 140, 0, .8)",
+          ],
+        }],
+        labels: ['Your Goal', 'All User\s Avg']
       },
       options: {
         scales: {
@@ -480,10 +484,10 @@ const charts = {
         responsive: true,
         legend: {
           display: false,
-        }, 
+        },
       }
     });
-  }, 
+  },
 
   allTimeSleepQualCompareChart() {
     const userAllTimeAvgSleepQual = sleep.getAvgSleepProp('sleepQuality');
@@ -492,15 +496,16 @@ const charts = {
     return new Chart(allTimeSleepQualComparison, {
       type: 'bar',
       data: {
-          datasets: [{
-            legend: false,
-            data: [userAllTimeAvgSleepQual, AllTimeAvgSleepQual],
-            fill: false,
-            backgroundColor: [
-              "rgba(153, 102, 255, .8)",
-              "rgb(255, 140, 0, .8)",],
-          }],
-          labels: ['Your Avg', 'All User\s Avg']
+        datasets: [{
+          legend: false,
+          data: [userAllTimeAvgSleepQual, AllTimeAvgSleepQual],
+          fill: false,
+          backgroundColor: [
+            "rgba(153, 102, 255, .8)",
+            "rgb(255, 140, 0, .8)",
+          ],
+        }],
+        labels: ['Your Avg', 'All User\s Avg']
       },
       options: {
         scales: {
@@ -518,7 +523,7 @@ const charts = {
         responsive: true,
         legend: {
           display: false,
-        }, 
+        },
       }
     });
   }

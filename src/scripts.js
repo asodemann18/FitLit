@@ -86,9 +86,9 @@ const changeDate = () => {
   let correctDateInput = (createDate.getFullYear() + "/" + 
     ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
     ("0" + createDate.getUTCDate()).slice(-2));
-    clearStepChallenge();
-    dateHandler(correctDateInput);
-    changeDateTitle();
+  clearStepChallenge();
+  dateHandler(correctDateInput);
+  changeDateTitle();
 }
 
 const getFriends = () => {
@@ -98,10 +98,10 @@ const getFriends = () => {
     userFriends.forEach(id => {
       if(user.id === id) {
       userFriendData.push(user);
-     }
-   })
- })
-return userFriendData
+      }
+    })
+  })
+  return userFriendData
 }
 
 const calculateWeeklyStepChallenge = (date) => {
@@ -189,7 +189,6 @@ getFriends();
 dateHandler(defaultDateInput);
 charts.allTimeStepCompareChart();
 charts.allTimeSleepQualCompareChart();
-
 
 //EVENT LISTENERS
 dailySubmitButton.addEventListener('click', changeDate);

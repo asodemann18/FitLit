@@ -5,9 +5,15 @@ const ActivityRepo = require('../src/ActivityRepo');
 const activityRepoSampleData = require('../sample-data/activity-sample')
 
 let activityRepo1, activityRepo2, activityRepo3, activityRepo4,
-activityRepo5, activityRepo6, activityRepo7, activityRepo8,
-activityRepo9, activityRepo10, activityRepo11, activityRepo12,
-activityRepo13, activityRepo14, activityRepo15, activityRepo16, activityRepo17, activityRepo18, activityRepo19, activityRepo20, activityRepo21, activityRepo22, activityRepo23, activityRepo24, activityRepo25, activityRepo26, activityRepo27, activityRepo28, activityRepo29, activityRepo30, activityRepo31, activityRepo32, activityRepo33, activityRepo34, activityRepo35, activityRepo36, activityRepo37, activityRepo38, activityRepo39, activityRepo40;
+  activityRepo5, activityRepo6, activityRepo7, activityRepo8,
+  activityRepo9, activityRepo10, activityRepo11, activityRepo12,
+  activityRepo13, activityRepo14, activityRepo15, activityRepo16, 
+  activityRepo17, activityRepo18, activityRepo19, activityRepo20, 
+  activityRepo21, activityRepo22, activityRepo23, activityRepo24, 
+  activityRepo25, activityRepo26, activityRepo27, activityRepo28, 
+  activityRepo29, activityRepo30, activityRepo31, activityRepo32, 
+  activityRepo33, activityRepo34, activityRepo35, activityRepo36, 
+  activityRepo37, activityRepo38, activityRepo39, activityRepo40;
 
 let activityRepoData;
 let activityRepo;
@@ -55,7 +61,14 @@ describe('Activity Repository', () => {
     activityRepo39 = activityRepoSampleData[38]; 
     activityRepo40 = activityRepoSampleData[39];
 
-    activityRepoData = [activityRepo1, activityRepo2, activityRepo3, activityRepo4, activityRepo5, activityRepo6, activityRepo7, activityRepo8, activityRepo9, activityRepo10, activityRepo11, activityRepo12, activityRepo13, activityRepo14, activityRepo15, activityRepo16, activityRepo17, activityRepo18, activityRepo19, activityRepo20, activityRepo21, activityRepo22, activityRepo23, activityRepo24, activityRepo25, activityRepo26, activityRepo27, activityRepo28, activityRepo29, activityRepo30, activityRepo31, activityRepo32, activityRepo33, activityRepo34, activityRepo35, activityRepo36, activityRepo37, activityRepo38, activityRepo39, activityRepo40,];
+    activityRepoData = [activityRepo1, activityRepo2, activityRepo3, activityRepo4, 
+      activityRepo5, activityRepo6, activityRepo7, activityRepo8, activityRepo9, 
+      activityRepo10, activityRepo11, activityRepo12, activityRepo13, activityRepo14, 
+      activityRepo15, activityRepo16, activityRepo17, activityRepo18, activityRepo19, 
+      activityRepo20, activityRepo21, activityRepo22, activityRepo23, activityRepo24, 
+      activityRepo25, activityRepo26, activityRepo27, activityRepo28, activityRepo29, 
+      activityRepo30, activityRepo31, activityRepo32, activityRepo33, activityRepo34, 
+      activityRepo35, activityRepo36, activityRepo37, activityRepo38, activityRepo39, activityRepo40];
 
     activityRepo = new ActivityRepo(activityRepoData);
   })

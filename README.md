@@ -1,4 +1,4 @@
-# FitLit 
+# [FitLit](https://asodemann18.github.io/FitLit/src/index.html) 
 
 # Project By: [Kyle Wong](https://github.com/KyleWong2510) and [Alex Sodemann](https://github.com/asodemann18)
 
@@ -15,8 +15,10 @@ Create a working dashboard that displays activity/lifestyle tracking data in a m
 * Create a data dashboard that is easy to use and displays information in a clear way
 
 # In Action
+![In Action](http://g.recordit.co/zbM5MQgEzw.gif)
 
 ## Setup
+View it [here](https://asodemann18.github.io/FitLit/src/index.html)
 ```bash
 git clone [file path]
 cd FitLit
@@ -28,5 +30,8 @@ open src/index.html
 * HTML/CSS
 * Git/GitHub
 * npm
+  * chart.js
+  * mocha
+  * chai
 
 

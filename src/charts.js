@@ -1,6 +1,6 @@
 const charts = {
   weeklySleepQualChart(date) {
-    const weekSleepQuality = sleep.getWeeklySleepQual(date);
+    const weekSleepQuality = sleep.getWeeklySleepProp(date, 'sleepQuality');
     const weekSleepQualId = document.getElementById("week-sleep-quality");
     return new Chart(weekSleepQualId, {
       type: "line",
@@ -53,7 +53,7 @@ const charts = {
   },
 
   weeklySleepHoursChart(date) {
-    const weekSleepHours = sleep.getWeeklySleepHours(date);
+    const weekSleepHours = sleep.getWeeklySleepProp(date, 'hoursSlept');
     const weekSleepHoursId = document.getElementById("week-sleep-hours");
     return new Chart(weekSleepHoursId, {
       type: "line",
@@ -486,7 +486,7 @@ const charts = {
   }, 
 
   allTimeSleepQualCompareChart() {
-    const userAllTimeAvgSleepQual = sleep.getAvgSleepQual();
+    const userAllTimeAvgSleepQual = sleep.getAvgSleepProp('sleepQuality');
     const AllTimeAvgSleepQual = sleepRepo.calculateAverageSleep();
     const allTimeSleepQualComparison = document.getElementById("all-time-sleep-quality-comparison");
     return new Chart(allTimeSleepQualComparison, {

@@ -1,7 +1,7 @@
 domUpdates = {
   displaySleepHoursForDay(date) {
     const todaySleepHours = document.getElementById("today-sleep-hours");
-    let sleepHoursForDay = sleep.getDailySleepHours(date)
+    let sleepHoursForDay = sleep.getDailySleepProp(date, 'hoursSlept')
     todaySleepHours.innerHTML = `
     <p>Hours slept:</p>
     <p class="stat">${sleepHoursForDay}</p>`
@@ -9,7 +9,7 @@ domUpdates = {
   
   displaySleepQualForDay(date) {
     const todaySleepQuality = document.getElementById("today-sleep-quality");
-    let sleepQualForDay = sleep.getDailySleepQual(date)
+    let sleepQualForDay = sleep.getDailySleepProp(date, 'sleepQuality')
     todaySleepQuality.innerHTML = `
     <p>Sleep quality:</p>
     <p class="stat">${sleepQualForDay} / 5</p>`
@@ -17,7 +17,7 @@ domUpdates = {
 
   displayAvgSleepHoursForUser() {
     const userAvgSleepHours = document.getElementById("user-avg-sleep-hours");
-    let avgSleepHoursForUser = sleep.getAvgSleepHours()
+    let avgSleepHoursForUser = sleep.getAvgSleepProp('hoursSlept')
     userAvgSleepHours.innerHTML = `
     <p>Average hours slept:</p>
     <p class="stat">${avgSleepHoursForUser}</p>`

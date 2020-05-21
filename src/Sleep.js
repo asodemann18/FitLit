@@ -15,47 +15,27 @@ class Sleep {
     return newIsDate;
   }
 
-  getDailySleepHours(date) {
-    let newDate = this.checkDate(date);
-    if (date !== newDate) {
-      return 'You must pass a valid date';
-    } else {
-      let sleepEntry = this.userSleep.filter(sleep => sleep.date === date)  ;  
-      return sleepEntry.reduce((acc, sleep) => {
-        acc += sleep.hoursSlept;
-        return acc;
-      }, 0)
-    }
-  }
-
-  getDailySleepQual(date) {
+  getDailySleepProp(date, property) {
     let newDate = this.checkDate(date);
     if (date !== newDate) {
       return 'You must pass a valid date';
     } else {
       let sleepEntry = this.userSleep.filter(sleep => sleep.date === date); 
       return sleepEntry.reduce((acc, sleep) => {
-        acc += sleep.sleepQuality;
+        acc += sleep[property];
         return acc;
       }, 0)
     } 
   }
-  
-  getAvgSleepHours() {
+
+  getAvgSleepProp(property) {
     let avg = this.userSleep.reduce((acc, sleep) => {
-      return acc += sleep.hoursSlept / this.userSleep.length;
+      return acc += sleep[property] / this.userSleep.length;
     }, 0)
     return Number(avg.toFixed(1));
   }
 
-  getAvgSleepQual() {
-    let avg = this.userSleep.reduce((acc, sleep) => {
-      return acc += sleep.sleepQuality / this.userSleep.length;
-    }, 0)
-    return Number(avg.toFixed(1));
-  }
-
-  getWeeklySleepHours(date) {
+  getWeeklySleepProp(date, property) {
     let newDate = this.checkDate(date);
     if (date !== newDate) {
       return 'You must pass a valid date';
@@ -64,20 +44,7 @@ class Sleep {
       let firstDate = this.userSleep.indexOf(sleepDate);
       return this.userSleep
         .slice(firstDate, firstDate + 7)
-        .map(sleep => sleep.hoursSlept);
-    }
-  }
-
-  getWeeklySleepQual(date) {
-    let newDate = this.checkDate(date);
-    if (date !== newDate) {
-      return 'You must pass a valid date';
-    } else {
-      let sleepDate = this.userSleep.find(sleep => sleep.date === date);
-      let firstDate = this.userSleep.indexOf(sleepDate);
-      return this.userSleep
-        .slice(firstDate, firstDate + 7)
-        .map(sleep => sleep.sleepQuality);
+        .map(sleep => sleep[property]);
     }
   }
 }

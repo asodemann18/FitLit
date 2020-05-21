@@ -37,6 +37,10 @@
       </div>
       <div id="competition-container" class="hide">
         <h2>Competition</h2>
+        <div id="step-challenge-container" class="">
+          <h3>Step Challenge:</h3>
+          <div id="step-challenge"></div>
+        </div>
         <div id="top-performers-container" class="hide">
           <h3>Top Performers:</h3>
           <div id="most-active-user"></div>
@@ -45,10 +49,6 @@
           <div id="all-highest-qual-sleepers">
             <h4>Sound Sleepers:</h4>
           </div>
-        </div>
-        <div id="step-challenge-container" class="">
-          <h3>Step Challenge:</h3>
-          <div id="step-challenge"></div>
         </div>
       </div>
     </aside>
@@ -128,28 +128,30 @@
             </div>
           </div>
         </div>
-        <div id="week-stats-text">
-          <div id="week-steps-taken-avg" class="week-stats-text-box"></div>
-          <div id="week-flights-avg" class="week-stats-text-box"></div>
-          <div id="week-mins-active-avg" class="week-stats-text-box"></div>
+        <div id ="week-stats-text-container"></div>
+          <div id="week-stats-text">
+            <div id="week-steps-taken-avg" class="week-stats-text-box"></div>
+            <div id="week-flights-avg" class="week-stats-text-box"></div>
+            <div id="week-mins-active-avg" class="week-stats-text-box"></div>
+          </div>
         </div>
       </section>
       <section id="all-time-view" class="page-view hide">
         <div id="all-time-stats">
-          <h4>Your Stats</h4>
+          <h4 id=all-time-stats-title>Your Stats</h4>
           <div id="all-time-stats-top">
             <div id="user-avg-sleep-hours" class="all-time-stats-box"></div>
             <div id="user-avg-hydration" class="all-time-stats-box"></div>
             <div id="user-max-stairs-climbed" class="all-time-stats-box"></div>
             <div id="exceed-step-goal-dates" class="all-time-stats-box">
-              <p>Days step goal exceeded:</p>
+              <h4>Days step goal exceeded:</h4>
             </div>
           </div>
           <div id="all-time-stats-bottom">
-            <div id="avg-sleep-quality-chart" class="all-time-stats-box">
+            <div id="avg-sleep-quality-chart" class="chart-container">
               <canvas id="all-time-sleep-quality-comparison"></canvas>
             </div>
-            <div id="step-goal-comparison" class="all-time-stats-box">
+            <div id="step-goal-comparison" class="chart-container">
               <canvas id="all-time-step-goal-comparison"></canvas>
             </div>
           </div>

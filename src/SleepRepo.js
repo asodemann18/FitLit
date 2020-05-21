@@ -26,11 +26,11 @@ class SleepRepo {
     return userIDs.reduce((acc, user) => {
       let sleepDate = this.dataByUser[user].find(sleep => sleep.date === date);
       let firstDate = this.dataByUser[user].indexOf(sleepDate);
-      let sleepQuals = this.dataByUser[user].slice(firstDate, firstDate + 7).map(sleep => sleep.sleepQuality);     
+      let sleepQuals = this.dataByUser[user].slice(firstDate, firstDate + 7).map(sleep => sleep.sleepQuality);
       let avg = sleepQuals.reduce((acc, num) => {
         return acc += num / sleepQuals.length
       }, 0);
-      if(avg > 3) {
+      if (avg > 3) {
         acc.push(Number(user));
       }
       return acc;

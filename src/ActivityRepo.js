@@ -2,11 +2,11 @@ class ActivityRepo {
   constructor(activityRepoData) {
     this.activityRepoData = activityRepoData;
   }
-  
+
   checkDate(date) {
     let isDate = new Date(date);
-    let newIsDate = isDate.getFullYear() + "/" + 
-      ("0" + (isDate.getMonth() + 1)).slice(-2) + "/" + 
+    let newIsDate = isDate.getFullYear() + "/" +
+      ("0" + (isDate.getMonth() + 1)).slice(-2) + "/" +
       ("0" + isDate.getDate()).slice(-2);
     return newIsDate;
   }

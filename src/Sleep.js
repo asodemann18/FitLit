@@ -9,8 +9,8 @@ class Sleep {
 
   checkDate(date) {
     let isDate = new Date(date);
-    let newIsDate = isDate.getFullYear() + "/" + 
-      ("0" + (isDate.getMonth() + 1)).slice(-2) + "/" + 
+    let newIsDate = isDate.getFullYear() + "/" +
+      ("0" + (isDate.getMonth() + 1)).slice(-2) + "/" +
       ("0" + isDate.getDate()).slice(-2);
     return newIsDate;
   }
@@ -20,12 +20,12 @@ class Sleep {
     if (date !== newDate) {
       return 'You must pass a valid date';
     } else {
-      let sleepEntry = this.userSleep.filter(sleep => sleep.date === date); 
+      let sleepEntry = this.userSleep.filter(sleep => sleep.date === date);
       return sleepEntry.reduce((acc, sleep) => {
         acc += sleep[property];
         return acc;
       }, 0)
-    } 
+    }
   }
 
   getAvgSleepProp(property) {

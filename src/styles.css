@@ -1,4 +1,4 @@
-*,
+/* *,
 *:after,
 *:before {
   border: solid 1px grey;
@@ -6,6 +6,9 @@
   color: black;
   margin: 0;
   padding: 0;
+} */
+body {
+  font-family: Arial;
 }
 
 /* HEADER */
@@ -13,10 +16,11 @@ header {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 15vh;
+  height: 18vh;
   justify-content: space-around;
   padding: 3% 2% 1%;
-  width: 100%
+  width: 100%;
+  background-color: #96C0CE;
 }
 
 #header-welcome-text {
@@ -34,9 +38,11 @@ header {
 /* MAIN */
 main {
   display: flex;
-  height: 85vh;
+  height: 82vh;
   justify-content: center;
-  width: 100%
+  width: 100%;
+  background-color: #74828F;
+  overflow: scroll;
 }
 
 aside {
@@ -48,9 +54,13 @@ aside {
   width: 20%
 }
 
+canvas {
+  background-color: white;
+}
+
 #user-profile-container {
   border: 1px solid black;
-  max-height: 45%;
+  height: 45%100vh;
   text-align: center
 }
 
@@ -67,8 +77,9 @@ aside {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  max-height: 55%;
-  width: 100%
+  height: 55vh;
+  width: 100%;
+  overflow: scroll;
 }
 
 #all-highest-qual-sleepers {
@@ -78,10 +89,13 @@ aside {
 
 #step-challenge-container {
   border: 1px solid black;
-  max-height: 25%;
+  /* max-height: 25%; */
+  max-height: 25vh;
   margin-top: 10%;
   overflow: scroll;
-  width: 100%
+  width: 100%;
+  margin-bottom: 3%;
+  margin-top: -3%;
 }
 
 /* MAIN VIEW */
@@ -97,8 +111,10 @@ aside {
   flex-direction: column;
   height: 15%;
   justify-content: space-between;
-  padding: 4% 2% 1%;
-  width: 100%
+  padding: 2% 2% 1%;
+  width: 100%;
+  border: solid black 5px;
+  border-radius: 10px
 }
 
 #view-title-btns {
@@ -127,7 +143,15 @@ aside {
 }
 
 .day-stats-title {
-  height: 5vh
+  height: 5vh;
+  border: solid black 2px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #BEB9B5;
+  padding: 1%;
+  margin-top: -3%;
 }
 
 #day-stats-text {
@@ -146,8 +170,11 @@ aside {
 }
 
 .day-stats-text-box {
-  height: 80%;
-  width: 20%
+  height: 50%;
+  width: 20%;
+  border: solid black 1px;
+  border-radius: 10px;
+  background-color: #FEF6EB;
 }
 
 #day-stats-charts {
@@ -171,8 +198,15 @@ aside {
   overflow: scroll
 }
 
-#week-stats-title {
-  height: 9vh
+#week-stats-title,
+#all-time-stats-title {
+  height: 9vh;
+  border: solid black 2px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -3%; 
 }
 
 #week-stats-charts {
@@ -195,9 +229,18 @@ aside {
   justify-content: space-between
 }
 
+#week-stats-text-container {
+  display: flex;
+  height: 80%;
+  justify-content: space-between;
+}
+
 .week-stats-text-box {
-  height: 100%;
-  width: 30%
+  height: 135%;
+  width: 30%;
+  border: solid black 1px;
+  border-radius: 10px;
+  background-color: #FEF6EB;
 }
 
 .chart-container {
@@ -214,19 +257,33 @@ aside {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 100%
+  width: 100%;
 }
 
-#all-time-stats-top,
-#all-time-stats-bottom {
+#all-time-stats-top {
   display: flex;
-  height: 50%;
+  height: 60%;
   justify-content: space-evenly;
 }
 
+#all-time-stats-bottom {
+  display: flex;
+  height: 40%;
+  justify-content: space-evenly;
+  margin-top: -15%;
+}
+
+#avg-sleep-quality-chart,
+#step-goal-comparison {
+  width: 40%;
+}
+
 .all-time-stats-box {
-  height: 90%;
-  width: 40%
+  height: 30%;
+  width: 20%;
+  border: solid black 1px;
+  border-radius: 10px;
+  background-color: #FEF6EB;
 }
 
 .hide {
@@ -236,6 +293,15 @@ aside {
 #exceed-step-goal-dates {
   overflow: scroll;
 } 
+
+.stat {
+  font-size: 30px;
+  margin: -18px;
+}
+
+#greeting {
+  font-size: 20px;
+}
 
 
 

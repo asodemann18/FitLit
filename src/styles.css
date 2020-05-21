@@ -66,11 +66,8 @@ canvas {
 
 #competition-container {
   align-items: center;
-  /* display: flex;
-  flex-direction: column; */
   max-height: 55%;
   text-align: center;
-  /* justify-content: space-between */
 }
 
 #top-performers-container {

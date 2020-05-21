@@ -1,7 +1,7 @@
 domUpdates = {
   displaySleepHoursForDay(date) {
     const todaySleepHours = document.getElementById("today-sleep-hours");
-    let sleepHoursForDay = sleep.getDailySleepHours(date)
+    let sleepHoursForDay = sleep.getDailySleepProp(date, 'hoursSlept')
     todaySleepHours.innerHTML = `
     <h4>Hours slept:</h4>
     <p class="stat">${sleepHoursForDay}</p>`
@@ -9,7 +9,7 @@ domUpdates = {
   
   displaySleepQualForDay(date) {
     const todaySleepQuality = document.getElementById("today-sleep-quality");
-    let sleepQualForDay = sleep.getDailySleepQual(date)
+    let sleepQualForDay = sleep.getDailySleepProp(date, 'sleepQuality')
     todaySleepQuality.innerHTML = `
     <h4>Sleep quality:</h4>
     <p class="stat">${sleepQualForDay} / 5</p>`
@@ -17,7 +17,7 @@ domUpdates = {
 
   displayAvgSleepHoursForUser() {
     const userAvgSleepHours = document.getElementById("user-avg-sleep-hours");
-    let avgSleepHoursForUser = sleep.getAvgSleepHours()
+    let avgSleepHoursForUser = sleep.getAvgSleepProp('hoursSlept')
     userAvgSleepHours.innerHTML = `
     <h4>Average hours slept:</h4>
     <p class="stat">${avgSleepHoursForUser}</p>`
@@ -25,7 +25,7 @@ domUpdates = {
 
   displayLongestSleepers(date) {
     const longestSleepers = document.getElementById("longest-sleepers");
-    let longestSleepersOnDate = sleepRepo.getLongestSleepers(date);
+    let longestSleepersOnDate = sleepRepo.getGreatestSleepProp(date, 'hoursSlept');
     let ids = longestSleepersOnDate.map(sleep => sleep.userID);
     let sleepUserData = [];
     userData.forEach((user) => {
@@ -44,7 +44,7 @@ domUpdates = {
 
   displayHighestQualSleepers(date) {
     const highestQualSleepers = document.getElementById("highest-qual-sleepers");
-    let qualSleepersOnDate = sleepRepo.getHighestQualitySleepers(date);
+    let qualSleepersOnDate = sleepRepo.getGreatestSleepProp(date, 'sleepQuality');
     let ids = qualSleepersOnDate.map(sleep => sleep.userID);
     let sleepUserData = [];
     userData.forEach((user) => {
@@ -114,7 +114,7 @@ domUpdates = {
 
   displayWeeklyAvgSteps(date) {
     const weekAvgSteps = document.getElementById('week-steps-taken-avg');
-    let avg = activity.getWeeklyAvgSteps(date)
+    let avg = activity.getWeeklyAvgProps(date, 'numSteps')
     weekAvgSteps.innerHTML = `
     <h4>Average steps per day:</h4>
     <p class="stat">${avg}</p>`
@@ -122,7 +122,7 @@ domUpdates = {
 
   displayWeeklyAvgMinutesActive(date) {
     const weekAvgMinsActive = document.getElementById('week-mins-active-avg');
-    let avg = activity.getWeeklyAvgMinutesActive(date)
+    let avg = activity.getWeeklyAvgProps(date, 'minutesActive')
     weekAvgMinsActive.innerHTML = `
     <h4>Average minutes active per day:</h4>
     <p class="stat">${avg}</p>`
@@ -130,7 +130,7 @@ domUpdates = {
 
   displayWeeklyAvgFlights(date) {
     const weekAvgFlights = document.getElementById('week-flights-avg');
-    let avg = activity.getWeeklyAvgFlights(date)
+    let avg = activity.getWeeklyAvgProps(date, 'flightsOfStairs')
     weekAvgFlights.innerHTML = `
     <h4>Average flights per day:</h4>
     <p class="stat">${avg}</p>`

@@ -26,28 +26,6 @@ class Activity {
     }  
   }
 
-  getWeeklyAvgSteps(date) {
-    let newDate = this.checkDate(date);
-    if (date !== newDate) {
-      return 'You must pass a valid date';
-    } else {
-      let activityDate = this.userActivity.find(activity => {
-        return activity.date === date;
-      })
-
-      let firstDate = this.userActivity.indexOf(activityDate);
-      let allDays = this.userActivity
-        .slice(firstDate, firstDate + 7)
-        .map(activity => activity.numSteps);
-
-      let avg = allDays.reduce((acc, activity) => {
-        return acc += activity / allDays.length;
-      }, 0)
-      
-      return Math.ceil(avg);  
-    }
-  }
-
   getMilesWalked(date) {
     let strideLength = this.user.strideLength;
     let newDate = this.checkDate(date);
@@ -72,7 +50,7 @@ class Activity {
     if (date !== newDate) {
       return 'You must pass a valid date';
     } else {
-      let dailyActivity = this.userActivity.filter(activity => activity.date === date);
+      let dailyActivity = this.userActivity.filter(activity => activity.date === newDate);
       
       return dailyActivity.reduce((acc, active) => {
         return acc += active.minutesActive;
@@ -80,29 +58,74 @@ class Activity {
     }
   }
 
-  getWeeklyAvgMinutesActive(date) {
-    let newDate = this.checkDate(date);
-    if (date !== newDate) {
-      return 'You must pass a valid date';
-    } else {
-      let activityDate = this.userActivity.find(activity => {
-        return activity.date === date;
-      })
+  // getWeeklyAvgMinutesActive(date) {
+  //   let newDate = this.checkDate(date);
+  //   if (date !== newDate) {
+  //     return 'You must pass a valid date';
+  //   } else {
+  //     let activityDate = this.userActivity.find(activity => {
+  //       return activity.date === date;
+  //     })
 
-      let firstDate = this.userActivity.indexOf(activityDate);
-      let allDays = this.userActivity
-        .slice(firstDate, firstDate + 7)
-        .map(activity => activity.minutesActive);
+  //     let firstDate = this.userActivity.indexOf(activityDate);
+  //     let allDays = this.userActivity
+  //       .slice(firstDate, firstDate + 7)
+  //       .map(activity => activity.minutesActive);
 
-      let avg = allDays.reduce((acc, activity) => {
-        return acc += activity / allDays.length;
-      }, 0)
+  //     let avg = allDays.reduce((acc, activity) => {
+  //       return acc += activity / allDays.length;
+  //     }, 0)
       
-      return Math.ceil(avg);  
-    }
-  }
+  //     return Math.ceil(avg);  
+  //   }
+  // }
 
-  getWeeklyAvgFlights(date) {
+  // getWeeklyAvgSteps(date) {
+  //   let newDate = this.checkDate(date);
+  //   if (date !== newDate) {
+  //     return 'You must pass a valid date';
+  //   } else {
+  //     let activityDate = this.userActivity.find(activity => {
+  //       return activity.date === date;
+  //     })
+
+  //     let firstDate = this.userActivity.indexOf(activityDate);
+  //     let allDays = this.userActivity
+  //       .slice(firstDate, firstDate + 7)
+  //       .map(activity => activity.numSteps);
+
+  //     let avg = allDays.reduce((acc, activity) => {
+  //       return acc += activity / allDays.length;
+  //     }, 0)
+      
+  //     return Math.ceil(avg);  
+  //   }
+  // }
+
+  // getWeeklyAvgFlights(date) {
+  //   let newDate = this.checkDate(date);
+  //   if (date !== newDate) {
+  //     return 'You must pass a valid date';
+  //   } else {
+  //     let activityDate = this.userActivity.find(activity => {
+  //       return activity.date === date;
+  //     })
+
+  //     let firstDate = this.userActivity.indexOf(activityDate);
+  //     let allDays = this.userActivity
+  //       .slice(firstDate, firstDate + 7)
+  //       .map(activity => activity.flightsOfStairs);
+
+  //     let avg = allDays.reduce((acc, activity) => {
+  //       return acc += activity / allDays.length;
+  //     }, 0)
+      
+  //     return Math.ceil(avg);  
+  //   }
+  // }
+
+
+  getWeeklyAvgProps(date, property) {
     let newDate = this.checkDate(date);
     if (date !== newDate) {
       return 'You must pass a valid date';
@@ -114,7 +137,7 @@ class Activity {
       let firstDate = this.userActivity.indexOf(activityDate);
       let allDays = this.userActivity
         .slice(firstDate, firstDate + 7)
-        .map(activity => activity.flightsOfStairs);
+        .map(activity => activity[property]);
 
       let avg = allDays.reduce((acc, activity) => {
         return acc += activity / allDays.length;

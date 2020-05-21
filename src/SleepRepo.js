@@ -37,34 +37,6 @@ class SleepRepo {
     }, [])
   }
 
-
-  //CAN REFACTOR FOLLOWING TWO FNS INTO 1
-  // getLongestSleepers(date) {
-  //   let sleepEntries = this.sleepData
-  //     .filter(sleep => sleep.date === date)
-  //     .sort((a, b) => b.hoursSlept - a.hoursSlept);
-  //   let longestSleepers = [];
-  //   sleepEntries.forEach(sleep => {
-  //     if (sleep.hoursSlept === sleepEntries[0].hoursSlept) {
-  //       longestSleepers.push(sleep);
-  //     }
-  //   })
-  //   return longestSleepers;
-  // }
-
-  // getHighestQualitySleepers(date) {
-  //   let sleepEntries = this.sleepData
-  //     .filter(sleep => sleep.date === date)
-  //     .sort((a, b) => b.sleepQuality - a.sleepQuality);
-  //   let longestSleepers = [];
-  //   sleepEntries.forEach(sleep => {
-  //     if (sleep.sleepQuality === sleepEntries[0].sleepQuality) {
-  //       longestSleepers.push(sleep);
-  //     }
-  //   })
-  //   return longestSleepers;
-  // }
-
   getGreatestSleepProp(date, property) {
     let sleepEntries = this.sleepData
       .filter(sleep => sleep.date === date)

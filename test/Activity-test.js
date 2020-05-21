@@ -120,15 +120,15 @@ describe('Activity', () => {
   })
 
   it('should return average minutes active a user was during a given week', () => {
-    expect(activity.getWeeklyAvgMinutesActive('2019/06/15')).to.equal(160);
+    expect(activity.getWeeklyAvgProps('2019/06/15', 'minutesActive')).to.equal(160);
   })
 
   it('should only take a date as an argument', () => {
-    expect(activity.getWeeklyAvgMinutesActive('test')).to.equal('You must pass a valid date');
+    expect(activity.getWeeklyAvgProps('test', 'minutesActive')).to.equal('You must pass a valid date');
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(activity.getWeeklyAvgMinutesActive('2019-06-15')).to.equal('You must pass a valid date');
+    expect(activity.getWeeklyAvgProps('2019-06-15', 'minutesActive')).to.equal('You must pass a valid date');
   })
 
   it('should return whether or not a user reached a step goal on a specific day', () => {
@@ -188,19 +188,19 @@ describe('Activity', () => {
   })
 
   it('should calculate the average steps taken in a given week', () => {
-    expect(activity.getWeeklyAvgSteps('2019/06/15')).to.equal(6797)
+    expect(activity.getWeeklyAvgProps('2019/06/15', 'numSteps')).to.equal(6797)
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(activity.getWeeklyAvgSteps('2019-06-15')).to.equal('You must pass a valid date');
+    expect(activity.getWeeklyAvgProps('2019-06-15', 'numSteps')).to.equal('You must pass a valid date');
   })
 
   it('should calculate the average flights climbed in a given week', () => {
-    expect(activity.getWeeklyAvgFlights('2019/06/15')).to.equal(19);
+    expect(activity.getWeeklyAvgProps('2019/06/15', 'flightsOfStairs')).to.equal(19);
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(activity.getWeeklyAvgFlights('2019-06-15')).to.equal('You must pass a valid date');
+    expect(activity.getWeeklyAvgProps('2019-06-15', 'flightsOfStairs')).to.equal('You must pass a valid date');
   })
 
   it('should return number of stairs climbed for a specific date', () => {

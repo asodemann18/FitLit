@@ -144,7 +144,7 @@ domUpdates = {
 
   displayWeeklyAvgSteps(date) {
     const weekAvgSteps = document.getElementById('week-steps-taken-avg');
-    let avg = activity.getWeeklyAvgSteps(date)
+    let avg = activity.getWeeklyAvgProps(date, 'numSteps')
     weekAvgSteps.innerHTML = `
     <p>Average steps per day:</p>
     <p class="stat">${avg}</p>`
@@ -152,7 +152,7 @@ domUpdates = {
 
   displayWeeklyAvgMinutesActive(date) {
     const weekAvgMinsActive = document.getElementById('week-mins-active-avg');
-    let avg = activity.getWeeklyAvgMinutesActive(date)
+    let avg = activity.getWeeklyAvgProps(date, 'minutesActive')
     weekAvgMinsActive.innerHTML = `
     <p>Average minutes active per day:</p>
     <p class="stat">${avg}</p>`
@@ -160,7 +160,7 @@ domUpdates = {
 
   displayWeeklyAvgFlights(date) {
     const weekAvgFlights = document.getElementById('week-flights-avg');
-    let avg = activity.getWeeklyAvgFlights(date)
+    let avg = activity.getWeeklyAvgProps(date, 'flightsOfStairs')
     weekAvgFlights.innerHTML = `
     <p>Average flights per day:</p>
     <p class="stat">${avg}</p>`

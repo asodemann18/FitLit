@@ -3,42 +3,55 @@ class ActivityRepo {
     this.activityRepoData = activityRepoData;
   }
 
-  calculateAvgStairs(date) {
-    let newDate = this.checkDate(date);
-    if (date !== newDate) {
-      return 'You must pass a valid date';
-    } else {
-      let dailyAllActivity = this.activityRepoData.filter(activity => activity.date === date);
-      let avgStairs = dailyAllActivity.reduce((acc, activity) => {
-        return acc += activity.flightsOfStairs / dailyAllActivity.length;
-      }, 0);
-      return Math.ceil(avgStairs);
-    }
-  }
+  // calculateAvgStairs(date) {
+  //   let newDate = this.checkDate(date);
+  //   if (date !== newDate) {
+  //     return 'You must pass a valid date';
+  //   } else {
+  //     let dailyAllActivity = this.activityRepoData.filter(activity => activity.date === date);
+  //     let avgStairs = dailyAllActivity.reduce((acc, activity) => {
+  //       return acc += activity.flightsOfStairs / dailyAllActivity.length;
+  //     }, 0);
+  //     return Math.ceil(avgStairs);
+  //   }
+  // }
 
-  calculateAvgSteps(date) {
-    let newDate = this.checkDate(date);
-    if (date !== newDate) {
-      return 'You must pass a valid date';
-    } else {
-      let dailyAllActivity = this.activityRepoData.filter(activity => activity.date === date);
-      let avgSteps = dailyAllActivity.reduce((acc, activity) => {
-        return acc += activity.numSteps / dailyAllActivity.length;
-      }, 0)
-      return Math.ceil(avgSteps);
-    }
-  }
+  // calculateAvgSteps(date) {
+  //   let newDate = this.checkDate(date);
+  //   if (date !== newDate) {
+  //     return 'You must pass a valid date';
+  //   } else {
+  //     let dailyAllActivity = this.activityRepoData.filter(activity => activity.date === date);
+  //     let avgSteps = dailyAllActivity.reduce((acc, activity) => {
+  //       return acc += activity.numSteps / dailyAllActivity.length;
+  //     }, 0)
+  //     return Math.ceil(avgSteps);
+  //   }
+  // }
 
-  calculateAvgMinActive(date) {
+  // calculateAvgMinActive(date) {
+  //   let newDate = this.checkDate(date);
+  //   if (date !== newDate) {
+  //     return 'You must pass a valid date';
+  //   } else {
+  //     let dailyAllActivity = this.activityRepoData.filter(activity => activity.date === date);
+  //     let avgMinActive = dailyAllActivity.reduce((acc, activity) => {
+  //       return acc += activity.minutesActive / dailyAllActivity.length;
+  //     }, 0)
+  //     return Math.ceil(avgMinActive);
+  //   }
+  // }
+
+  calculateAvgActivityProp(date, property) {
     let newDate = this.checkDate(date);
     if (date !== newDate) {
       return 'You must pass a valid date';
     } else {
       let dailyAllActivity = this.activityRepoData.filter(activity => activity.date === date);
-      let avgMinActive = dailyAllActivity.reduce((acc, activity) => {
-        return acc += activity.minutesActive / dailyAllActivity.length;
+      let avg = dailyAllActivity.reduce((acc, activity) => {
+        return acc += activity[property] / dailyAllActivity.length;
       }, 0)
-      return Math.ceil(avgMinActive);
+      return Math.ceil(avg);
     }
   }
 

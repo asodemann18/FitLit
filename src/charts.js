@@ -313,7 +313,7 @@ const charts = {
 
   dailyStepsCompareChart(date) {
     const dailyStepsTaken = activity.getStepsTaken(date);
-    const allAvgDailyStepsTaken = activityRepo.calculateAvgSteps(currentDate);
+    const allAvgDailyStepsTaken = activityRepo.calculateAvgActivityProp(currentDate, 'numSteps');
     const dailyStepComparison = document.getElementById('daily-step-comparison');
     return new Chart(dailyStepComparison, {
       type: 'bar',
@@ -372,7 +372,7 @@ const charts = {
 
   dailyMinActiveCompareChart(date) {
     const dailyMinActive = activity.getMinutesActive(date);
-    const allAvgDailyMinActive = activityRepo.calculateAvgMinActive(currentDate);
+    const allAvgDailyMinActive = activityRepo.calculateAvgActivityProp(currentDate, 'minutesActive');
     const dailyMinActiveComparison = document.getElementById('daily-minutes-active-comparison');
     return new Chart(dailyMinActiveComparison, {
       type: 'bar',
@@ -411,7 +411,7 @@ const charts = {
 
   dailyFlightsCompareChart(date) {
     const dailyFlightsClimbed = activity.getStairsClimbed(date);
-    const allAvgFlightsClimbed = activityRepo.calculateAvgStairs(currentDate);
+    const allAvgFlightsClimbed = activityRepo.calculateAvgActivityProp(currentDate, 'flightsOfStairs');
     const dailyFlightsComparison = document.getElementById('daily-flights-climbed-comparison');   
     return new Chart(dailyFlightsComparison, {
       type: 'bar',

@@ -16,11 +16,11 @@ const defaultDateInput = (createDate.getFullYear() + "/" +
 ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
 ("0" + createDate.getUTCDate()).slice(-2));
 const dateTitle = document.querySelector(".view-title-text");
-const weekStepCount = activity.getStepsForWeek(weekStartDate);  
+const weekStepCount = activity.getActivityPropForWeek(weekStartDate, 'numSteps');  
 const weekStepsId = document.getElementById('week-steps');
-const weekFlightsClimbed = activity.getFlightsForWeek(weekStartDate);
+const weekFlightsClimbed = activity.getActivityPropForWeek(weekStartDate, 'flightsOfStairs');
 const weekFlightsId = document.getElementById('week-flights');
-const weekMinsActive = activity.getMinsActiveForWeek(weekStartDate);
+const weekMinsActive = activity.getActivityPropForWeek(weekStartDate, 'minutesActive');
 const weekMinsActiveId = document.getElementById('week-mins-active');
 
 dateHandler(defaultDateInput);
@@ -108,7 +108,7 @@ function calculateWeeklyStepChallenge(date) {
   let userFriends = getFriends();
   let friendSteps = userFriends.reduce((acc, friend) => {
     let newActivity = new Activity(friend.id, activityData, userData);
-    let stepsForWeek = newActivity.getStepsForWeek(date);
+    let stepsForWeek = newActivity.getActivityPropForWeek(date, 'numSteps');
     let totalSteps = stepsForWeek.reduce((acc, step) => {
       return acc += step;
     }, 0)
@@ -119,7 +119,7 @@ function calculateWeeklyStepChallenge(date) {
   }, [])
   
   let currentUserSteps = {};
-  currentUserSteps[currentUser.name] = activity.getStepsForWeek(date).reduce((acc, step) => {
+  currentUserSteps[currentUser.name] = activity.getActivityPropForWeek(date, 'numSteps').reduce((acc, step) => {
     return acc += step;
   }, 0);
   friendSteps.push(currentUserSteps);

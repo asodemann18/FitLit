@@ -67,31 +67,31 @@ describe('Sleep', () => {
   })
 
   it('should return hours slept for a given day', () => {
-    expect(sleep.getDailySleepHours("2019/06/23")).to.equal(8.9)
+    expect(sleep.getDailySleepProp("2019/06/23", 'hoursSlept')).to.equal(8.9)
   })
 
   it('should only take a date as an argument', () => {
-    expect(sleep.getDailySleepHours('test')).to.equal('You must pass a valid date');
+    expect(sleep.getDailySleepProp('test', 'hoursSlept')).to.equal('You must pass a valid date');
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(sleep.getDailySleepHours('2019-06-24')).to.equal('You must pass a valid date');
+    expect(sleep.getDailySleepProp('2019-06-24', 'hoursSlept')).to.equal('You must pass a valid date');
   })
 
   it('should return sleep quality for a given day', () => {
-    expect(sleep.getDailySleepQual("2019/06/23")).to.equal(2.2)
+    expect(sleep.getDailySleepProp("2019/06/23", 'sleepQuality')).to.equal(2.2)
   })
   
   it('should only take a date as an argument', () => {
-    expect(sleep.getDailySleepQual('test')).to.equal('You must pass a valid date');
+    expect(sleep.getDailySleepProp('test', 'sleepQuality')).to.equal('You must pass a valid date');
   })
 
-  it('should only take a date in the correct format as an argument', () => {
-    expect(sleep.getDailySleepQual('2019-06-24')).to.equal('You must pass a valid date');
-  })
+  // it('should only take a date in the correct format as an argument', () => {
+  //   expect(sleep.getDailySleepQual('2019-06-24')).to.equal('You must pass a valid date');
+  // })
 
   it('should calculate average all time sleep hours', () => {
-    expect(sleep.getAvgSleepHours()).to.equal(7)
+    expect(sleep.getAvgSleepProp('hoursSlept')).to.equal(7)
   })
 
   it('should calculate average all time sleep hours even when an argument is passed', () => {
@@ -99,7 +99,7 @@ describe('Sleep', () => {
   })
 
   it('should calculate average all time sleep quality', () => {
-    expect(sleep.getAvgSleepQual()).to.equal(3.4)
+    expect(sleep.getAvgSleepProp('sleepQuality')).to.equal(3.4)
   })
 
   it('should calculate average all time sleep quality even when an argument is passed', () => {
@@ -107,35 +107,35 @@ describe('Sleep', () => {
   })
 
   it('should return specific sleep hours over 7 days', () => {
-    expect(sleep.getWeeklySleepHours("2019/06/15")).to.deep.equal([6.1, 7, 10.8, 5.4, 4.1, 9.6, 5.1])
+    expect(sleep.getWeeklySleepProp("2019/06/15", 'hoursSlept')).to.deep.equal([6.1, 7, 10.8, 5.4, 4.1, 9.6, 5.1])
   })
 
   it('should return specific sleep hours over x days if there aren\'t 7 days worth of data', () => {
-    expect(sleep.getWeeklySleepHours('2019/06/20')).to.deep.equal([9.6, 5.1, 8.1, 8.9, 4.4]);
+    expect(sleep.getWeeklySleepProp("2019/06/20", 'hoursSlept')).to.deep.equal([9.6, 5.1, 8.1, 8.9, 4.4]);
   })
 
   it('should only take a date as an argument', () => {
-    expect(sleep.getWeeklySleepHours('test')).to.equal('You must pass a valid date');
+    expect(sleep.getWeeklySleepProp('test')).to.equal('You must pass a valid date');
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(sleep.getWeeklySleepHours('2019-06-20')).to.equal('You must pass a valid date');
+    expect(sleep.getWeeklySleepProp('2019-06-20', 'hoursSlept')).to.equal('You must pass a valid date');
   })
 
   it('should return specific sleep quality over 7 days', () => {
-    expect(sleep.getWeeklySleepQual("2019/06/15")).to.deep.equal([ 5, 4.7, 4.7, 3, 3.6, 2.9, 2.6 ])
+    expect(sleep.getWeeklySleepProp("2019/06/15", 'sleepQuality')).to.deep.equal([ 5, 4.7, 4.7, 3, 3.6, 2.9, 2.6 ])
   })
 
   it('should return specific sleep quality over x days if there aren\'t 7 days worth of data', () => {
-    expect(sleep.getWeeklySleepQual('2019/06/20')).to.deep.equal([2.9, 2.6, 3.5, 2.2, 1.6]);
+    expect(sleep.getWeeklySleepProp("2019/06/20", 'sleepQuality')).to.deep.equal([2.9, 2.6, 3.5, 2.2, 1.6]);
   })
 
   it('should only take a date as an argument', () => {
-    expect(sleep.getWeeklySleepQual('test')).to.equal('You must pass a valid date');
+    expect(sleep.getWeeklySleepProp('test', 'sleepQuality')).to.equal('You must pass a valid date');
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(sleep.getWeeklySleepQual('2019-06-20')).to.equal('You must pass a valid date');
+    expect(sleep.getWeeklySleepProp('2019-06-20', 'sleepQuality')).to.equal('You must pass a valid date');
   })
 
   // it('should return specific sleep hours over 7 days', () => {

@@ -26,39 +26,24 @@ class SleepRepo {
     return userIDs.reduce((acc, user) => {
       let sleepDate = this.dataByUser[user].find(sleep => sleep.date === date);
       let firstDate = this.dataByUser[user].indexOf(sleepDate);
-      let sleepQuals = this.dataByUser[user].slice(firstDate, firstDate + 7).map(sleep => sleep.sleepQuality);     
+      let sleepQuals = this.dataByUser[user].slice(firstDate, firstDate + 7).map(sleep => sleep.sleepQuality);
       let avg = sleepQuals.reduce((acc, num) => {
         return acc += num / sleepQuals.length
       }, 0);
-      if(avg > 3) {
+      if (avg > 3) {
         acc.push(Number(user));
       }
       return acc;
     }, [])
   }
 
-
-  //CAN REFACTOR FOLLOWING TWO FNS INTO 1
-  getLongestSleepers(date) {
+  getGreatestSleepProp(date, property) {
     let sleepEntries = this.sleepData
       .filter(sleep => sleep.date === date)
-      .sort((a, b) => b.hoursSlept - a.hoursSlept);
+      .sort((a, b) => b[property] - a[property]);
     let longestSleepers = [];
     sleepEntries.forEach(sleep => {
-      if (sleep.hoursSlept === sleepEntries[0].hoursSlept) {
-        longestSleepers.push(sleep);
-      }
-    })
-    return longestSleepers;
-  }
-
-  getHighestQualitySleepers(date) {
-    let sleepEntries = this.sleepData
-      .filter(sleep => sleep.date === date)
-      .sort((a, b) => b.sleepQuality - a.sleepQuality);
-    let longestSleepers = [];
-    sleepEntries.forEach(sleep => {
-      if (sleep.sleepQuality === sleepEntries[0].sleepQuality) {
+      if (sleep[property] === sleepEntries[0][property]) {
         longestSleepers.push(sleep);
       }
     })

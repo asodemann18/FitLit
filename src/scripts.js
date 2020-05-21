@@ -1,44 +1,51 @@
-const currentUser = new User(getRandomUser(userData));
-
 const currentDate = "2019/09/22";
 const weekStartDate = "2019/09/16";
 
+const getRandomUser = (array) => {
+  let randomIndex =  Math.floor(Math.random() * array.length);
+  return array[randomIndex]
+}
+
+//CLASS INSTANTIATIONS
+const currentUser = new User(getRandomUser(userData));
 const sleep = new Sleep(currentUser.id, sleepData);
 const sleepRepo = new SleepRepo(sleepData);
 const usersRepo = new UsersRepo(userData);
 const hydration = new Hydration(currentUser.id, hydrationData);
 const activity = new Activity(currentUser.id, activityData, userData);
 const activityRepo = new ActivityRepo(activityData);
+
+//SELECTORS
 const dateInput = document.getElementById('date-input');
 const dailySubmitButton = document.getElementById('daily-submit');
-const createDate = new Date(dateInput.value);
-const defaultDateInput = (createDate.getFullYear() + "/" + 
-("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
-("0" + createDate.getUTCDate()).slice(-2));
 const dateTitle = document.querySelector(".view-title-text");
-const weekStepCount = activity.getStepsForWeek(weekStartDate);  
 const weekStepsId = document.getElementById('week-steps');
-const weekFlightsClimbed = activity.getFlightsForWeek(weekStartDate);
 const weekFlightsId = document.getElementById('week-flights');
-const weekMinsActive = activity.getMinsActiveForWeek(weekStartDate);
 const weekMinsActiveId = document.getElementById('week-mins-active');
+const userProfileContainer = document.getElementById('user-profile-container')
+const competitionContainer = document.getElementById('competition-container')
+const myProfileBtn = document.getElementById('my-profile-btn')
+const competitionBtn = document.getElementById('competition-btn')
+const aside = document.getElementById('aside')
+const viewSelectBtns = document.getElementById('view-select-btns')
+const dayView = document.getElementById('day-view')
+const weekView = document.getElementById('week-view')
+const allTimeView = document.getElementById('all-time-view')
 
-dateHandler(defaultDateInput);
-dailySubmitButton.addEventListener('click', changeDate);
+//GLOBAL VARIABLES
+const createDate = new Date(dateInput.value);
+const defaultDateInput = (createDate.getFullYear() + "/" + ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + ("0" + createDate.getUTCDate()).slice(-2));
+const weekStepCount = activity.getActivityPropForWeek(weekStartDate, 'numSteps');  
+const weekFlightsClimbed = activity.getActivityPropForWeek(weekStartDate, 'flightsOfStairs');
+const weekMinsActive = activity.getActivityPropForWeek(weekStartDate, 'minutesActive');
 
-
-
-function changeDate() {
-  let createDate = new Date(dateInput.value);  
-  let correctDateInput = (createDate.getFullYear() + "/" + 
-    ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
-    ("0" + createDate.getUTCDate()).slice(-2));
-    clearStepChallenge();
-    dateHandler(correctDateInput);
-    changeDateTitle();
+//FUNCTION DECLARATIONS
+const clearStepChallenge = () => {
+  const stepChallenge = document.getElementById('step-challenge');
+  stepChallenge.innerHTML = "";
 }
 
-function changeDateTitle() {
+const changeDateTitle = () => {
   if(event.target.id === 'daily-submit' && !dayView.classList.contains('hide')) {
     dateTitle.innerHTML = `Day of ${dateInput.value}`;
   }
@@ -50,13 +57,7 @@ function changeDateTitle() {
   }
 }
 
-function clearStepChallenge() {
-  const stepChallenge = document.getElementById('step-challenge');
-  stepChallenge.innerHTML = "";
-}
-
-
-function dateHandler(date) {
+const dateHandler = (date) => {
   domUpdates.displaySleepHoursForDay(date);
   domUpdates.displaySleepQualForDay(date);
   domUpdates.displayMilesWalkedForDay(date);
@@ -80,35 +81,34 @@ function dateHandler(date) {
   charts.weeklyMinsActiveChart(date);
 }
 
-domUpdates.displayAvgSleepHoursForUser();
-domUpdates.displayName();
-domUpdates.displayInfo();
-domUpdates.displayExceedStepGoal();
-domUpdates.displayAvgHydration();
-domUpdates.displayMaxStairs();
-getFriends();
+const changeDate = () => {
+  let createDate = new Date(dateInput.value);  
+  let correctDateInput = (createDate.getFullYear() + "/" + 
+    ("0" + (createDate.getMonth() + 1)).slice(-2) + "/" + 
+    ("0" + createDate.getUTCDate()).slice(-2));
+  clearStepChallenge();
+  dateHandler(correctDateInput);
+  changeDateTitle();
+}
 
-charts.allTimeStepCompareChart();
-charts.allTimeSleepQualCompareChart();
-
-function getFriends() {
+const getFriends = () => {
   let userFriends = currentUser.friends;
   let userFriendData = [];
   userData.forEach((user) => {
     userFriends.forEach(id => {
       if(user.id === id) {
       userFriendData.push(user);
-     }
-   })
- })
-return userFriendData
+      }
+    })
+  })
+  return userFriendData
 }
 
-function calculateWeeklyStepChallenge(date) {
+const calculateWeeklyStepChallenge = (date) => {
   let userFriends = getFriends();
   let friendSteps = userFriends.reduce((acc, friend) => {
     let newActivity = new Activity(friend.id, activityData, userData);
-    let stepsForWeek = newActivity.getStepsForWeek(date);
+    let stepsForWeek = newActivity.getActivityPropForWeek(date, 'numSteps');
     let totalSteps = stepsForWeek.reduce((acc, step) => {
       return acc += step;
     }, 0)
@@ -119,43 +119,14 @@ function calculateWeeklyStepChallenge(date) {
   }, [])
   
   let currentUserSteps = {};
-  currentUserSteps[currentUser.name] = activity.getStepsForWeek(date).reduce((acc, step) => {
+  currentUserSteps[currentUser.name] = activity.getActivityPropForWeek(date, 'numSteps').reduce((acc, step) => {
     return acc += step;
   }, 0);
   friendSteps.push(currentUserSteps);
   return friendSteps.sort((a, b) => (b.totalSteps - a.totalSteps));
 }
 
-function getRandomUser(array) {
-  let randomIndex =  Math.floor(Math.random() * array.length);
-  return array[randomIndex]
-}
-
-const userProfileContainer = document.getElementById('user-profile-container')
-const competitionContainer = document.getElementById('competition-container')
-const myProfileBtn = document.getElementById('my-profile-btn')
-const competitionBtn = document.getElementById('competition-btn')
-const aside = document.getElementById('aside')
-
-myProfileBtn.addEventListener('click', showProfile)
-competitionBtn.addEventListener('click', showCompetition)
-
-function showProfile() {
-  userProfileContainer.classList.toggle('hide')
-  // if(!userProfileContainer.classList.contains('hide')) {
-  //   aside.classList.remove('hide')
-  // }
-  toggleAside()
-}
-
-function showCompetition() {
-  console.log('comp')
-  competitionContainer.classList.toggle('hide')
-  toggleAside()
-}
-
-
-function toggleAside() {
+const toggleAside = () => {
   if(!userProfileContainer.classList.contains('hide') || !competitionContainer.classList.contains('hide')) {
     aside.classList.remove('hide')
   } else if (userProfileContainer.classList.contains('hide') && competitionContainer.classList.contains('hide')) {
@@ -163,24 +134,17 @@ function toggleAside() {
   }
 }
 
-// const dayBtn = document.getElementById('day-btn')
-// const weekBtn = document.getElementById('week-btn')
-// const allTimeBtn = document.getElementById('all-time-btn')
-const viewSelectBtns = document.getElementById('view-select-btns')
-const dayView = document.getElementById('day-view')
-const weekView = document.getElementById('week-view')
-const allTimeView = document.getElementById('all-time-view')
-
-viewSelectBtns.addEventListener('click', changeView) 
-
-function changeView() {
-  console.log(event.target)
-  showDayView(event)
-  showWeekView(event)
-  showAllTimeView(event)
+const showProfile = () => {
+  userProfileContainer.classList.toggle('hide')
+  toggleAside()
 }
 
-function showDayView(event) {
+const showCompetition = () => {
+  competitionContainer.classList.toggle('hide')
+  toggleAside()
+}
+
+const showDayView = (event) => {
   if(event.target.id === 'day-btn') {
     dayView.classList.remove('hide')
     weekView.classList.add('hide')
@@ -189,7 +153,7 @@ function showDayView(event) {
   }
 }
 
-function showWeekView(event) {
+const showWeekView = (event) => {
   if(event.target.id === 'week-btn') {
     weekView.classList.remove('hide')
     dayView.classList.add('hide')
@@ -199,7 +163,7 @@ function showWeekView(event) {
   }
 }
 
-function showAllTimeView(event) {
+const showAllTimeView = (event) => {
   if(event.target.id === 'all-time-btn') {
     allTimeView.classList.remove('hide')
     dayView.classList.add('hide')
@@ -207,3 +171,27 @@ function showAllTimeView(event) {
     dateTitle.innerHTML = `All Time`;
   }
 }
+
+const changeView = () => {
+  showDayView(event)
+  showWeekView(event)
+  showAllTimeView(event)
+}
+
+//FUNCTION CALLS
+domUpdates.displayAvgSleepHoursForUser();
+domUpdates.displayName();
+domUpdates.displayInfo();
+domUpdates.displayExceedStepGoal();
+domUpdates.displayAvgHydration();
+domUpdates.displayMaxStairs();
+getFriends();
+dateHandler(defaultDateInput);
+charts.allTimeStepCompareChart();
+charts.allTimeSleepQualCompareChart();
+
+//EVENT LISTENERS
+dailySubmitButton.addEventListener('click', changeDate);
+myProfileBtn.addEventListener('click', showProfile)
+competitionBtn.addEventListener('click', showCompetition)
+viewSelectBtns.addEventListener('click', changeView) 

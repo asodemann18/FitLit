@@ -5,9 +5,15 @@ const ActivityRepo = require('../src/ActivityRepo');
 const activityRepoSampleData = require('../sample-data/activity-sample')
 
 let activityRepo1, activityRepo2, activityRepo3, activityRepo4,
-activityRepo5, activityRepo6, activityRepo7, activityRepo8,
-activityRepo9, activityRepo10, activityRepo11, activityRepo12,
-activityRepo13, activityRepo14, activityRepo15, activityRepo16, activityRepo17, activityRepo18, activityRepo19, activityRepo20, activityRepo21, activityRepo22, activityRepo23, activityRepo24, activityRepo25, activityRepo26, activityRepo27, activityRepo28, activityRepo29, activityRepo30, activityRepo31, activityRepo32, activityRepo33, activityRepo34, activityRepo35, activityRepo36, activityRepo37, activityRepo38, activityRepo39, activityRepo40;
+  activityRepo5, activityRepo6, activityRepo7, activityRepo8,
+  activityRepo9, activityRepo10, activityRepo11, activityRepo12,
+  activityRepo13, activityRepo14, activityRepo15, activityRepo16, 
+  activityRepo17, activityRepo18, activityRepo19, activityRepo20, 
+  activityRepo21, activityRepo22, activityRepo23, activityRepo24, 
+  activityRepo25, activityRepo26, activityRepo27, activityRepo28, 
+  activityRepo29, activityRepo30, activityRepo31, activityRepo32, 
+  activityRepo33, activityRepo34, activityRepo35, activityRepo36, 
+  activityRepo37, activityRepo38, activityRepo39, activityRepo40;
 
 let activityRepoData;
 let activityRepo;
@@ -55,7 +61,14 @@ describe('Activity Repository', () => {
     activityRepo39 = activityRepoSampleData[38]; 
     activityRepo40 = activityRepoSampleData[39];
 
-    activityRepoData = [activityRepo1, activityRepo2, activityRepo3, activityRepo4, activityRepo5, activityRepo6, activityRepo7, activityRepo8, activityRepo9, activityRepo10, activityRepo11, activityRepo12, activityRepo13, activityRepo14, activityRepo15, activityRepo16, activityRepo17, activityRepo18, activityRepo19, activityRepo20, activityRepo21, activityRepo22, activityRepo23, activityRepo24, activityRepo25, activityRepo26, activityRepo27, activityRepo28, activityRepo29, activityRepo30, activityRepo31, activityRepo32, activityRepo33, activityRepo34, activityRepo35, activityRepo36, activityRepo37, activityRepo38, activityRepo39, activityRepo40,];
+    activityRepoData = [activityRepo1, activityRepo2, activityRepo3, activityRepo4, 
+      activityRepo5, activityRepo6, activityRepo7, activityRepo8, activityRepo9, 
+      activityRepo10, activityRepo11, activityRepo12, activityRepo13, activityRepo14, 
+      activityRepo15, activityRepo16, activityRepo17, activityRepo18, activityRepo19, 
+      activityRepo20, activityRepo21, activityRepo22, activityRepo23, activityRepo24, 
+      activityRepo25, activityRepo26, activityRepo27, activityRepo28, activityRepo29, 
+      activityRepo30, activityRepo31, activityRepo32, activityRepo33, activityRepo34, 
+      activityRepo35, activityRepo36, activityRepo37, activityRepo38, activityRepo39, activityRepo40];
 
     activityRepo = new ActivityRepo(activityRepoData);
   })
@@ -77,39 +90,39 @@ describe('Activity Repository', () => {
   })
 
   it('should return the average number of stairs climbed for all users on a specific date', () => {
-    expect(activityRepo.calculateAvgStairs('2019/06/15')).to.equal(27);
+    expect(activityRepo.calculateAvgActivityProp('2019/06/15', 'flightsOfStairs')).to.equal(27);
   })
 
   it('should only take a date as an argument', () => {
-    expect(activityRepo.calculateAvgStairs('test')).to.equal('You must pass a valid date');
+    expect(activityRepo.calculateAvgActivityProp('test', 'flightsOfStairs')).to.equal('You must pass a valid date');
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(activityRepo.calculateAvgStairs('2019-06-15')).to.equal('You must pass a valid date');
+    expect(activityRepo.calculateAvgActivityProp('2019-06-15', 'flightsOfStairs')).to.equal('You must pass a valid date');
   })
 
   it('should return the average number of steps taken for all users on a specific date', () => {
-    expect(activityRepo.calculateAvgSteps('2019/06/15')).to.equal(6530);
+    expect(activityRepo.calculateAvgActivityProp('2019/06/15','numSteps')).to.equal(6530);
   })
 
   it('should only take a date as an argument', () => {
-    expect(activityRepo.calculateAvgSteps('test')).to.equal('You must pass a valid date');
+    expect(activityRepo.calculateAvgActivityProp('test', 'numSteps')).to.equal('You must pass a valid date');
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(activityRepo.calculateAvgSteps('2019-06-15')).to.equal('You must pass a valid date');
+    expect(activityRepo.calculateAvgActivityProp('2019-06-15', 'numSteps')).to.equal('You must pass a valid date');
   })
 
   it('should return the average number of minutes active for all users on a specific date', () => {
-    expect(activityRepo.calculateAvgMinActive('2019/06/15')).to.equal(98);
+    expect(activityRepo.calculateAvgActivityProp('2019/06/15', 'minutesActive')).to.equal(98);
   })
 
   it('should only take a date as an argument', () => {
-    expect(activityRepo.calculateAvgMinActive('test')).to.equal('You must pass a valid date');
+    expect(activityRepo.calculateAvgActivityProp('test', 'minutesActive')).to.equal('You must pass a valid date');
   })
 
   it('should only take a date in the correct format as an argument', () => {
-    expect(activityRepo.calculateAvgMinActive('2019-06-15')).to.equal('You must pass a valid date');
+    expect(activityRepo.calculateAvgActivityProp('2019-06-15', 'minutesActive')).to.equal('You must pass a valid date');
   })
 
   it('should return the user with the highest number of minutes active out of all users on a specific date', () => {

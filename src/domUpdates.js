@@ -35,7 +35,7 @@ domUpdates = {
 
   displayLongestSleepers(date) {
     const longestSleepers = document.getElementById("longest-sleepers");
-    let longestSleepersOnDate = sleepRepo.getLongestSleepers(date);
+    let longestSleepersOnDate = sleepRepo.getGreatestSleepProp(date, 'hoursSlept');
     let ids = longestSleepersOnDate.map(sleep => sleep.userID);
     let sleepUserData = [];
     userData.forEach((user) => {
@@ -54,7 +54,7 @@ domUpdates = {
 
   displayHighestQualSleepers(date) {
     const highestQualSleepers = document.getElementById("highest-qual-sleepers");
-    let qualSleepersOnDate = sleepRepo.getHighestQualitySleepers(date);
+    let qualSleepersOnDate = sleepRepo.getGreatestSleepProp(date, 'sleepQuality');
     let ids = qualSleepersOnDate.map(sleep => sleep.userID);
     let sleepUserData = [];
     userData.forEach((user) => {

@@ -85,7 +85,7 @@ describe('Sleep Repository', () => {
   })
 
   it('should return user who slept the most on a given day', () => {
-    expect(sleepRepo.getLongestSleepers("2019/06/17")).to.deep.equal([
+    expect(sleepRepo.getGreatestSleepProp("2019/06/17", 'hoursSlept')).to.deep.equal([
       {
         "userID": 3,
         "date": "2019/06/17",
@@ -96,7 +96,7 @@ describe('Sleep Repository', () => {
   })
 
   it('should return users who slept the most on a given day if there are more than one', () => {
-    expect(sleepRepo.getLongestSleepers("2019/06/15")).to.deep.equal([
+    expect(sleepRepo.getGreatestSleepProp("2019/06/15", 'hoursSlept')).to.deep.equal([
       {
         "userID": 1,
         "date": "2019/06/15",
@@ -112,7 +112,7 @@ describe('Sleep Repository', () => {
   })
 
   it('should return user who had best sleep quality on a given day', () => {
-    expect(sleepRepo.getHighestQualitySleepers("2019/06/19")).to.deep.equal([
+    expect(sleepRepo.getGreatestSleepProp("2019/06/19", 'sleepQuality')).to.deep.equal([
       {
         "userID": 2,
         "date": "2019/06/19",
@@ -123,7 +123,7 @@ describe('Sleep Repository', () => {
   })
 
   it('should return users who had best sleep quality on a given day if there are more than one', () => {
-    expect(sleepRepo.getHighestQualitySleepers("2019/06/15")).to.deep.equal([
+    expect(sleepRepo.getGreatestSleepProp("2019/06/15", 'sleepQuality')).to.deep.equal([
       {
         "userID": 1,
         "date": "2019/06/15",

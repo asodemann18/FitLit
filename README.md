@@ -18,7 +18,7 @@ Create a working dashboard that displays activity/lifestyle tracking data in a m
 ![In Action](http://g.recordit.co/zbM5MQgEzw.gif)
 
 ## Setup
-View it [here](https://asodemann18.github.io/FitLit/src/index.html)
+View it [here](https://asodemann18.github.io/FitLit/src/index.html).
 
 Download Instructions:
 ```bash

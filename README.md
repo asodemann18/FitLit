@@ -3,7 +3,7 @@
 ## Project By: [Kyle Wong](https://github.com/KyleWong2510) and [Alex Sodemann](https://github.com/asodemann18)
 
 ## About
-Create a working dashboard that displays activity/lifestyle tracking data in a meaningful way given data for multiple users over multiple days.
+Dashboard that displays activity/lifestyle tracking data in a meaningful way given data for multiple users over multiple days.
 
 ## Project Goals
 * Follow a specification to make a working application
